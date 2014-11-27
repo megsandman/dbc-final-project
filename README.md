@@ -28,5 +28,5 @@ TECH STACK
 NAME IDEAS
 - Recepin
 - Cookstarter
-- Chuckipes 2.0
+- Chuckipies 2.0
 - Cutting Board
