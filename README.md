@@ -1,3 +1,7 @@
+TRELLO BOARD
+
+https://trello.com/b/oT3h7It4/chuckipies-2-0
+
 TEAM AGREEMENTS
 - We want to learn!
 - We want to build something beuatiful and useful that we can be proud of.
