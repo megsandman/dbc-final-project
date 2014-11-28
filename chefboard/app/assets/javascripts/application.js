@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require ../../../public/javascripts/angular.min
+//= require ../../../public/javascripts/angular.min.js.map
+//= require ../../../public/javascripts/angular-route.min.js.map
+//= require ../../../public/javascripts/angular.min.js
 //= require_tree .
