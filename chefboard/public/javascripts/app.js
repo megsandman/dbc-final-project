@@ -24,7 +24,7 @@
     {
       title: "Kale and Citrus Salad",
       source_url: "http://www.saveur.com/article/Recipes/Winter-Kale-and-Citrus-Salad",
-      img_url: "../app/assets/images/kale-citrus-salad.jpeg",
+      img_url: "../app/assets/images/kale-citrus-salad.jpg",
       category_id: 3,
       user_id: 1
     },
@@ -38,7 +38,7 @@
     {
       title: "Sangria",
       source_url: "http://www.foodnetwork.com/recipes/emeril-lagasse/sangria-recipe4.html",
-      img_url: "../app/assets/images/sangria.jpeg",
+      img_url: "../app/assets/images/sangria.jpg",
       category_id: 5,
       user_id: 1
     }
