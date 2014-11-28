@@ -79,4 +79,4 @@ Category (1) : Recipes(M)
 Recipes(M) : Tags(M)
 User(1) : Recipes(M)
 
-![db-schema](db-schema.png)
+![db-schema](app/assets/images/db-schema.png)
