@@ -22,3 +22,5 @@ t.string :title
       t.string :body
       t.integer :category_id
       t.integer :user_id
+
+}
