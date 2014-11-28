@@ -71,3 +71,12 @@ User Stories:
 - be able to manually input the recipe information
 - save(pin) recipe from external website
 - see a list if all pins
+- have a recommended recipes section underneath the users collections
+
+Associations:
+
+Category (1) : Recipes(M)
+Recipes(M) : Tags(M)
+User(1) : Recipes(M)
+
+![db-schema](db-schema.png)
