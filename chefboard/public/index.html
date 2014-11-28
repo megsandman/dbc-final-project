@@ -3,22 +3,39 @@
 <head>
   <title>Chefboard</title>
     <link rel="stylesheet" href="../public/css/normalize.css">
+    <link rel="stylesheet" href="../public/css/app.css">
+    <link rel="stylesheet" href="../public/bootstrap.css">
     <script src="../public/javascripts/angular.min.js"></script>
     <script src="../public/javascripts/angular-route.min.js"></script>
     <script src="../public/javascripts/app.js"></script>
 </head>
 <body ng-controller="BoardController as board">
-  <div class="nav-bar">
-    <div class="logo">Chefboard</div>
-    <div>Hello, testuser1!</div>
-  </div>
 
-  <div class="container" ng-repeat="recipe in board.recipes">
-    <div>
-      <img src={{recipe.img_url}}>
-      <div>{{recipe.title}}</div>
+
+<div class="nav-bar">
+  <div class="logo">Chefboard</div>
+  <div>Hello, testuser1!</div>
+</div>
+
+<div class="wrap">
+    <div class="sideBar">
+      <ul>
+            <li><a href="#">CATEOGORIES</a></li>
+            <li><a href="#">STYLES</a></li>
+            <li><a href="#">VOTERS</a></li>
+            <li><a href="#">GET STARTED</a></li>
+            <li><a href="#">UPDATE</a></li>
+      </ul>
     </div>
-  </div>
+    <div class="content">
+      <div class="main_content container" ng-repeat="recipe in board.recipes">
+        <div>
+          <img src={{recipe.img_url}}>
+          <div>{{recipe.title}}</div>
+        </div>
+      </div>
+    </div>
+</div>
 
 
 </body>
