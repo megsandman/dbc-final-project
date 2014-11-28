@@ -34,3 +34,39 @@ NAME IDEAS
 - Cookstarter
 - Chuckipies 2.0
 - Cutting Board
+
+
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+
+Nomenclature:
+
+pin: save recipe to board
+board: list of all recipes
+category(basically a pinterest board): larger buckets (desserts, main courses etc.)
+tag: custom labels (quick, healthy etc.)
+
+
+User Stories:
+
+- see a list of food items
+- see the food items by category (main dishes, desserts etc.)
+- click on an item and have it show me the full recipe
+- click a button/link to be taken to the recipes original source
+- get a recipe preview on the main page
+- Fast, responsive
+- easy to pin new recipe
+- easy to tag a new recipe
+- search recipes (via search bar by tag or title)
+- sorting by most recent, or rating, or alphabetical etc
+- rating recipes
+- user login/create account
+  - login w/ facebook?
+- view fbook friend's pins
+- edit tags after the fact
+- be able to manually input the recipe information
+- save(pin) recipe from external website
+- pin a new recipe while on my board
+- remove a pin from my board
