@@ -1,12 +1,38 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/spec/models/user_spec.rb": [
+      "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/spec/models/model_spec.rb": [
         1,
         null,
         1,
         1,
         2,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
         2,
         2,
         null,
@@ -291,8 +317,31 @@
         1,
         1,
         null
+      ],
+      "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/app/models/recipe.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/app/models/category.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/app/models/tag.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
       ]
     },
-    "timestamp": 1417212531
+    "timestamp": 1417213140
   }
 }
