@@ -6,16 +6,18 @@
     <script src="../public/javascripts/angular.min.js"></script>
     <script src="../public/javascripts/angular-route.min.js"></script>
     <script src="../public/javascripts/app.js"></script>
-    <script src="../public/javascripts/controllers/home.js"></script>
 </head>
-<body ng-controller="BoardController">
+<body ng-controller="BoardController as board">
   <div class="nav-bar">
     <div class="logo">Chefboard</div>
     <div>Hello, testuser1!</div>
   </div>
 
-  <div class="container">
-    <div class="filter-bar"
+  <div class="container" ng-repeat="recipe in board.recipes">
+    <div>
+      <img src={{recipe.img_url}}>
+      <div>{{recipe.title}}</div>
+    </div>
   </div>
 
 
