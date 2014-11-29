@@ -11,6 +11,27 @@ html,body,.wrap, .sideBar, .content
     height: 100%;
 }
 
+.color-strip{
+  height: 8px;
+  width: 100%;
+  overflow: auto;
+}
+.color-strip > *{
+  display: inline;
+  width: 12.5%;
+  height: 100%;
+  float: left;
+}
+
+.color1{background-color: #14CC77}
+.color2{ background-color: #C4E17F}
+.color3{ background-color: #FECF71}
+.color4{ background-color: #F0776C}
+.color5{ background-color: #DB9DBE}
+.color6{ background-color: #C49CDE}
+.color7{ background-color: #669AE1}
+.color8{ background-color: #62C2E4}
+
 .main-header{
   height: 4em;
   background-color: white;
