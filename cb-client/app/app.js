@@ -68,10 +68,19 @@ angular.module('Chefboard').controller('BoardController', function ($scope) {
     },
     {
       title: "Chicken Marsala",
-      source_url: "http://www.epicurious.com/recipes/food/views/Chicken-Marsala-232152",
       img_url: "../assets/images/chicken-marsala.jpg",
+      source_url: "http://www.epicurious.com/recipes/food/views/Chicken-Marsala-232152",
       category_id: 2,
       user_id: 1
     }
   ];
+
+  $scope.addRecipe = function() {
+    $scope.recipes.unshift({title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink})
+    $scope.recipeTitle = "";
+    $scope.recipeLink = "";
+    $scope.imageLink = "";
+  };
+
+
 });

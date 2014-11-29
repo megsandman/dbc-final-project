@@ -35,7 +35,13 @@
               <li><a href="#">Sides</a></li>
           </ul>
           <div class="new-pin">
-            <button class="new-pin-button">New Pin</button>
+            <form ng-submit="addRecipe()">
+              <input class="new-pin-input" type="text" placeholder="Recipe title" ng-model="recipeTitle">
+              <input class="new-pin-input" type="text" placeholder="Recipe link" ng-model="recipeLink">
+              <input class="new-pin-input" type="text" placeholder="Image link" ng-model="imageLink">
+              <input type="submit" value="New Pin">
+            </form>
+            <!-- <button class="new-pin-button" ng-click="">New Pin</button> -->
           </div>
         </div>
       </div>

@@ -123,6 +123,12 @@
   padding-left: 10px;
 }
 
+.new-pin-input {
+  width: 150px;
+  margin-left: 5px;
+  color: black;
+}
+
 /*MAIN CONTENT****************/
 .content {
     overflow:auto;
