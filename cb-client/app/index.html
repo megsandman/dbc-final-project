@@ -12,18 +12,69 @@
 
 </head>
 <body ng-app="Chefboard" ng-controller="BoardController">
+  <div class="container">
+    <!-- HEADER  -->
+    <div class="main-header">
+      <div class="logo"><img class="logo-pic" src ="assets/images/cutting-board-2.png">  chefboard</div>
+      <!-- <div class="logo">chefboard</div> -->
+        <form class="search-bar">
+          <input type="text" placeholder="Search" class="search-text">
+        </form>
+    </div>
 
-  <div class="main-header">
-    <div class="logo">Chefboard</div>
-    <div>Hello, testuser1!</div>
+    <div class="wrap">
+    <!-- SIDEBAR  -->
+      <div class="sidebar">
+        <div class="sidebar-wrap">
+          <ul class="sidebar-list">
+              <li><a href="#">Appetizers</a></li>
+              <li><a href="#">Beverages</a></li>
+              <li><a href="#">Desserts</a></li>
+              <li><a href="#">Entrees</a></li>
+              <li><a href="#">Salads</a></li>
+              <li><a href="#">Sides</a></li>
+          </ul>
+          <div class="new-pin">
+            <form ng-submit="addRecipe()">
+              <input class="new-pin-input" type="text" placeholder="Recipe title" ng-model="recipeTitle">
+              <input class="new-pin-input" type="text" placeholder="Recipe link" ng-model="recipeLink">
+              <input class="new-pin-input" type="text" placeholder="Image link" ng-model="imageLink">
+              <input class="new-pin-input" type="text" placeholder="Tags" ng-model="recipeTags">
+              <select ng-model="category" class="category-dropdown" ng-options="categories for categories in ['Appetizers', 'Beverages', 'Desserts', 'Entrees', 'Salads', 'Sides']" title="Categories">
+                <option value>Select Category</option>
+              </select>
+              <input type="submit" value="New Pin">
+            </form>
+            <!-- <button class="new-pin-button" ng-click="">New Pin</button> -->
+          </div>
+        </div>
+      </div>
+
+  <!-- MAIN CONTENT  -->
+    <div class="content">
+    <!-- PINS -->
+        <div class="all_tiles">
+            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes">
+              <!-- <div class="recipe-image"><img class="pic" ng-src="{{recipe.img_url}}"></div> -->
+              <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div
+                <div class="recipe-title">
+                  <p>{{recipe.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- END MAIN CONTENT -->
+
   </div>
+</div>
 
-  <div class="container" ng-repeat="recipe in recipes">
+ <!--  <div class="container" ng-repeat="recipe in recipes">
     <div>
       <img src={{recipe.img_url}}>
       <div>{{recipe.title}}</div>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -41,3 +92,14 @@
 
 </body>
 </html>
+
+<!-- <div class="color-strip">
+    <div class="color1"></div>
+    <div class="color2"></div>
+    <div class="color3"></div>
+    <div class="color4"></div>
+    <div class="color5"></div>
+    <div class="color6"></div>
+    <div class="color7"></div>
+    <div class="color8"></div>
+  </div> -->
