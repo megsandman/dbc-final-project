@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  root to: 'recipes#index' #want to have the home be all the Users recipes
   resources :users do
     resources :recipes
   end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
