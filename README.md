@@ -51,13 +51,15 @@ tag: custom labels (quick, healthy etc.)
 
 User Stories:
 
-1 - see a list of food items
-1 - click a button/link to be taken to the recipes original source(in a new tab)
-1 - user login/create account
-1 - pin a new recipe while on my board
-1 - remove a pin from my board
-2 - see the food items by category (main dishes, desserts etc.)
-2 - search recipes (via search bar by tag or title)
+- see a list of food items
+- click a button/link to be taken to the recipes original source(in a new tab)
+- user login/create account
+- pin a new recipe while on my board
+- remove a pin from my board
+
+- see the food items by category (main dishes, desserts etc.)
+- search recipes (via search bar by tag or title)
+
 - click on an item and have it show me the full recipe
 - get a recipe preview on the main page
 - Fast, responsive
