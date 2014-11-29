@@ -81,7 +81,8 @@ html,body,.wrap, .sidebar, .content
 {
     float:left;
     width: 20%;
-    background: #339E56;
+    /*background: #339E56;*/
+    background-color: #A2C299;
     overflow:hidden;
     color: white;
     text-align: left;
@@ -110,10 +111,29 @@ html,body,.wrap, .sidebar, .content
 }
 
 
-/*RECECIPE PIC*/
+/*INIDIV RECIPES*/
 
-.recipe_pic{
-  width: 20%;
+.all_tiles{
+  margin: 5%;
+
+}
+
+.pin{
+  background-color: white;
+  width: 30%;
+  text-align: center;
+
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.pin .pic{
+  width: 90%;
+  margin: 5%;
 }
 
 
