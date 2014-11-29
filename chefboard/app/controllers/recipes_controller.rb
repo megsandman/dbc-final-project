@@ -13,17 +13,20 @@ class RecipesController < ApplicationController
 
   def create
     Recipe.create(recipe_params)
-    p"*"*30
-    p"*"*30
-    p Recipe.count
-    p"*"*30
-    p"*"*30
     redirect_to
   end
 
-  private
+  def destroy
+    recipe = Recipe.find_by(id: params[:id])
+    recipe.destroy
+    redirect_to user_recipes_path
+  end
 
+
+
+  private #--------------------------------------------------
   def recipe_params
-    params.require(:recipe).permit(:title, :source_url, :img_url, :body, :category_id) #don't require user_id because that will be done automatically within the routes
+    #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
+    params.require(:recipe).permit(:title, :source_url, :img_url, :body, :category_id)
   end
 end

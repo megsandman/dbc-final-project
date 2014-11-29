@@ -33,12 +33,13 @@ RSpec.describe RecipesController, :type => :controller do
 
   context "#create" do
     it "creates a new object in the DB" do
-      # post :index, user_id: 1, recipe: {title: "The newest of new", category: Category.first}
-      user = User.create(username: "charlie", email: "charlie@charlie.com", password: "charlie")
-      Category.create(name: "Entree")
-      user.recipes.create(title: "title", category: Category.first)
+      expect { post :create, user_id: 1, recipe: { title: "The new", category_id: Category.first.id } }.to change(Recipe, :count).by(1)
+    end
+  end
 
-      expect { post :create, { user_id: 1, recipe: { title: "The new", category: Category.first } } }.to change(Recipe, :count).by(1)
+  context "#delete" do
+    it "deletes a recipe from a users board" do
+      expect { delete :destroy, user_id: 1, id: 1 }.to change(Recipe, :count).by(-1)
     end
   end
 end

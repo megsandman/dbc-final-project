@@ -6,9 +6,9 @@
         null,
         1,
         1,
-        5,
-        5,
-        5,
+        6,
+        6,
+        6,
         null,
         1,
         null,
@@ -37,12 +37,13 @@
         null,
         1,
         1,
+        2,
+        null,
+        null,
         null,
         1,
         1,
-        1,
-        null,
-        0,
+        2,
         null,
         null,
         null
@@ -257,6 +258,7 @@
         1,
         1,
         1,
+        null,
         1,
         null,
         null,
@@ -342,19 +344,22 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
         null,
         1,
-        0,
+        1,
+        null,
+        1,
         null,
         null
       ],
@@ -384,11 +389,16 @@
         1,
         null,
         1,
+        1,
+        1,
+        null,
+        null,
         null,
         null
       ],
       "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/app/controllers/users_controller.rb": [
         1,
+        null,
         null
       ],
       "/Users/charliedibble/Desktop/DevBootcamp/phase-3/week-9/dbc-final-project/chefboard/spec/helpers/recipes_helper_spec.rb": [
@@ -494,6 +504,6 @@
         null
       ]
     },
-    "timestamp": 1417222331
+    "timestamp": 1417225313
   }
 }
