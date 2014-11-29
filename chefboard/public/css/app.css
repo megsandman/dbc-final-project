@@ -11,6 +11,8 @@ html,body,.wrap, .sideBar, .content
     height: 100%;
 }
 
+/*COLOR STRIP********************************/
+
 .color-strip{
   height: 8px;
   width: 100%;
@@ -32,14 +34,36 @@ html,body,.wrap, .sideBar, .content
 .color7{ background-color: #669AE1}
 .color8{ background-color: #62C2E4}
 
+/*HEADER***********************************/
+
 .main-header{
-  height: 4em;
-  background-color: white;
+    background-color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
+
 
 .main-header div{
   display: inline;
 }
+
+.logo{
+  margin-left: 10%;
+}
+
+.welcome_msg{
+  float: right;
+  margin-right: 10%;
+}
+
+/*OVERALL WRAP FOR NON-HEADER***************/
+.wrap
+{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*TOOLBAR FOR SEARCH AND SORT*****************/
 
 .tool_bar{
   background-color: #f6f6f6;
@@ -50,23 +74,28 @@ html,body,.wrap, .sideBar, .content
 .tool_bar > * {
   display: inline;
 }
-.wrap
-{
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
+/*SIDEBAR****************************/
+
 .sideBar
 {
     float:left;
     width: 20%;
-    background: #2B888D;
+    background: #339E56;
     overflow:hidden;
     color: white;
 }
 
 .sideBar a{
   color: white;
+  text-decoration: none;
 }
+
+.sideBar ul li:hover{
+  background-color: #C4E17F;
+}
+
+/*MAIN CONTENT****************/
 .content
 {
     overflow:auto;
