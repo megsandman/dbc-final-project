@@ -40,6 +40,11 @@ html,body,.wrap, .sideBar, .content
     width: 20%;
     background: #2B888D;
     overflow:hidden;
+    color: white;
+}
+
+.sideBar a{
+  color: white;
 }
 .content
 {
