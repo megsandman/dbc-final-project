@@ -17,18 +17,24 @@
   <div>Hello, testuser1!</div>
 </div>
 
+
+
 <div class="wrap">
     <div class="sideBar">
       <ul>
             <li><a href="#">CATEOGORIES</a></li>
-            <li><a href="#">STYLES</a></li>
-            <li><a href="#">VOTERS</a></li>
-            <li><a href="#">GET STARTED</a></li>
-            <li><a href="#">UPDATE</a></li>
+            <li><a href="#">APPETIZERS</a></li>
+            <li><a href="#">ENTREES</a></li>
+            <li><a href="#">SALADS</a></li>
+            <li><a href="#">DESSERTS</a></li>
       </ul>
     </div>
     <div class="content">
-      <div class="main_content container" ng-repeat="recipe in board.recipes">
+      <div class="search_bar">
+        <p>search-bar goes here</p>
+      </div>
+
+      <div class="container" ng-repeat="recipe in board.recipes">
         <div>
           <img src={{recipe.img_url}}>
           <div>{{recipe.title}}</div>
