@@ -39,6 +39,10 @@
               <input class="new-pin-input" type="text" placeholder="Recipe title" ng-model="recipeTitle">
               <input class="new-pin-input" type="text" placeholder="Recipe link" ng-model="recipeLink">
               <input class="new-pin-input" type="text" placeholder="Image link" ng-model="imageLink">
+              <input class="new-pin-input" type="text" placeholder="Tags" ng-model="recipeTags">
+              <select ng-model="category" class="category-dropdown" ng-options="categories for categories in ['Appetizers', 'Beverages', 'Desserts', 'Entrees', 'Salads', 'Sides']" title="Categories">
+                <option value>Select Category</option>
+              </select>
               <input type="submit" value="New Pin">
             </form>
             <!-- <button class="new-pin-button" ng-click="">New Pin</button> -->

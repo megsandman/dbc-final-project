@@ -76,10 +76,14 @@ angular.module('Chefboard').controller('BoardController', function ($scope) {
   ];
 
   $scope.addRecipe = function() {
-    $scope.recipes.unshift({title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink})
+    $scope.recipes.unshift({title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category_id: $scope.category, tags: $scope.recipeTags})
+    alert($scope.recipeTags)
     $scope.recipeTitle = "";
     $scope.recipeLink = "";
     $scope.imageLink = "";
+    $scope.recipeTags = "";
+    $scope.category = {};
+
   };
 
 
