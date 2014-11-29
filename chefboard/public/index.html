@@ -8,6 +8,7 @@
     <script src="../public/javascripts/angular.min.js"></script>
     <script src="../public/javascripts/angular-route.min.js"></script>
     <script src="../public/javascripts/app.js"></script>
+    <script src="../public/javascripts/bootstrap.js"></script>
 </head>
 <body ng-controller="BoardController as board">
 
@@ -55,12 +56,25 @@
         <button><p>New</p></button>
       </div>
 
+<form class="form-search">
+<div class="input-append">
+<input type="text" class="span2 search-query">
+    <button type="submit" class="btn"><i class="icon-search"></i></button>
+</div>
+</form>
+
+
   <!-- PINS -->
       <div class="all_tiles">
           <div class="container" ng-repeat="recipe in board.recipes">
               <div class="pin shadow">
                 <img class="pic" src={{recipe.img_url}}>
-                <p>{{recipe.title}}</p>
+                <div class="caption">
+                  <p>{{recipe.title}}</p>
+                  <div class="pin_tags">
+                    <p>Tags go here</p>
+                  </div>
+                </div>
               </div>
               <br><br>
           </div>
