@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ChefBoard-Extended</title>
+    <style>
+      body {
+        min-width: 400px;
+        overflow-x: hidden;
+      }
+
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }
+    </style>
+  </head>
+  <body>
+     <form id="new-recipe">
+      <input type="text" class="recipe-title" name="title" placeholder="Title">
+      <br>
+      <br>
+      <input type="text" class="recipe-source-url" name="source" placeholder="Source Url">
+      <br>
+      <br>
+      <input type="text" class="recipe-img-url" name="image" placeholder="Image Url">
+      <br>
+      <br>
+      <input type="text_field" class="recipe-body" name="body" placeholder="Description, indgredients, etc.">
+      <br>
+      <br>
+      <!-- Need to have a drop down menu with the Categories -->
+      <input type="submit" class="submit-recipe"  value="Submit Recipe">
+    </form>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
+

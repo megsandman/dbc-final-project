@@ -22,8 +22,6 @@ class RecipesController < ApplicationController
     redirect_to user_recipes_path
   end
 
-
-
   private #--------------------------------------------------
   def recipe_params
     #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
