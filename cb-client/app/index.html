@@ -67,7 +67,7 @@
       <div class="all_tiles">
           <div class="container" ng-repeat="recipe in recipes">
               <div class="pin shadow">
-                <img class="pic" src={{recipe.img_url}}>
+                <img class="pic" ng-src="{{recipe.img_url}}">
                 <div class="caption">
                   <p>{{recipe.title}}</p>
                   <div class="pin_tags">
