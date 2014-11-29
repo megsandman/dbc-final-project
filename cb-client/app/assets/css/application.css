@@ -1,1 +1,149 @@
-application.css
+*
+{
+    margin:0;padding:0;
+}
+
+body{
+  background-color: #f5f5f5;
+}
+html,body,.wrap, .sidebar, .content
+{
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h5, p {
+  color: #434343;
+}
+
+/*COLOR STRIP********************************/
+
+.color-strip{
+  height: 8px;
+  width: 100%;
+  overflow: auto;
+}
+.color-strip > *{
+  display: inline;
+  width: 12.5%;
+  height: 100%;
+  float: left;
+}
+
+.color1{background-color: #14CC77}
+.color2{ background-color: #C4E17F}
+.color3{ background-color: #FECF71}
+.color4{ background-color: #F0776C}
+.color5{ background-color: #DB9DBE}
+.color6{ background-color: #C49CDE}
+.color7{ background-color: #669AE1}
+.color8{ background-color: #62C2E4}
+
+/*HEADER***********************************/
+
+.main-header{
+    background-color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+.main-header div{
+  display: inline;
+}
+
+.logo{
+  margin-left: 10%;
+}
+
+.welcome_msg{
+  float: right;
+  margin-right: 10%;
+}
+
+/*OVERALL WRAP FOR NON-HEADER***************/
+.wrap
+{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*TOOLBAR FOR SEARCH AND SORT*****************/
+
+.tool_bar{
+  background-color: #f6f6f6;
+  height: 3em;
+  /*border: 1px solid black;*/
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.tool_bar > * {
+  display: inline;
+}
+
+/*SIDEBAR****************************/
+
+.sidebar
+{
+    float:left;
+    width: 20%;
+    /*background: #339E56;*/
+    background-color: #A2C299;
+    overflow:hidden;
+    color: white;
+    text-align: left;
+}
+
+.sidebar_wrap{
+  margin-top: 10%;
+}
+
+.sidebar a, h1{
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  line-height: 2em;
+  margin-left: 15%;
+}
+
+.sidebar ul li:hover{
+  background-color: #C4E17F;
+}
+
+/*MAIN CONTENT****************/
+.content
+{
+    overflow:auto;
+}
+
+
+/*INIDIV RECIPES*/
+
+.all_tiles{
+  margin: 5%;
+
+}
+
+.pin{
+  background-color: white;
+  width: 30%;
+  text-align: center;
+}
+
+.caption{
+  padding-bottom: 5%;
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.pin .pic{
+  width: 90%;
+  margin: 5%;
+}
+
+
+
