@@ -20016,3 +20016,32 @@ Migrating to CreateJoinTable (20141128201338)
   [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'meg@meg.com' LIMIT 1
   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-11-29 22:45:58.174946"], ["email", "meg@meg.com"], ["password", "password"], ["updated_at", "2014-11-29 22:45:58.174946"], ["username", "meg"]]
   [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2014-11-29 22:58:32.624997"], ["img_url", "assets/chocolate-chip-cookie.jpg"], ["source_url", "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0"], ["title", "Chocolate Chip Cookies"], ["updated_at", "2014-11-29 22:58:32.624997"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2014-11-29 22:58:32.632551"], ["img_url", "assets/pizza-dough.jpeg"], ["source_url", "http://www.foodnetwork.com/recipes/bobby-flay/pizza-dough-recipe.html"], ["title", "Pizza Dough"], ["updated_at", "2014-11-29 22:58:32.632551"], ["user_id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2014-11-29 22:58:32.635286"], ["img_url", "assets/kale-citrus-salad.jpg"], ["source_url", "http://www.saveur.com/article/Recipes/Winter-Kale-and-Citrus-Salad"], ["title", "Kale and Citrus Salad"], ["updated_at", "2014-11-29 22:58:32.635286"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2014-11-29 22:58:32.637818"], ["img_url", "assets/cranberry-pie-with-thick-pecan-crumble.jpg"], ["source_url", "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/"], ["title", "Cranberry pie with thick pecan crumble"], ["updated_at", "2014-11-29 22:58:32.637818"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 5], ["created_at", "2014-11-29 22:58:32.640317"], ["img_url", "assets/sangria.jpg"], ["source_url", "http://www.foodnetwork.com/recipes/emeril-lagasse/sangria-recipe4.html"], ["title", "Sangria"], ["updated_at", "2014-11-29 22:58:32.640317"], ["user_id", 1]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2014-11-29 22:58:32.643944"], ["img_url", "assets/crispy-sweet-potato-roast.jpg"], ["source_url", "http://smittenkitchen.com/blog/2014/11/crispy-sweet-potato-roast/"], ["title", "Crispy Sweet Potato Roast"], ["updated_at", "2014-11-29 22:58:32.643944"], ["user_id", 1]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2014-11-29 22:58:32.647276"], ["img_url", "assets/sage-crostini.jpg"], ["source_url", "http://www.epicurious.com/recipes/food/views/Butternut-Squash-Ricotta-and-Sage-Crostini-367711"], ["title", "Butternut Squash, Ricotta, and Sage Crostini"], ["updated_at", "2014-11-29 22:58:32.647276"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2014-11-29 22:58:32.650413"], ["img_url", "assets/chicken-marsala.jpg"], ["source_url", "http://www.epicurious.com/recipes/food/views/Chicken-Marsala-232152"], ["title", "Chicken Marsala"], ["updated_at", "2014-11-29 22:58:32.650413"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'meg' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'meg@meg.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
