@@ -11,12 +11,12 @@ html,body,.wrap, .sideBar, .content
     height: 100%;
 }
 
-.nav-bar{
+.main-header{
   height: 4em;
   background-color: white;
 }
 
-.nav-bar div{
+.main-header div{
   display: inline;
 }
 
