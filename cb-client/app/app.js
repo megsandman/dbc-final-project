@@ -39,9 +39,9 @@ angular.module('Chefboard').controller('BoardController', function ($scope) {
       user_id: 1
     },
     {
-      title: "Oatmeal",
-      source_url: "http://www.foodnetwork.com/recipes/ina-garten/sunday-morning-oatmeal-recipe.html",
-      img_url: "../assets/images/oatmeal.jpeg",
+      title: "Cranberry pie with thick pecan crumble",
+      source_url: "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/",
+      img_url: "../assets/images/cranberry-pie-with-thick-pecan-crumble.jpg",
       category_id: 4,
       user_id: 1
     },
@@ -50,6 +50,27 @@ angular.module('Chefboard').controller('BoardController', function ($scope) {
       source_url: "http://www.foodnetwork.com/recipes/emeril-lagasse/sangria-recipe4.html",
       img_url: "../assets/images/sangria.jpg",
       category_id: 5,
+      user_id: 1
+    },
+    {
+      title: "Crispy Sweet Potato Roast",
+      source_url: "http://smittenkitchen.com/blog/2014/11/crispy-sweet-potato-roast/",
+      img_url: "../assets/images/crispy-sweet-potato-roast.jpg",
+      category_id: 1,
+      user_id: 1
+    },
+    {
+      title: "Butternut Squash, Ricotta, and Sage Crostini",
+      source_url: "http://www.epicurious.com/recipes/food/views/Butternut-Squash-Ricotta-and-Sage-Crostini-367711",
+      img_url: "../assets/images/sage-crostini.jpg",
+      category_id: 1,
+      user_id: 1
+    },
+    {
+      title: "Chicken Marsala",
+      source_url: "http://www.epicurious.com/recipes/food/views/Chicken-Marsala-232152",
+      img_url: "../assets/images/chicken-marsala.jpg",
+      category_id: 2,
       user_id: 1
     }
   ];
