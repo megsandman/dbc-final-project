@@ -1,23 +1,168 @@
-*
-{
-    margin:0;padding:0;
+.body{
+  background-color: white;
+  width: 96%;
 }
 
-body{
-  background-color: #f5f5f5;
-}
-html,body,.wrap, .sidebar, .content
-{
-    height: 100%;
+.container {
+  width: 100%;
+  /*background-color: red;*/
+  margin-right: auto;
+  margin-left: auto;
 }
 
-h1, h2, h3, h4, h5, h5, p {
+
+/*HEADER***********************************/
+
+.main-header{
+    background-color: white;
+    width: 96.5%;
+    position: fixed;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid;
+    z-index: 1030;
+}
+
+.logo{
+  margin-left: 1%;
+  float: left;
+  font-size: 1.5em;
+  /*background-color: yellow;*/
+}
+
+.search-bar {
+  float: right;
+  /*background-color: green;*/
+  /*margin-left: 15px;
+  margin-right: auto;*/
+  margin-right: 8%;
+}
+
+.search-text {
+  width: 300px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 5px 0 5px;
+
+}
+
+/*OVERALL WRAP FOR NON-HEADER***************/
+.wrap {
+  padding: 30px;
+  width: 100%;
+  margin: auto;
+  margin-top: 58px;
+  position: relative;
+  padding-right: 0px;
+  padding-left: 0px;
+  z-index:5;
+  overflow:auto;
+  /*background-color: blue;*/
+    /*-moz-box-sizing: border-box;
+    box-sizing: border-box;*/
+}
+
+.sidebar {
+    float: left;
+    width: 20%;
+    /*background: #339E56;*/
+    /*background-color: #A2C299;*/
+    overflow: hidden;
+    color: white;
+    text-align: left;
+    margin-left: 0px;
+}
+
+.sidebar-wrap {
+  margin-top: 10%;
+}
+
+.sidebar-list {
+  list-style: none;
+}
+
+.sidebar-list li {
+  text-align: center;
+  /*background-color: red;*/
+  margin-left: -30px;
+  border: 1px solid black;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+.sidebar-list li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5em;
+  line-height: 2em;
+  margin-left: -10px;
+}
+
+.sidebar ul li:hover{
+  background-color: #78B494;
+  border-radius: 4px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/*MAIN CONTENT****************/
+.content {
+    overflow:auto;
+}
+
+/*INIDIV RECIPES*/
+
+.all_tiles {
+  margin: 1%;
+}
+
+.recipe-container {
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+.col-xs-3 {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  width: 25%;
+  margin-left:6%;
+}
+
+.pin {
+  background-color: white;
+  width: 30%;
+  text-align: center;
+}
+
+.recipe-image img {
+  max-width: 150px;
+}
+
+.recipe-title {
+  padding-bottom: 5%;
+}
+
+/*.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+*/
+.pin .pic{
+  width: 90%;
+  margin: 5%;
+}
+
+
+
+/*h1, h2, h3, h4, h5, h5, p {
   color: #434343;
-}
+}*/
 
 /*COLOR STRIP********************************/
 
-.color-strip{
+/*.*//*color-strip{
   height: 8px;
   width: 100%;
   overflow: auto;
@@ -36,114 +181,4 @@ h1, h2, h3, h4, h5, h5, p {
 .color5{ background-color: #DB9DBE}
 .color6{ background-color: #C49CDE}
 .color7{ background-color: #669AE1}
-.color8{ background-color: #62C2E4}
-
-/*HEADER***********************************/
-
-.main-header{
-    background-color: white;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
-
-.main-header div{
-  display: inline;
-}
-
-.logo{
-  margin-left: 10%;
-}
-
-.welcome_msg{
-  float: right;
-  margin-right: 10%;
-}
-
-/*OVERALL WRAP FOR NON-HEADER***************/
-.wrap
-{
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-/*TOOLBAR FOR SEARCH AND SORT*****************/
-
-.tool_bar{
-  background-color: #f6f6f6;
-  height: 3em;
-  /*border: 1px solid black;*/
-  margin-right: 5%;
-  margin-left: 5%;
-}
-
-.tool_bar > * {
-  display: inline;
-}
-
-/*SIDEBAR****************************/
-
-.sidebar
-{
-    float:left;
-    width: 20%;
-    /*background: #339E56;*/
-    background-color: #A2C299;
-    overflow:hidden;
-    color: white;
-    text-align: left;
-}
-
-.sidebar_wrap{
-  margin-top: 10%;
-}
-
-.sidebar a, h1{
-  color: white;
-  text-decoration: none;
-  font-size: 1.5em;
-  line-height: 2em;
-  margin-left: 15%;
-}
-
-.sidebar ul li:hover{
-  background-color: #C4E17F;
-}
-
-/*MAIN CONTENT****************/
-.content
-{
-    overflow:auto;
-}
-
-
-/*INIDIV RECIPES*/
-
-.all_tiles{
-  margin: 5%;
-
-}
-
-.pin{
-  background-color: white;
-  width: 30%;
-  text-align: center;
-}
-
-.caption{
-  padding-bottom: 5%;
-}
-
-.shadow {
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;
-}
-
-.pin .pic{
-  width: 90%;
-  margin: 5%;
-}
-
-
-
+.color8{ background-color: #62C2E4}*/
