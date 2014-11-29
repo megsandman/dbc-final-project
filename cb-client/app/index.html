@@ -15,7 +15,8 @@
   <div class="container">
     <!-- HEADER  -->
     <div class="main-header">
-      <div class="logo">chefboard</div>
+      <div class="logo"><img class="logo-pic" src ="assets/images/cutting-board-2.png">  chefboard</div>
+      <!-- <div class="logo">chefboard</div> -->
         <form class="search-bar">
           <input type="text" placeholder="Search" class="search-text">
         </form>
@@ -34,7 +35,7 @@
               <li><a href="#">Sides</a></li>
           </ul>
           <div class="new-pin">
-            <button><p>New</p></button>
+            <button class="new-pin-button">New Pin</button>
           </div>
         </div>
       </div>
@@ -44,7 +45,8 @@
     <!-- PINS -->
         <div class="all_tiles">
             <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes">
-              <div class="recipe-image"><img class="pic" ng-src="{{recipe.img_url}}"></div>
+              <!-- <div class="recipe-image"><img class="pic" ng-src="{{recipe.img_url}}"></div> -->
+              <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div
                 <div class="recipe-title">
                   <p>{{recipe.title}}</p>
                 </div>
