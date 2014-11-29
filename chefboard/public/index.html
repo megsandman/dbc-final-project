@@ -23,21 +23,25 @@
 </div>
 
 <div class="main-header">
-  <div class="logo">Chefboard</div>
+  <div class="logo">Recipix</div>
   <div class="welcome_msg">Hello, testuser1!</div>
 </div>
 
 
 
 <div class="wrap">
-    <div class="sideBar">
-      <h1>Categories</h1>
-      <ul>
-            <li><a href="#">APPETIZERS</a></li>
-            <li><a href="#">ENTREES</a></li>
-            <li><a href="#">SALADS</a></li>
-            <li><a href="#">DESSERTS</a></li>
-      </ul>
+    <div class="sidebar">
+      <div class="sidebar_wrap">
+        <h1>Categories</h1>
+        <ul>
+            <li><a href="#">All</a></li>
+            <li><a href="#">Appetizers</a></li>
+            <li><a href="#">Entrees</a></li>
+            <li><a href="#">Salads</a></li>
+            <li><a href="#">Desserts</a></li>
+        </ul>
+      </div>
+
     </div>
 
 
@@ -52,7 +56,7 @@
 
       <div class="container" ng-repeat="recipe in board.recipes">
         <div>
-          <img src={{recipe.img_url}}>
+          <img class="recipe_pic" src={{recipe.img_url}}>
           <div>{{recipe.title}}</div>
         </div>
       </div>
