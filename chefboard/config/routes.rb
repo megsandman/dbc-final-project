@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'recipes#index' #want to have the home be all the Users recipes
+  root 'application#index' #want to have the home be all the Users recipes
   resources :users, only: [] do
     resources :recipes
   end
