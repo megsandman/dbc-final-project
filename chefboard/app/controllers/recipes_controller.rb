@@ -1,20 +1,30 @@
 class RecipesController < ApplicationController
 
+  skip_before_filter  :verify_authenticity_token
+
   def index
     # user = User.find(params[:user_id])
     # @recipes = Recipe.where(user_id: user.id)
-    @recipes = Recipe.where(user_id: 1)
+    @recipes = Recipe.all.order('created_at desc')
     render json: @recipes.to_json
   end
 
   def show
-    recipe = Recipe.find(params[:id])
-    render json: recipe.to_json
+    # recipe = Recipe.find(params[:id])
+    # render json: recipe.to_json
   end
 
   def create
-    Recipe.create(recipe_params)
-    redirect_to
+    @recipe = Recipe.new(recipe_params)
+    respond_to do |format|
+      if @recipe.save
+        # format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.json { redirect_to root_path }
+      else
+        # format.html { render :new }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

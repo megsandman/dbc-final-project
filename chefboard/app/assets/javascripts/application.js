@@ -18,8 +18,9 @@ angular.module('Chefboard', []);
 angular.module('Chefboard').controller('BoardController', function ($scope, $http) {
   $http.get('/users/1/recipes').success(function(data) {
     $scope.recipes = data;
-    console.log(data);
   });
+
+
   // [
   //   {
   //     title: "Chocolate Chip Cookies",
@@ -78,17 +79,31 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   //     user_id: 1
   //   }
   // ];
-
   $scope.addRecipe = function() {
-    $scope.recipes.unshift({title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category_id: $scope.category, tags: $scope.recipeTags})
-    alert($scope.recipeTags)
-    $scope.recipeTitle = "";
-    $scope.recipeLink = "";
-    $scope.imageLink = "";
-    $scope.recipeTags = "";
-    $scope.category = {};
-
+    $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category_id: $scope.category, tags: $scope.recipeTags}).success(function(data) {
+      $scope.recipes.unshift(data);
+      console.log(data)
+      $scope.recipeTitle = "";
+      $scope.recipeLink = "";
+      $scope.imageLink = "";
+      $scope.recipeTags = "";
+      $scope.category = {};
+    });
   };
+
+
+
+
+  // $scope.addRecipe = function() {
+  //   $scope.recipes.unshift({title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category_id: $scope.category, tags: $scope.recipeTags})
+  //   alert($scope.recipeTags)
+  //   $scope.recipeTitle = "";
+  //   $scope.recipeLink = "";
+  //   $scope.imageLink = "";
+  //   $scope.recipeTags = "";
+  //   $scope.category = {};
+
+  // };
 
 
 });
