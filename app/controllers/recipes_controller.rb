@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
     ##########################
     ### => Need to find the user based on params[:user_id] from URL
     ### => then add this new recipe to user_name.recipes
-
+    user = User.find_by(id: params[:user_id])
 
     @recipe = Recipe.new(recipe_params)
     category = params[:category] || "Appetizers"
@@ -40,6 +40,7 @@ class RecipesController < ApplicationController
     end
 
     if @recipe.save
+      user.recipes << @recipe
       render json: @recipe.to_json
     else
       format.json { render json: @recipe.errors, status: :unprocessable_entity }
