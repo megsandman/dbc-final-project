@@ -1,10 +1,9 @@
-angular.module('Chefboard', []);
+angular.module('Chefboard', ["ui.bootstrap", "ngDialog"]);
 
 angular.module('Chefboard').controller('BoardController', function ($scope, $http) {
   $http.get('/users/1/recipes').success(function(data) {
     $scope.recipes = data;
   });
-
 
 
   $scope.addRecipe = function() {
