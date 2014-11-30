@@ -5,7 +5,7 @@ body, html{
   height: 100%;
 }
 
-.container {
+.main-container {
   width: 100%;
   height: 100%;
   /*background-color: yellow;*/
@@ -19,42 +19,56 @@ body, html{
 /*HEADER***********************************/
 
 .main-header{
-    background-color: #282828 ;
-    width: 100%;
-    position: fixed;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid;
-    z-index: 1030;
-    margin-top: -45px;
-}
-.main-header h1 {
-  color: white;
-  font-size: 1em;
-  margin-left: 17%;
-  letter-spacing: 3px;
-  font-weight: 200;
+  background-color: #282828 ;
+  width: 100%;
+  position: fixed;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  z-index: 1030;
+  margin-top: -45px;
+  height: 100px;
 }
 
-.logo-pic {
-  width: 80px;
-}
-
-.logo{
-  margin-left: -1%;
-  margin-top: 5px;
+.logo {
+  margin-left: 2%;
+  margin-top: 60px;
   float: left;
   font-size: 1.5em;
   /*background-color: yellow;*/
 }
 
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  font: serif;
+  letter-spacing: 3px;
+  font-weight: 200;
+}
+
+.masthead-nav {
+  display: inline-block;
+  list-style: none;
+  float: right;
+  margin: 40px 1% 0 0;
+  /*background-color: red;*/
+  padding: 0;
+}
+
+.masthead-nav > li {
+  padding-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.masthead-nav > li + li {
+  margin-left: 10px;
+  /*background-color: yellow;*/
+  margin-top: 0px;
+}
 .search-bar {
   /*background-color: green;*/
-  /*margin-left: 15px;
-  margin-right: auto;*/
-  margin-right: 30%;
-  margin-left: 40%;
-  margin-top: 15px;
+  margin: 15px 0 0 0;
 }
 
 .search-text {
@@ -65,35 +79,48 @@ body, html{
   font-size: 1em;
 }
 
+.masthead-nav li a {
+  /*background-color: yellow;*/
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  font: serif;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+.masthead-nav li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+/*.logout h2 {
+  color: white;
+  font-size: 1em;
+  font-weight: 200;
+}*/
+
 
 
 /*OVERALL WRAP FOR NON-HEADER***************/
 .wrap {
-  /*background-color: yellow;*/
-  padding: 30px;
+  /*background-color: blue;*/
+  /*padding: 30px;*/
   width: 100%;
-  margin: auto;
-  margin-top: 45px;
   position: relative;
-  padding-right: 0px;
-  padding-left: 0px;
   z-index:5;
   overflow:auto;
-  /*background-color: blue;*/
-    /*-moz-box-sizing: border-box;
-    box-sizing: border-box;*/
 }
 
 .sidebar {
+  /*background-color: red;*/
   float: left;
   width: 13%;
   position: fixed;
   overflow: hidden;
   color: white;
   margin-left: -1%;
-  margin-top: 10%;
+  /*margin-top: 10%;*/
   margin-top: 10px;
-  min-height: 1px;
+  /*min-height: 1px;*/
   padding-left: 15px;
   padding-right: 15px;
   top: 51px;
@@ -104,14 +131,13 @@ body, html{
   padding: 20px;
   overflow-x: hidden;
   overflow-y: auto;
-
 }
 
 .sidebar-list {
   list-style: none;
   width: 89%;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  /*border-top: 1px solid black;
+  border-right: 1px solid black;*/
   margin-left: -10px;
 }
 
@@ -119,7 +145,7 @@ body, html{
   text-align: center;
   /*background-color: green;*/
   margin-left: -50px;
-  border-bottom: 1px solid black;
+  /*border-bottom: 1px solid black;*/
   border-radius: 2px;
   padding-right: 0px;
   margin-top: 0px;
@@ -168,25 +194,25 @@ body, html{
 
 .category-dropdown {
   color: black;
-  /*background-color: black;*/
 }
 
 /*MAIN CONTENT****************/
 .content {
     overflow:auto;
-    margin-left: 13%;
-    /*background-color: blue;*/
+    margin-left: 15%;
+    margin-right: 1%;
 }
 
 /*INIDIV RECIPES*/
 
-.all_tiles {
-  margin: 2%;
+.all-tiles {
+  margin-top: 80px;
+  width: 100%;
 }
 
 .recipe-container {
   border: 1px solid black;
-  margin-top: 5px;
+  margin-top: 3%;
   border-radius: 4px;
   height: 200px;
   overflow: hidden;
@@ -200,30 +226,12 @@ body, html{
   margin-left:3%;
 }
 
-
-
-/*.recipe-image {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: contain;
-
-}*/
-
-.recipe-container img {
-   width: 100%;
-    height: 35em;
-
-    object-fit: cover;
-    overflow: hidden;
-  /*width: 100%;*/
-  /*max-height: 100%*/
-  max-width: 100%;
-    height: auto;
-  /*object-fit: contain;*/
+.recipe-container  {
+  width: 30%;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  max-height: 100%;
 }
 
 .recipe-title {

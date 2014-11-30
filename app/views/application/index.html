@@ -14,15 +14,23 @@
 
 
 </head>
-<body ng-app="Chefboard" ng-controller="BoardController">
-  <div class="container">
+  <body ng-app="Chefboard" ng-controller="BoardController">
+  <div class="main-container">
     <!-- HEADER  -->
     <div class="main-header">
       <div class="logo" ng-click="myFilter = null">
-       <!--  <img class="logo-pic" src ="assets/cutting-board-2.png"> --><h1>chefboard.</h1></div>
-        <form class="search-bar">
-          <input type="text" placeholder="Search" class="search-text" ng-model="query">
-        </form>
+        <a href ng-click="myFilter = null">chefboard.</a>
+      </div>
+      <ul class="masthead-nav">
+        <li class="search-bar">
+          <form>
+            <input type="text" placeholder="Search" class="search-text" ng-model="query">
+          </form>
+        </li>
+        <li>
+          <a href="#">Logout</a>
+        </li>
+      </ul>
     </div>
 
     <div class="wrap">
@@ -48,21 +56,21 @@
               </select>
               <input type="submit" value="New Pin">
             </form>
-            <!-- <button class="new-pin-button" ng-click="">New Pin</button>
+            <! <button class="new-pin-button" ng-click="">New Pin</button>
           </div> -->
       </div>
 
   <!-- MAIN CONTENT  -->
     <div class="content">
     <!-- PINS -->
-        <div class="all_tiles">
+        <div class="all-tiles">
+          <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}">
+            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+          </a>
 
-            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes | filter:myFilter | filter:query">
 
               <!-- <div class="recipe-image"> -->
-                <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}">
-                  <img ng-src="{{recipe.img_url}}">
-                </a>
+                  <!-- <img ng-src="{{recipe.img_url}}"> -->
               <!-- </div> -->
 
             </div>
