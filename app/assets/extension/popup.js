@@ -7,9 +7,8 @@ $('#new-recipe').on('submit', function(event) {
     title: $('.recipe-title').val(),
     source_url: $('.recipe-source-url').val(),
     img_url: $('.recipe-img-url').val(),
-    body: $('.recipe-tags').val(),
+    tags: $('.recipe-tags').val(),
     category_id: 1,
-    tags: "yum"
   };
   // var recipeData = $(this).serialize();
   // debugger;

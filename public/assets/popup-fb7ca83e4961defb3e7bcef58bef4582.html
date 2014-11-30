@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ChefBoard-Extended</title>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+  </head>
+  <body class="popup">
+    <header class="header">
+      <h3 class="title">chefboard.</h3>
+    </header>
+    <br><br>
+     <form id="new-recipe">
+      <input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title">
+      <br>
+      <br>
+      <input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url">
+      <br>
+      <br>
+      <input type="text" class="recipe-img-url thick-txt-bx" name="img_url" placeholder="Image Url">
+      <br>
+      <br>
+      <input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="Recipe Tags">
+      <br>
+      <br>
+      <!-- <input type="text_field" class="recipe-body thick-txt-bx" name="body" placeholder="Description, indgredients, etc."> -->
+      <!-- <br>
+      <br> -->
+      <select class="categories thick-txt-bx">
+        <!-- value is what you send to the server -->
+        <option value="" disabled selected>Select Recipe Category</option>
+        <option value="1">Appetizers</option>
+        <option value="2">Beverages</option>
+        <option value="3">Breakfast</option>
+        <option value="4">Entrees</option>
+        <option value="5">Salads</option>
+        <option value="6">Sides</option>
+      </select>
+      <br>
+      <br>
+      <!-- Need to have a drop down menu with the Categories -->
+      <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">
+    </form>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
