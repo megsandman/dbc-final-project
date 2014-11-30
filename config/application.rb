@@ -8,14 +8,16 @@ Bundler.require(*Rails.groups)
 
 module Chefboard
   class Application < Rails::Application
+    ############## =>  Josh's example does not include this...
 
-    config.middleware.insert_before 0, "Rack::Cors" do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => :post
-      end
-    end
+    # config.middleware.insert_before 0, "Rack::Cors" do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => :post
+    #   end
+    # end
 
+    ##############
 
 
     # Settings in config/environments/* take precedence over those specified here.

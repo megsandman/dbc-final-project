@@ -52,7 +52,9 @@ class RecipesController < ApplicationController
   private #--------------------------------------------------
   def recipe_params
     #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
-    params.permit(:title, :source_url, :img_url, :body, :category_id)
+
+    ####### => Do we include tags here??? the Extension will be sending tags with it.
+    params.permit(:title, :source_url, :img_url, :tags, :category_id)
   end
 
   def set_headers
