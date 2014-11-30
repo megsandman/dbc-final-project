@@ -16,8 +16,8 @@ $('#new-recipe').on('submit', function(event) {
     type: 'POST',
     url: 'http://chefboard.herokuapp.com/users/1/recipes',
     // url: 'http://localhost:3000/users/1/recipes',
-    data: JSON.stringify(recipeData),
-    dataType: 'text',
+    data: recipeData,
+    dataType: 'JSONP',
     crossDomain: true,
     success: function( response ) {
       console.log(response);
