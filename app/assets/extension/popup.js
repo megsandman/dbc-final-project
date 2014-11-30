@@ -2,27 +2,30 @@ console.log("page ready man")
 
 $('#new-recipe').on('submit', function(event) {
   event.preventDefault();
+
   var recipeData = {
     title: $('.recipe-title').val(),
     source_url: $('.recipe-source-url').val(),
     img_url: $('.recipe-img-url').val(),
-    body: $('.recipe-body').val(),
+    body: $('.recipe-tags').val(),
     category_id: 1
   };
   // var recipeData = $(this).serialize();
   // debugger;
 
-  $.ajax({
+  var request = $.ajax({
     type: 'POST',
     url: 'http://chefboard.herokuapp.com/users/1/recipes',
     // url: 'http://localhost:3000/users/1/recipes',
     data: recipeData,
-    dataType: 'JSONP',
+    // dataType: 'JSONP',
     crossDomain: true,
     success: function( response ) {
       console.log(response);
     },
     error: function( error ) {
+      console.log(recipeData);
+      console.log(this);
       console.log(error);
     }
   }).done( function(serverData) {
@@ -34,6 +37,9 @@ $('#new-recipe').on('submit', function(event) {
     console.log("FAILURE");
 
   });
+
+
+  // console.log(request);
 });
 
 // window.addEventListener('load', function(event) {
