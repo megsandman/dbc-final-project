@@ -1,0 +1,7 @@
+development:
+  app_id: ENV['APP_ID']
+  secret_key: ENV['APP_SECRET']
+test:
+  ...
+production:
+  ...
