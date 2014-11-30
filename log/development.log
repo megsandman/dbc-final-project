@@ -47081,3 +47081,213 @@ Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 a
 
 
 Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-30 09:50:34 -0800
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-11-30 13:12:42 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.8) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.8) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.8) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/megsandman/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/megsandman/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/megsandman/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.2ms)
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20141128193928)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128193928"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateRecipes (20141128194057)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "source_url" varchar(255), "img_url" varchar(255), "body" varchar(255), "tag_string" varchar(255), "category_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128194057"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateCategories (20141128194116)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128194116"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateTags (20141128194126)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128194126"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateJoinTable (20141128201338)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes_tags" ("recipe_id" integer NOT NULL, "tag_id" integer NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128201338"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20141130210634)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "users" ADD "email" varchar(255) DEFAULT '' NOT NULL
+SQLite3::SQLException: duplicate column name: email: ALTER TABLE "users" ADD "email" varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDeviseToUsers (20141130210634)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141130210634"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Appetizers' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.114509"], ["name", "Appetizers"], ["updated_at", "2014-11-30 21:15:22.114509"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Beverages' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.121394"], ["name", "Beverages"], ["updated_at", "2014-11-30 21:15:22.121394"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Breakfast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.124574"], ["name", "Breakfast"], ["updated_at", "2014-11-30 21:15:22.124574"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Desserts' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.127479"], ["name", "Desserts"], ["updated_at", "2014-11-30 21:15:22.127479"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Entrees' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.131471"], ["name", "Entrees"], ["updated_at", "2014-11-30 21:15:22.131471"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Salads' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.135571"], ["name", "Salads"], ["updated_at", "2014-11-30 21:15:22.135571"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Sides' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 21:15:22.143736"], ["name", "Sides"], ["updated_at", "2014-11-30 21:15:22.143736"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2014-11-30 21:15:22.164187"], ["img_url", "assets/chocolate-chip-cookie.jpg"], ["source_url", "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0"], ["tag_string", "cookie, chocolate"], ["title", "Chocolate Chip Cookies"], ["updated_at", "2014-11-30 21:15:22.164187"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2014-11-30 21:15:22.167251"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48297/full/cranberry_newton_bars_1.jpg?1415581465"], ["source_url", "http://food52.com/recipes/31923-cranberry-newton-bars"], ["tag_string", "cranberry, bars"], ["title", "Cranberry Newton Bars"], ["updated_at", "2014-11-30 21:15:22.167251"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 6], ["created_at", "2014-11-30 21:15:22.169636"], ["img_url", "http://www.sacramentostreet.com/wp-content/uploads/2014/11/Shaved-Brussel-Sprout-Salad_3.jpg"], ["source_url", "http://www.sacramentostreet.com/2014/11/on-the-menu-shaved-brussel-sprout-salad/"], ["tag_string", "healthy, salad, parmesan, brussel sprout, yum"], ["title", "Shaved Brussel Sprout Salad"], ["updated_at", "2014-11-30 21:15:22.169636"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2014-11-30 21:15:22.172095"], ["img_url", "assets/cranberry-pie-with-thick-pecan-crumble.jpg"], ["source_url", "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/"], ["tag_string", "pie, yum, cranberry"], ["title", "Cranberry pie with thick pecan crumble"], ["updated_at", "2014-11-30 21:15:22.172095"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2014-11-30 21:15:22.174479"], ["img_url", "https://farm8.staticflickr.com/7580/15694874477_c02de54479_b.jpg"], ["source_url", "http://food52.com/blog/11824-the-mid-winter-margarita"], ["tag_string", "yum, party, margarita"], ["title", "Mid-Winter Margarita"], ["updated_at", "2014-11-30 21:15:22.174479"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 7], ["created_at", "2014-11-30 21:15:22.177127"], ["img_url", "assets/crispy-sweet-potato-roast.jpg"], ["source_url", "http://smittenkitchen.com/blog/2014/11/crispy-sweet-potato-roast/"], ["tag_string", "yum, thanksgiving"], ["title", "Crispy Sweet Potato Roast"], ["updated_at", "2014-11-30 21:15:22.177127"], ["user_id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 6], ["created_at", "2014-11-30 21:15:22.179925"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48732/full/roasted_squash_and_grape_salad05.jpg?1416365978"], ["source_url", "http://food52.com/recipes/32152-roasted-grape-and-butternut-squash-salad-with-kale-and-parmesan"], ["tag_string", "health, squash, parmesan, yum"], ["title", "Roasted Grape and Butternut Squash Salad with Kale and Parmesan"], ["updated_at", "2014-11-30 21:15:22.179925"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 5], ["created_at", "2014-11-30 21:15:22.182569"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48636/full/15815130945_58b2721784_b-1.jpg?1416264522"], ["source_url", "http://food52.com/recipes/32092-bacon-and-leek-tart"], ["tag_string", "bacon, tart, yum"], ["title", "Bacon and Leek Tart"], ["updated_at", "2014-11-30 21:15:22.182569"], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2014-11-30 21:15:22.185055"], ["img_url", "http://www.sacramentostreet.com/wp-content/uploads/2014/11/Pumpkin_Cheesecake_3.jpg"], ["source_url", "http://www.sacramentostreet.com/2014/11/on-the-menu-pumpkin-cheesecake-squares-with-toasted-marshmallow-frosting/"], ["tag_string", "bars, pumpkin"], ["title", "Pumpkin Cheescake Squares"], ["updated_at", "2014-11-30 21:15:22.185055"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2014-11-30 21:15:22.188153"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48245/full/beauty1.jpg?1415373989"], ["source_url", "http://food52.com/recipes/31899-homemade-cheez-its"], ["tag_string", "snacks, cheese"], ["title", "Homemade Cheez-Its"], ["updated_at", "2014-11-30 21:15:22.188153"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 5], ["created_at", "2014-11-30 21:15:22.190737"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48193/full/pomegranateflanksteak1.jpg?1415165494"], ["source_url", "http://food52.com/recipes/31870-pomegranate-flank-steak"], ["tag_string", "steak, pomegranate"], ["title", "Pomegranate Flank Steak"], ["updated_at", "2014-11-30 21:15:22.190737"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 7], ["created_at", "2014-11-30 21:15:22.193300"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48228/full/15720424702_9f34c06f4a_k.jpg?1415300915"], ["source_url", "http://food52.com/recipes/31811-buttermilk-biscuits"], ["tag_string", "biscuits, yum"], ["title", "Buttermilk Biscuits"], ["updated_at", "2014-11-30 21:15:22.193300"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2014-11-30 21:15:22.195833"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/47954/full/2014-1028_how-to-make-cookies-and-cream-bars-127.jpg?1414688880"], ["source_url", "http://food52.com/recipes/31749-cookies-and-cream-bars"], ["tag_string", "bars"], ["title", "Cookies and Cream Bars"], ["updated_at", "2014-11-30 21:15:22.195833"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2014-11-30 21:15:22.198481"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/47959/full/2014-1028_sporting-life-cocktail-012.jpg?1414694398"], ["source_url", "http://food52.com/recipes/31751-sporting-life"], ["tag_string", "orange"], ["title", "Sporting Life"], ["updated_at", "2014-11-30 21:15:22.198481"], ["user_id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'meg@meg.com' LIMIT 1[0m
+  [1m[35mUser Exists (2.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'meg' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'meg@meg.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-11-30 21:15:22.323749"], ["email", "meg@meg.com"], ["encrypted_password", "$2a$10$iISXR0UDew2XqDUJRH5KQevdsHrW279VYf45XTswDTj1apgqurasq"], ["updated_at", "2014-11-30 21:15:22.323749"], ["username", "meg"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-11-30 13:16:02 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (1.5ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/devise-3.4.1/app/views/devise/registrations/new.html.erb within layouts/application (58.3ms)
+Completed 200 OK in 92ms (Views: 71.4ms | ActiveRecord: 0.4ms)

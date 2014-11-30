@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'application#index' #want to have the home be all the Users recipes
   resources :users, only: [] do
     resources :recipes
