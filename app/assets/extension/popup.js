@@ -15,8 +15,8 @@ $('#new-recipe').on('submit', function(event) {
 
   var request = $.ajax({
     type: 'POST',
-    // url: 'http://chefboard.herokuapp.com/users/1/recipes',
-    url: 'http://localhost:3000/users/1/recipes',
+    url: 'http://chefboard.herokuapp.com/users/1/recipes',
+    // url: 'http://localhost:3000/users/1/recipes',
     data: recipeData,
     crossDomain: true,
     success: function( response ) {
