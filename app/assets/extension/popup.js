@@ -9,7 +9,7 @@ $('#new-recipe').on('submit', function(event) {
     img_url: $('.recipe-img-url').val(),
     body: $('.recipe-tags').val(),
     category_id: 1,
-    tags: ["yum"]
+    tags: "yum"
   };
   // var recipeData = $(this).serialize();
   // debugger;
