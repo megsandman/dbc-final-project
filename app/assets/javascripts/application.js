@@ -1,28 +1,3 @@
-// $(window).load(function() {
-// var options =
-// {
-//   srcNode: 'img', // grid items (class, node)
-//   margin: '20px', // margin in pixel, default: 0px
-//   width: '250px', // grid item width in pixel, default: 220px
-//   max_width: '',  // dynamic gird item width if specified, (pixel)
-//   resizable: true,// re-layout if window resize
-//   transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
-// }
-// $('.recipe-image').gridify(options);
-// });
-// Declare app level module which depends on views, and components
-// angular.module('myApp', [
-//   'ngRoute',
-//   'myApp.profile',
-//   'myApp.teams',
-//   'myApp.competition',
-//   'headerBar'
-
-//  ]).
-// config(['$routeProvider', function($routeProvider) {
-//   $routeProvider.otherwise({redirectTo: '/profile'});
-// }]);
-
 angular.module('Chefboard', []);
 
 angular.module('Chefboard').controller('BoardController', function ($scope, $http) {
@@ -31,64 +6,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   });
 
 
-  // [
-  //   {
-  //     title: "Chocolate Chip Cookies",
-  //     source_url: "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0",
-  //     img_url: "assets/chocolate-chip-cookie.jpg",
-  //     category_id: 1,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Pizza Dough",
-  //     source_url: "http://www.foodnetwork.com/recipes/bobby-flay/pizza-dough-recipe.html",
-  //     img_url: "assets/pizza-dough.jpeg",
-  //     category_id: 2,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Kale and Citrus Salad",
-  //     source_url: "http://www.saveur.com/article/Recipes/Winter-Kale-and-Citrus-Salad",
-  //     img_url: "assets/kale-citrus-salad.jpg",
-  //     category_id: 3,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Cranberry pie with thick pecan crumble",
-  //     source_url: "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/",
-  //     img_url: "assets/cranberry-pie-with-thick-pecan-crumble.jpg",
-  //     category_id: 4,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Sangria",
-  //     source_url: "http://www.foodnetwork.com/recipes/emeril-lagasse/sangria-recipe4.html",
-  //     img_url: "assets/sangria.jpg",
-  //     category_id: 5,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Crispy Sweet Potato Roast",
-  //     source_url: "http://smittenkitchen.com/blog/2014/11/crispy-sweet-potato-roast/",
-  //     img_url: "assets/crispy-sweet-potato-roast.jpg",
-  //     category_id: 1,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Butternut Squash, Ricotta, and Sage Crostini",
-  //     source_url: "http://www.epicurious.com/recipes/food/views/Butternut-Squash-Ricotta-and-Sage-Crostini-367711",
-  //     img_url: "assets/sage-crostini.jpg",
-  //     category_id: 1,
-  //     user_id: 1
-  //   },
-  //   {
-  //     title: "Chicken Marsala",
-  //     img_url: "assets/chicken-marsala.jpg",
-  //     source_url: "http://www.epicurious.com/recipes/food/views/Chicken-Marsala-232152",
-  //     category_id: 2,
-  //     user_id: 1
-  //   }
-  // ];
+
   $scope.addRecipe = function() {
     $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
       $scope.recipes.unshift(data);
@@ -101,19 +19,36 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
     });
   };
 
-
-
-
-  // $scope.addRecipe = function() {
-  //   $scope.recipes.unshift({title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category_id: $scope.category, tags: $scope.recipeTags})
-  //   alert($scope.recipeTags)
-  //   $scope.recipeTitle = "";
-  //   $scope.recipeLink = "";
-  //   $scope.imageLink = "";
-  //   $scope.recipeTags = "";
-  //   $scope.category = {};
-
-  // };
-
-
 });
+
+// $(document).ready(function() {
+//   $('.all_tiles').on("click", "#lightbox", function() {
+//     alert('hello');
+//     window.location="http://www.google.com";
+//     console.log('hello');
+
+//   });
+// var $container = $('.recipe-container');
+// var msnry;
+// $container.imagesLoaded( function() {
+//   $container.masonry(
+//     columnWidth: 200,
+//     itemSelector: '.recipe-image'
+//     );
+// });
+// });
+// $(document).ready(function() {
+
+
+//   var $container = $('.all_tiles').masonry();
+// // layout Masonry again after all images have loaded
+//     $container.imagesLoaded( function() {
+//     $container.masonry({
+//       columnWidth: 200,
+//       itemSelector: '.item'
+//     });
+//   });
+
+// });
+
+

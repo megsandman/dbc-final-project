@@ -19,7 +19,7 @@ body, html{
 /*HEADER***********************************/
 
 .main-header{
-    background-color: white;
+    background-color: #282828 ;
     width: 100%;
     position: fixed;
     padding-top: 0.3em;
@@ -28,34 +28,44 @@ body, html{
     z-index: 1030;
     margin-top: -45px;
 }
+.main-header h1 {
+  color: white;
+  font-size: 1em;
+  margin-left: 17%;
+  letter-spacing: 3px;
+  font-weight: 200;
+}
 
 .logo-pic {
   width: 80px;
 }
 
 .logo{
-  margin-left: 1%;
+  margin-left: -1%;
+  margin-top: 5px;
   float: left;
   font-size: 1.5em;
   /*background-color: yellow;*/
 }
 
 .search-bar {
-  float: right;
   /*background-color: green;*/
   /*margin-left: 15px;
   margin-right: auto;*/
-  margin-right: 5%;
+  margin-right: 30%;
+  margin-left: 40%;
   margin-top: 15px;
 }
 
 .search-text {
   width: 300px;
   border: 1px solid #555;
-  border-radius: 2px;
+  border-radius: 10px;
   padding: 7px 0 5px 5px;
   font-size: 1em;
 }
+
+
 
 /*OVERALL WRAP FOR NON-HEADER***************/
 .wrap {
@@ -75,46 +85,67 @@ body, html{
 }
 
 .sidebar {
-    float: left;
-    width: 14%;
-    position: fixed;
-    overflow: hidden;
-    color: white;
-    text-align: left;
-    margin-left: 0.5%;
-}
-
-.sidebar-wrap {
+  float: left;
+  width: 13%;
+  position: fixed;
+  overflow: hidden;
+  color: white;
+  margin-left: -1%;
   margin-top: 10%;
+  margin-top: 10px;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
 }
 
 .sidebar-list {
   list-style: none;
+  width: 89%;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  margin-left: -10px;
 }
 
 .sidebar-list li {
   text-align: center;
-  /*background-color: red;*/
-  margin-left: -30px;
-  border: 1px solid black;
-  margin-top: 5px;
+  /*background-color: green;*/
+  margin-left: -50px;
+  border-bottom: 1px solid black;
   border-radius: 2px;
   padding-right: 0px;
+  margin-top: 0px;
+  padding: 10px 0px 10px 15px;
+  text-align: center;
 }
 
 .sidebar-list li a {
   color: black;
   text-decoration: none;
-  font-size: 1em;
-  /*line-height: 1.5/em;*/
+  font-size: 1.2em;
   margin-left: -10px;
 }
 
-.sidebar ul li:hover{
-  background-color: #008A2E;
+.sidebar ul li:hover {
+  background-color: #282828;
   border-radius: 2px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.sidebar ul li:hover a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-left: -10px;
 }
 
 .new-pin-button{
@@ -144,20 +175,21 @@ body, html{
 .content {
     overflow:auto;
     margin-left: 13%;
+    /*background-color: blue;*/
 }
 
 /*INIDIV RECIPES*/
 
 .all_tiles {
-  margin: 1%;
+  margin: 2%;
 }
 
 .recipe-container {
   border: 1px solid black;
-  margin-top: 15px;
-  border-radius: 6px;
+  margin-top: 5px;
+  border-radius: 4px;
   height: 200px;
-  width: 275px;
+  overflow: hidden;
 }
 
 .col-xs-3 {
@@ -168,25 +200,30 @@ body, html{
   margin-left:3%;
 }
 
-.pin {
-  background-color: white;
-  width: 30%;
-  text-align: center;
-}
 
-.recipe-image {
+
+/*.recipe-image {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: cover;
+  background-size: contain;
 
-}
+}*/
 
-.recipe-image img {
+.recipe-container img {
+   width: 100%;
+    height: 35em;
+
+    object-fit: cover;
+    overflow: hidden;
+  /*width: 100%;*/
+  /*max-height: 100%*/
   max-width: 100%;
+    height: auto;
+  /*object-fit: contain;*/
 }
 
 .recipe-title {
@@ -195,42 +232,63 @@ body, html{
   background: white;
 }
 
-/*.shadow {
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;
-}
-*/
-.pin .pic{
-  width: 90%;
-  margin: 5%;
+.lb-caption {
+  text-align: center;
+  display: block;
+  font-size: 1.5em;
+  font: sans-serif;
 }
 
+/*----------------------------------------------*/
+/*-----------    CUSTOM CAPTIONING   -----------*/
+/*----------------------------------------------*/
+.custom_captioning{
+  position: relative;
+  overflow: hidden;
+}
 
-
-/*h1, h2, h3, h4, h5, h5, p {
-  color: #434343;
-}*/
-
-/*COLOR STRIP********************************/
-
-/*.*//*color-strip{
-  height: 8px;
+.custom_captioning:hover .caption{
+  opacity: 1;
+  transform: translateY(-150px);
+  -webkit-transform:translateY(-150px);
+  -moz-transform:translateY(-150px);
+  -ms-transform:translateY(-150px);
+  -o-transform:translateY(-150px);
+}
+.custom_captioning img{
+  z-index: 4;
+}
+.custom_captioning .caption{
+  position: absolute;
+  -webkit-transition:all 0.1s ease-in-out;
+  -moz-transition:all 0.1s ease-in-out;
+  -o-transition:all 0.1s ease-in-out;
+  -ms-transition:all 0.1s ease-in-out;
+  transition:all 0.1s ease-in-out;
   width: 100%;
-  overflow: auto;
-}
-.color-strip > *{
-  display: inline;
-  width: 12.5%;
-  height: 100%;
-  float: left;
 }
 
-.color1{background-color: #14CC77}
-.color2{ background-color: #C4E17F}
-.color3{ background-color: #FECF71}
-.color4{ background-color: #F0776C}
-.color5{ background-color: #DB9DBE}
-.color6{ background-color: #C49CDE}
-.color7{ background-color: #669AE1}
-.color8{ background-color: #62C2E4}*/
+.custom_captioning .blur{
+  background-color: rgba(0,0,0,0.7);
+  height: 300px;
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+}
+
+.custom_captioning .caption-text{
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  height: 300px;
+  text-align: center;
+  top:-20px;
+  width: 100%;
+}
+
+a.thumbnail:hover {
+  border-color: #AAAAA2;
+}
+
+
+
