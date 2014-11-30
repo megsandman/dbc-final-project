@@ -18,8 +18,8 @@ class RecipesController < ApplicationController
   def create
     # binding.pry
     @recipe = Recipe.new(recipe_params)
-
-    @recipe.category_id = Category.get_category_id(params[:category])
+    category = params[:category] || "Appetizers"
+    @recipe.category_id = Category.get_category_id(category)
 
     # recipe_tags = params[:tags]
     # tags_array = recipe_tags.split(',')
