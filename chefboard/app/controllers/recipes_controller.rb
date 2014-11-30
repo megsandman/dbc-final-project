@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @recipe = Recipe.new(recipe_params)
       if @recipe.save
         render json: @recipe.to_json
@@ -33,6 +34,6 @@ class RecipesController < ApplicationController
   private #--------------------------------------------------
   def recipe_params
     #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
-    params.require(:recipe).permit(:title, :source_url, :img_url, :body, :category_id)
+    params.permit(:title, :source_url, :img_url, :body, :category_id)
   end
 end

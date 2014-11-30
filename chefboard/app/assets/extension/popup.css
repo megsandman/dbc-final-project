@@ -1,0 +1,29 @@
+.popup {
+  /*background-color: red;*/
+  width: 500px;
+  height: 300px;
+}
+
+.title {
+  text-align: center;
+  font-size: 25px;
+  padding: 15px;
+  margin: 0;
+}
+
+#new-recipe {
+  /*background-color: gray;*/
+  width: 50%;
+  margin: auto;
+  text-align: left;
+}
+
+.thick-txt-bx{
+  height: 20px;
+  width: 100%;
+}
+
+.recipe-title {
+  /*width: 75%;*/
+}
+
