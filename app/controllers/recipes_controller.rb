@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_headers
 
   skip_before_filter  :verify_authenticity_token
 
@@ -51,5 +52,12 @@ class RecipesController < ApplicationController
   def recipe_params
     #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
     params.require(:recipe).permit(:title, :source_url, :img_url, :body, :category_id)
+  end
+
+  def set_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   end
 end

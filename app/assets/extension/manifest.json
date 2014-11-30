@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "ChefBoard",
-  "description": "Save recipe link and details to your webapp",
+  "description": "Save recipe link and details to chefboard",
   "version": "1.0",
 
   "browser_action": {
@@ -10,6 +10,10 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://localhost:3000/"
+    "http://localhost:3000/",
+    "https://chefboard.herokuapp.com/",
+    "https://chefboard.herokuapp.com/*",
+    "http://chefboard.herokuapp.com/",
+    "http://chefboard.herokuapp.com/*"
   ]
 }
