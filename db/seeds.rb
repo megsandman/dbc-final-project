@@ -118,5 +118,5 @@ Recipe.create(
       user_id: 1
     )
 
-User.create(username: "meg", email: "meg@meg.com", password: "password")
+# User.create(username: "meg", email: "meg@meg.com", password: "password")
 
