@@ -6,8 +6,11 @@
   <title>Chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <link href="assets/application.css" rel="stylesheet" type="text/css">
-    <script src="assets/angular.js"></script>
+  <link href="assets/application.css" rel="stylesheet" type="text/css">
+  <script src="assets/angular.js"></script>
+  // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/gridify.js"></script>
+
 </head>
 <body ng-app="Chefboard" ng-controller="BoardController">
   <div class="container">
@@ -52,12 +55,18 @@
     <div class="content">
     <!-- PINS -->
         <div class="all_tiles">
-            <div class="recipe-container col-xs-3 " ng-repeat="recipe in recipes | filter:myFilter | filter:query">
-              <!-- <div class="recipe-image"><img class="pic" ng-src="{{recipe.img_url}}"></div> -->
-              <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div>
-                <div class="recipe-title">
-                  <p>{{recipe.title}}{{recipe.tags}}</p>
-                </div>
+
+            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes | filter:myFilter | filter:query">
+
+              <div class="recipe-image" >
+                <img ng-src="{{recipe.img_url}}">
+              </div>
+              <div class="recipe-title">
+                <p>{{recipe.title}}{{recipe.tags}}</p>
+              </div>
+
+              <!-- <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div> -->
+
             </div>
         </div>
     </div>
