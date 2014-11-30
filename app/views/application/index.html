@@ -65,15 +65,32 @@
     <!-- PINS -->
         <div class="all-tiles">
           <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}">
-            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+
+
+              <div class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+
+                <div class="offset_div">
+                </div>
+
+                <div class="caption">
+                  <div class="blur">
+                  </div>
+                  <div class="caption-text">
+                    <br>
+                    <h3>{{recipe.title}}</h3>
+                  </div>
+                </div>
+
+              </div>
+
+
           </a>
 
-
-              <!-- <div class="recipe-image"> -->
+        <!-- <div class="recipe-image"> -->
                   <!-- <img ng-src="{{recipe.img_url}}"> -->
               <!-- </div> -->
 
-            </div>
+
         </div>
     </div>
 
