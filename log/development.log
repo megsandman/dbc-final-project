@@ -24071,3 +24071,255 @@ Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 
 
 
 Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 19:40:02 -0800
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20141128193928)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128193928"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateRecipes (20141128194057)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "source_url" varchar(255), "img_url" varchar(255), "body" varchar(255), "tag_string" varchar(255), "category_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128194057"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateCategories (20141128194116)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128194116"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateTags (20141128194126)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128194126"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateJoinTable (20141128201338)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "recipes_tags" ("recipe_id" integer NOT NULL, "tag_id" integer NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141128201338"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Appetizers' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.959359"], ["name", "Appetizers"], ["updated_at", "2014-11-30 03:50:37.959359"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Beverages' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.967046"], ["name", "Beverages"], ["updated_at", "2014-11-30 03:50:37.967046"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Breakfast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.970027"], ["name", "Breakfast"], ["updated_at", "2014-11-30 03:50:37.970027"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Desserts' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.972742"], ["name", "Desserts"], ["updated_at", "2014-11-30 03:50:37.972742"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Entrees' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.975446"], ["name", "Entrees"], ["updated_at", "2014-11-30 03:50:37.975446"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Salads' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.979013"], ["name", "Salads"], ["updated_at", "2014-11-30 03:50:37.979013"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Sides' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 03:50:37.981873"], ["name", "Sides"], ["updated_at", "2014-11-30 03:50:37.981873"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2014-11-30 03:50:38.002322"], ["img_url", "assets/chocolate-chip-cookie.jpg"], ["source_url", "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0"], ["tag_string", "cookie, chocolate"], ["title", "Chocolate Chip Cookies"], ["updated_at", "2014-11-30 03:50:38.002322"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2014-11-30 03:50:38.006026"], ["img_url", "assets/pizza-dough.jpeg"], ["source_url", "http://www.foodnetwork.com/recipes/bobby-flay/pizza-dough-recipe.html"], ["tag_string", "pizza, yum"], ["title", "Pizza Dough"], ["updated_at", "2014-11-30 03:50:38.006026"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2014-11-30 03:50:38.008599"], ["img_url", "assets/kale-citrus-salad.jpg"], ["source_url", "http://www.saveur.com/article/Recipes/Winter-Kale-and-Citrus-Salad"], ["tag_string", "healthy, salad, kale, yum"], ["title", "Kale and Citrus Salad"], ["updated_at", "2014-11-30 03:50:38.008599"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2014-11-30 03:50:38.011308"], ["img_url", "assets/cranberry-pie-with-thick-pecan-crumble.jpg"], ["source_url", "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/"], ["tag_string", "pie, yum, cranberry"], ["title", "Cranberry pie with thick pecan crumble"], ["updated_at", "2014-11-30 03:50:38.011308"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 5], ["created_at", "2014-11-30 03:50:38.014032"], ["img_url", "assets/sangria.jpg"], ["source_url", "http://www.foodnetwork.com/recipes/emeril-lagasse/sangria-recipe4.html"], ["tag_string", "yum, party"], ["title", "Sangria"], ["updated_at", "2014-11-30 03:50:38.014032"], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2014-11-30 03:50:38.016919"], ["img_url", "assets/crispy-sweet-potato-roast.jpg"], ["source_url", "http://smittenkitchen.com/blog/2014/11/crispy-sweet-potato-roast/"], ["tag_string", "yum, thanksgiving"], ["title", "Crispy Sweet Potato Roast"], ["updated_at", "2014-11-30 03:50:38.016919"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 6], ["created_at", "2014-11-30 03:50:38.019551"], ["img_url", "assets/sage-crostini.jpg"], ["source_url", "http://www.epicurious.com/recipes/food/views/Butternut-Squash-Ricotta-and-Sage-Crostini-367711"], ["tag_string", "crostini, yum"], ["title", "Butternut Squash, Ricotta, and Sage Crostini"], ["updated_at", "2014-11-30 03:50:38.019551"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "tag_string", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["category_id", 7], ["created_at", "2014-11-30 03:50:38.022039"], ["img_url", "assets/chicken-marsala.jpg"], ["source_url", "http://www.epicurious.com/recipes/food/views/Chicken-Marsala-232152"], ["tag_string", "chicken, yum"], ["title", "Chicken Marsala"], ["updated_at", "2014-11-30 03:50:38.022039"], ["user_id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'meg' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'meg@meg.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-11-30 03:50:38.035405"], ["email", "meg@meg.com"], ["password", "password"], ["updated_at", "2014-11-30 03:50:38.035405"], ["username", "meg"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mRecipe Load (4.5ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 19:51:06 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (2.7ms)
+Completed 200 OK in 28ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 19:51:06 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 19:51:06 -0800
+
+
+Started GET "/assets/gridify.js" for 127.0.0.1 at 2014-11-29 19:51:06 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 19:51:06 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (2.6ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 76ms (Views: 0.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 19:51:07 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.5ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/gridify.js" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 19:51:44 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/gridify.js" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 19:52:35 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 19:57:36 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 19:57:36 -0800

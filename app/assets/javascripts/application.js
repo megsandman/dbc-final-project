@@ -90,7 +90,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   //   }
   // ];
   $scope.addRecipe = function() {
-    $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags}).success(function(data) {
+    $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
       $scope.recipes.unshift(data);
       console.log(data)
       $scope.recipeTitle = "";

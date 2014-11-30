@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20141128201338) do
     t.string   "source_url"
     t.string   "img_url"
     t.string   "body"
+    t.string   "tag_string"
     t.integer  "category_id"
     t.integer  "user_id"
     t.datetime "created_at"
