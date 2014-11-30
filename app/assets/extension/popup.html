@@ -2,33 +2,21 @@
 <html>
   <head>
     <title>ChefBoard-Extended</title>
-    <style>
-      body {
-        min-width: 400px;
-        overflow-x: hidden;
-      }
-
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="popup.css">
   </head>
-  <body>
+  <body class="popup">
+    <h3 class="title">ChefBoard</h3>
      <form id="new-recipe">
-      <input type="text" class="recipe-title" name="title" placeholder="Title">
+      <input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title">
       <br>
       <br>
-      <input type="text" class="recipe-source-url" name="source" placeholder="Source Url">
+      <input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Source Url">
       <br>
       <br>
-      <input type="text" class="recipe-img-url" name="image" placeholder="Image Url">
+      <input type="text" class="recipe-img-url thick-txt-bx" name="img_url" placeholder="Image Url">
       <br>
       <br>
-      <input type="text_field" class="recipe-body" name="body" placeholder="Description, indgredients, etc.">
+      <input type="text_field" class="recipe-body thick-txt-bx" name="body" placeholder="Description, indgredients, etc.">
       <br>
       <br>
       <!-- Need to have a drop down menu with the Categories -->
@@ -38,4 +26,3 @@
     <script src="popup.js"></script>
   </body>
 </html>
-
