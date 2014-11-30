@@ -10,25 +10,32 @@
   <script src="assets/angular.js"></script>
   <script src="assets/jquery-1.11.0.min.js"></script>
   <script src="assets/lightbox.min.js"></script>
-  <script type="text/javascript" src="assets/gridify.js"></script>
   <link href="assets/lightbox.css" rel="stylesheet" />
 
 
 </head>
-<body ng-app="Chefboard" ng-controller="BoardController">
-  <div class="container">
+  <body ng-app="Chefboard" ng-controller="BoardController">
+  <div class="main-container">
     <!-- HEADER  -->
     <div class="main-header">
-      <div class="logo" ng-click="myFilter = null"><img class="logo-pic" src ="assets/cutting-board-2.png">  chefboard</div>
-        <form class="search-bar">
-          <input type="text" placeholder="Search" class="search-text" ng-model="query">
-        </form>
+      <div class="logo" ng-click="myFilter = null">
+        <a href ng-click="myFilter = null">chefboard.</a>
+      </div>
+      <ul class="masthead-nav">
+        <li class="search-bar">
+          <form>
+            <input type="text" placeholder="Search" class="search-text" ng-model="query">
+          </form>
+        </li>
+        <li>
+          <a href="#">Logout</a>
+        </li>
+      </ul>
     </div>
 
     <div class="wrap">
     <!-- SIDEBAR  -->
       <div class="sidebar">
-        <div class="sidebar-wrap">
           <ul class="sidebar-list">
               <li><a href ng-click="myFilter = {category_id: 1}">Appetizers</a></li>
               <li><a href ng-click="myFilter = {category_id: 2}">Beverages</a></li>
@@ -38,7 +45,7 @@
               <li><a href ng-click="myFilter = {category_id: 6}">Salads</a></li>
               <li><a href ng-click="myFilter = {category_id: 7}">Sides</a></li>
           </ul>
-          <div class="new-pin">
+          <!-- <div class="new-pin">
             <form ng-submit="addRecipe()">
               <input class="new-pin-input" type="text" placeholder="Recipe title" ng-model="recipeTitle">
               <input class="new-pin-input" type="text" placeholder="Recipe link" ng-model="recipeLink">
@@ -49,26 +56,22 @@
               </select>
               <input type="submit" value="New Pin">
             </form>
-            <!-- <button class="new-pin-button" ng-click="">New Pin</button> -->
-          </div>
-        </div>
+            <! <button class="new-pin-button" ng-click="">New Pin</button>
+          </div> -->
       </div>
 
   <!-- MAIN CONTENT  -->
     <div class="content">
     <!-- PINS -->
-        <div class="all_tiles">
+        <div class="all-tiles">
+          <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}">
+            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+          </a>
 
-            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes | filter:myFilter | filter:query">
 
-              <div class="recipe-image" >
-                <img ng-src="{{recipe.img_url}}">
-              </div>
-              <div class="recipe-title">
-                <!-- <p>{{recipe.title}}{{recipe.tag_string}}</p> -->
-              </div>
-
-              <!-- <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div> -->
+              <!-- <div class="recipe-image"> -->
+                  <!-- <img ng-src="{{recipe.img_url}}"> -->
+              <!-- </div> -->
 
             </div>
         </div>
@@ -79,38 +82,10 @@
   </div>
 </div>
 
- <!--  <div class="container" ng-repeat="recipe in recipes">
-    <div>
-      <img src={{recipe.img_url}}>
-      <div>{{recipe.title}}</div>
-    </div>
-  </div> -->
-
-    <script src="assets/application.js"></script>
+<script src="assets/application.js"></script>
 
 
-
-  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-  // <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
-  // <script src="app.js"></script>
-  // <script src="components/profile/profile.js"></script>
-  // <script src="components/teams/teams.js"></script>
-  // <script src="shared/headerBar/headerBar.js"></script>
-  // <script src="components/competition/competition.js"></script>
-  // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  // <script src="assets/js/bootstrap.js"></script>
-  // <script src="assets/js/application.js"></script> -->
 
 </body>
 </html>
 
-<!-- <div class="color-strip">
-    <div class="color1"></div>
-    <div class="color2"></div>
-    <div class="color3"></div>
-    <div class="color4"></div>
-    <div class="color5"></div>
-    <div class="color6"></div>
-    <div class="color7"></div>
-    <div class="color8"></div>
-  </div> -->
