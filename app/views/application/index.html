@@ -6,9 +6,6 @@
   <title>Chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <!--  <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/application.css"> -->
  <link href="assets/application.css" rel="stylesheet" type="text/css">
     <script src="assets/angular.js"></script>
 </head>
@@ -17,9 +14,8 @@
     <!-- HEADER  -->
     <div class="main-header">
       <div class="logo" ng-click="myFilter = null"><img class="logo-pic" src ="assets/cutting-board-2.png">  chefboard</div>
-      <!-- <div class="logo">chefboard</div> -->
         <form class="search-bar">
-          <input type="text" placeholder="Search" class="search-text">
+          <input type="text" placeholder="Search" class="search-text" ng-model="query">
         </form>
     </div>
 
@@ -56,11 +52,11 @@
     <div class="content">
     <!-- PINS -->
         <div class="all_tiles">
-            <div class="recipe-container col-xs-3 " ng-repeat="recipe in recipes | filter:myFilter">
+            <div class="recipe-container col-xs-3 " ng-repeat="recipe in recipes | filter:myFilter | filter:query">
               <!-- <div class="recipe-image"><img class="pic" ng-src="{{recipe.img_url}}"></div> -->
               <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div>
                 <div class="recipe-title">
-                  <p>{{recipe.title}}</p>
+                  <p>{{recipe.title}}{{recipe.tags}}</p>
                 </div>
             </div>
         </div>

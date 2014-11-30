@@ -16,9 +16,23 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    category = Category.find_by_name(params[:category])
-    cat_id = category.id
-    @recipe.category_id = cat_id
+
+    @recipe.category_id = Category.get_category_id(params[:category])
+
+    # recipe_tags = params[:tags]
+    # tags_array = recipe_tags.split(',')
+    # tags_array.map! {|tag| tag.strip}
+
+    tags_array = Tag.process_tags(params[:tags])
+
+    tags_array.each do |tag|
+      if Tag.find_by_name(tag) == nil
+        @recipe.tags << Tag.create(name: tag)
+      else
+        @recipe.tags << Tag.find_by_name(tag)
+      end
+    end
+
     if @recipe.save
       render json: @recipe.to_json
     else

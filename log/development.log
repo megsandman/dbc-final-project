@@ -20536,3 +20536,335 @@ Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:5
 
 
 Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (2.2ms)
+Completed 200 OK in 30ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+
+
+Started GET "/%7B%7Brecipe.img_url%7D%7D" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+
+ActionController::RoutingError (No route matches [GET] "/%7B%7Brecipe.img_url%7D%7D"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/megsandman/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/megsandman/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/megsandman/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.4ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (61.6ms)
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 17:08:44 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 58ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 17:08:45 -0800
+
+
+Started POST "/users/1/recipes.json" for 127.0.0.1 at 2014-11-29 17:09:23 -0800
+Processing by RecipesController#create as JSON
+  Parameters: {"title"=>"Pasta", "source_url"=>"http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli", "img_url"=>"https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672", "category"=>"Entrees", "tags"=>"pasta, yum, chicken", "user_id"=>"1", "recipe"=>{"title"=>"Pasta", "source_url"=>"http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli", "img_url"=>"https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672"}}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Entrees' LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags"  WHERE "tags"."name" = 'pasta' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags"  WHERE "tags"."name" = 'pasta' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-11-30 01:09:23.527197"], ["name", "pasta"], ["updated_at", "2014-11-30 01:09:23.527197"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT  "tags".* FROM "tags"  WHERE "tags"."name" = ' yum' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mTag Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tags"  WHERE "tags"."name" = ' yum' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 01:09:23.551560"], ["name", " yum"], ["updated_at", "2014-11-30 01:09:23.551560"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags"  WHERE "tags"."name" = ' chicken' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags"  WHERE "tags"."name" = ' chicken' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-11-30 01:09:23.559411"], ["name", " chicken"], ["updated_at", "2014-11-30 01:09:23.559411"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Exists (0.4ms)[0m  SELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = 'pasta' AND "tags"."id" != 1) LIMIT 1
+  [1m[36mTag Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = ' yum' AND "tags"."id" != 2) LIMIT 1[0m
+  [1m[35mTag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = ' chicken' AND "tags"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["category_id", 5], ["created_at", "2014-11-30 01:09:23.569728"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672"], ["source_url", "http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli"], ["title", "Pasta"], ["updated_at", "2014-11-30 01:09:23.569728"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)  [["recipe_id", 18], ["tag_id", 1]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)[0m  [["recipe_id", 18], ["tag_id", 2]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)  [["recipe_id", 18], ["tag_id", 3]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 208ms (Views: 0.2ms | ActiveRecord: 11.7ms)
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "recipes_tags" ON "tags"."id" = "recipes_tags"."tag_id" WHERE "recipes_tags"."recipe_id" = ?  [["recipe_id", 18]]
+
+
+Started POST "/users/1/recipes.json" for 127.0.0.1 at 2014-11-29 17:14:31 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#create as JSON
+  Parameters: {"title"=>"Chicken Meatballs", "source_url"=>"http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli", "img_url"=>"https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672", "category"=>"Entrees", "tags"=>"pasta", "user_id"=>"1", "recipe"=>{"title"=>"Chicken Meatballs", "source_url"=>"http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli", "img_url"=>"https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672"}}
+  [1m[35mCategory Load (0.8ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Entrees' LIMIT 1
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT  "tags".* FROM "tags"  WHERE "tags"."name" = 'pasta' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tags".* FROM "tags"  WHERE "tags"."name" = 'pasta' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = 'pasta' AND "tags"."id" != 1) LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["category_id", 5], ["created_at", "2014-11-30 01:14:31.689168"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672"], ["source_url", "http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli"], ["title", "Chicken Meatballs"], ["updated_at", "2014-11-30 01:14:31.689168"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)  [["recipe_id", 19], ["tag_id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 121ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories"
+
+
+Started POST "/users/1/recipes.json" for 127.0.0.1 at 2014-11-29 17:20:17 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#create as JSON
+  Parameters: {"title"=>"Cookie", "source_url"=>"http://food52.com/blog/11838-put-a-filter-on-it-cookies", "img_url"=>"https://farm8.staticflickr.com/7550/15862380496_2ed97e8368_o.png", "category"=>"Desserts", "tags"=>"chocolate, cookie, yum", "user_id"=>"1", "recipe"=>{"title"=>"Cookie", "source_url"=>"http://food52.com/blog/11838-put-a-filter-on-it-cookies", "img_url"=>"https://farm8.staticflickr.com/7550/15862380496_2ed97e8368_o.png"}}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Desserts' LIMIT 1
+Completed 500 Internal Server Error in 40ms
+
+NoMethodError (undefined method `process_tags' for #<RecipesController:0x0000010239c1c0>):
+  app/controllers/recipes_controller.rb:26:in `create'
+
+
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/megsandman/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 17:20:40 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (1.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 17:20:40 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 17:20:40 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 17:20:40 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 17:20:40 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 17:20:40 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (1.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 17:20:41 -0800
+
+
+Started POST "/users/1/recipes.json" for 127.0.0.1 at 2014-11-29 17:21:01 -0800
+Processing by RecipesController#create as JSON
+  Parameters: {"title"=>"Cookie", "source_url"=>"http://food52.com/blog/11838-put-a-filter-on-it-cookies", "img_url"=>"https://farm8.staticflickr.com/7550/15862380496_2ed97e8368_o.png", "category"=>"Desserts", "tags"=>"chocolate, yum, cookie", "user_id"=>"1", "recipe"=>{"title"=>"Cookie", "source_url"=>"http://food52.com/blog/11838-put-a-filter-on-it-cookies", "img_url"=>"https://farm8.staticflickr.com/7550/15862380496_2ed97e8368_o.png"}}
+  [1m[35mCategory Load (0.5ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Desserts' LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT  "tags".* FROM "tags"  WHERE "tags"."name" = 'chocolate' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mTag Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tags"  WHERE "tags"."name" = 'chocolate' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 01:21:02.053581"], ["name", "chocolate"], ["updated_at", "2014-11-30 01:21:02.053581"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT  "tags".* FROM "tags"  WHERE "tags"."name" = 'yum' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags"  WHERE "tags"."name" = 'yum' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-11-30 01:21:02.071143"], ["name", "yum"], ["updated_at", "2014-11-30 01:21:02.071143"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT  "tags".* FROM "tags"  WHERE "tags"."name" = 'cookie' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mTag Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tags"  WHERE "tags"."name" = 'cookie' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 01:21:02.078103"], ["name", "cookie"], ["updated_at", "2014-11-30 01:21:02.078103"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mTag Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = 'chocolate' AND "tags"."id" != 4) LIMIT 1[0m
+  [1m[35mTag Exists (0.1ms)[0m  SELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = 'yum' AND "tags"."id" != 5) LIMIT 1
+  [1m[36mTag Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "tags"  WHERE ("tags"."name" = 'cookie' AND "tags"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2014-11-30 01:21:02.094777"], ["img_url", "https://farm8.staticflickr.com/7550/15862380496_2ed97e8368_o.png"], ["source_url", "http://food52.com/blog/11838-put-a-filter-on-it-cookies"], ["title", "Cookie"], ["updated_at", "2014-11-30 01:21:02.094777"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)[0m  [["recipe_id", 20], ["tag_id", 4]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)  [["recipe_id", 20], ["tag_id", 5]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "recipes_tags" ("recipe_id", "tag_id") VALUES (?, ?)[0m  [["recipe_id", 20], ["tag_id", 6]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 200 OK in 124ms (Views: 0.2ms | ActiveRecord: 9.9ms)
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "recipes_tags" ON "tags"."id" = "recipes_tags"."tag_id" WHERE "recipes_tags"."recipe_id" = ?  [["recipe_id", 20]]
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 17:25:18 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (2.2ms)
+Completed 200 OK in 27ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.9ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 65ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 17:25:19 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.6ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.7ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 17:26:17 -0800
