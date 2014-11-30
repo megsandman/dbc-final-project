@@ -7,6 +7,7 @@
   <title>Chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="popup.html">
   <link href="assets/application.css" rel="stylesheet" type="text/css">
   <script src="assets/angular.js"></script>
   <script src="assets/jquery-1.11.0.min.js"></script>
@@ -14,6 +15,11 @@
   <link href="assets/lightbox.css" rel="stylesheet" />
   <script src="assets/ui-bootstrap-tpls-0.11.2.js"></script>
   <script src="assets/ngDialog.js"></script>
+
+  <script type="text/ng-template" id="templateId">
+    <h1>Template heading</h1>
+    <p>Content goes here</p>
+</script>
 
 
 </head>
@@ -67,7 +73,8 @@
     <div class="content">
     <!-- PINS -->
         <div class="all-tiles">
-          <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}">
+          <!-- <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}"> -->
+          <!-- <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}"> -->
 
 
               <div class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
@@ -75,7 +82,7 @@
                 <div class="offset_div">
                 </div>
 
-                <div class="caption">
+                <div ng-click="clickToOpen(recipe.img_url)" class="caption">
                   <div class="blur">
                   </div>
                   <div class="caption-text">
@@ -87,7 +94,7 @@
               </div>
 
 
-          </a>
+          <!-- </a> -->
 
         <!-- <div class="recipe-image"> -->
                   <!-- <img ng-src="{{recipe.img_url}}"> -->
@@ -102,8 +109,9 @@
   </div>
 </div>
 
-<script src="assets/application.js"></script>
 
+
+<script src="assets/application.js"></script>
 
 
 </body>

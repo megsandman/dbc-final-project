@@ -1,9 +1,19 @@
-angular.module('Chefboard', ["ui.bootstrap", "ngDialog"]);
+var app = angular.module('Chefboard', ["ui.bootstrap", "ngDialog"]);
 
-angular.module('Chefboard').controller('BoardController', function ($scope, $http) {
+angular.module('Chefboard').controller('BoardController', function ($scope, $http, ngDialog) {
   $http.get('/users/1/recipes').success(function(data) {
     $scope.recipes = data;
   });
+
+
+  $scope.clickToOpen = function (recipeImgUrl) {
+    ngDialog.open({
+      template: '<p><img src=' + recipeImgUrl + '></p>',
+      plain: true
+    });
+    console.log(recipeImgUrl);
+  }
+
 
 
   $scope.addRecipe = function() {
