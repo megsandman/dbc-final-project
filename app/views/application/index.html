@@ -16,7 +16,7 @@
   <div class="container">
     <!-- HEADER  -->
     <div class="main-header">
-      <div class="logo"><img class="logo-pic" src ="assets/cutting-board-2.png">  chefboard</div>
+      <div class="logo" ng-click="myFilter = null"><img class="logo-pic" src ="assets/cutting-board-2.png">  chefboard</div>
       <!-- <div class="logo">chefboard</div> -->
         <form class="search-bar">
           <input type="text" placeholder="Search" class="search-text">
@@ -28,12 +28,13 @@
       <div class="sidebar">
         <div class="sidebar-wrap">
           <ul class="sidebar-list">
-              <li><a href="#">Appetizers</a></li>
-              <li><a href="#">Beverages</a></li>
-              <li><a href="#">Desserts</a></li>
-              <li><a href="#">Entrees</a></li>
-              <li><a href="#">Salads</a></li>
-              <li><a href="#">Sides</a></li>
+              <li><a href ng-click="myFilter = {category_id: 1}">Appetizers</a></li>
+              <li><a href ng-click="myFilter = {category_id: 2}">Beverages</a></li>
+              <li><a href ng-click="myFilter = {category_id: 3}">Breakfast</a></li>
+              <li><a href ng-click="myFilter = {category_id: 4}">Desserts</a></li>
+              <li><a href ng-click="myFilter = {category_id: 5}">Entrees</a></li>
+              <li><a href ng-click="myFilter = {category_id: 6}">Salads</a></li>
+              <li><a href ng-click="myFilter = {category_id: 7}">Sides</a></li>
           </ul>
           <div class="new-pin">
             <form ng-submit="addRecipe()">
@@ -55,7 +56,7 @@
     <div class="content">
     <!-- PINS -->
         <div class="all_tiles">
-            <div class="recipe-container col-xs-3" ng-repeat="recipe in recipes">
+            <div class="recipe-container col-xs-3 " ng-repeat="recipe in recipes | filter:myFilter">
               <!-- <div class="recipe-image"><img class="pic" ng-src="{{recipe.img_url}}"></div> -->
               <div class="recipe-image" style="background:url('{{recipe.img_url}}')"></div>
                 <div class="recipe-title">

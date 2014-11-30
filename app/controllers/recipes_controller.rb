@@ -16,11 +16,14 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-      if @recipe.save
-        render json: @recipe.to_json
-      else
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+    category = Category.find_by_name(params[:category])
+    cat_id = category.id
+    @recipe.category_id = cat_id
+    if @recipe.save
+      render json: @recipe.to_json
+    else
+      format.json { render json: @recipe.errors, status: :unprocessable_entity }
+    end
 
   end
 

@@ -20045,3 +20045,494 @@ Migrating to CreateJoinTable (20141128201338)
   [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'meg' LIMIT 1[0m
   [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'meg@meg.com' LIMIT 1
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"  WHERE "categories"."name" = 'Desserts'[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Appetizers' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.445187"], ["name", "Appetizers"], ["updated_at", "2014-11-30 00:03:18.445187"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Beverages' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.453069"], ["name", "Beverages"], ["updated_at", "2014-11-30 00:03:18.453069"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Breakfast' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.455847"], ["name", "Breakfast"], ["updated_at", "2014-11-30 00:03:18.455847"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Desserts' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.458527"], ["name", "Desserts"], ["updated_at", "2014-11-30 00:03:18.458527"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Entrees' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.462538"], ["name", "Entrees"], ["updated_at", "2014-11-30 00:03:18.462538"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Salads' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.466211"], ["name", "Salads"], ["updated_at", "2014-11-30 00:03:18.466211"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCategory Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Sides' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-30 00:03:18.469873"], ["name", "Sides"], ["updated_at", "2014-11-30 00:03:18.469873"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[36mCategory Load (2.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mRecipe Load (0.9ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"  WHERE "categories"."name" = 'Appetizers'[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Appetizers' LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Appetizers' LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:06:19 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (3.1ms)
+Completed 200 OK in 30ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.8ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:06:20 -0800
+
+
+Started POST "/users/1/recipes.json" for 127.0.0.1 at 2014-11-29 16:06:59 -0800
+Processing by RecipesController#create as JSON
+  Parameters: {"title"=>"Cobbler", "source_url"=>"http://food52.com/recipes/31923-cranberry-newton-bars", "img_url"=>"https://d2k9njawademcf.cloudfront.net/indeximages/48297/full/cranberry_newton_bars_1.jpg?1415581465", "category"=>"Desserts", "user_id"=>"1", "recipe"=>{"title"=>"Cobbler", "source_url"=>"http://food52.com/recipes/31923-cranberry-newton-bars", "img_url"=>"https://d2k9njawademcf.cloudfront.net/indeximages/48297/full/cranberry_newton_bars_1.jpg?1415581465"}}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."name" = 'Desserts' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "img_url", "source_url", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2014-11-30 00:06:59.593529"], ["img_url", "https://d2k9njawademcf.cloudfront.net/indeximages/48297/full/cranberry_newton_bars_1.jpg?1415581465"], ["source_url", "http://food52.com/recipes/31923-cranberry-newton-bars"], ["title", "Cobbler"], ["updated_at", "2014-11-30 00:06:59.593529"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+  [1m[36mCategory Load (2.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mRecipe Load (0.8ms)[0m  SELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:49:51 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (3.0ms)
+Completed 200 OK in 41ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:49:51 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:49:51 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:49:51 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:49:51 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:49:51 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.8ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:49:52 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:50:19 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.6ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:50:29 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.6ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:52:31 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:53:35 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (1.2ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:53:36 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.6ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:53:46 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:56:17 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/cutting-board-2.png" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/pizza-dough.jpeg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/sangria.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/kale-citrus-salad.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/chicken-marsala.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/sage-crostini.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-11-29 16:56:50 -0800
