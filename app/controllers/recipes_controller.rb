@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   def create
     # binding.pry
     @recipe = Recipe.new(recipe_params)
-    category = params[:category] || 1
+    category = params[:category] || "Appetizers"
     @recipe.category_id = Category.get_category_id(category)
 
     # recipe_tags = params[:tags]
