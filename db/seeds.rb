@@ -7,7 +7,7 @@ end
 Recipe.create(
       title: "Chocolate Chip Cookies",
       source_url: "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0",
-      img_url: "assets/chocolate-chip-cookie.jpg",
+      img_url: "http://graphics8.nytimes.com/images/2013/06/19/dining/19PASTRY1_SPAN/19PASTRY1_SPAN-articleLarge-v2.jpg",
       category_id: 4,
       tag_string: "cookie, chocolate",
       user_id: 1
@@ -31,7 +31,7 @@ Recipe.create(
 Recipe.create(
       title: "Cranberry pie with thick pecan crumble",
       source_url: "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/",
-      img_url: "assets/cranberry-pie-with-thick-pecan-crumble.jpg",
+      img_url: "http://smittenkitchen.com/wp-content/uploads/cranberry-pie-with-thick-pecan-crumble.jpg",
       tag_string: "pie, yum, cranberry",
       category_id: 4,
       user_id: 1
@@ -47,7 +47,7 @@ Recipe.create(
 Recipe.create(
       title: "Crispy Sweet Potato Roast",
       source_url: "http://smittenkitchen.com/blog/2014/11/crispy-sweet-potato-roast/",
-      img_url: "assets/crispy-sweet-potato-roast.jpg",
+      img_url: "http://smittenkitchen.com/wp-content/uploads/crispy-sweet-potato-roast.jpg",
       tag_string: "yum, thanksgiving",
       category_id: 7,
       user_id: 1

@@ -1,132 +1,107 @@
 <!DOCTYPE html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="assets/application.css" rel="stylesheet" type="text/css">
+  <script src="assets/facebook.js"></script>
   <script src="assets/angular.js"></script>
   <script src="assets/jquery-1.11.0.min.js"></script>
+  <link href="assets/application.css" rel="stylesheet" type="text/css">
   <script src="assets/lightbox.min.js"></script>
   <link href="assets/lightbox.css" rel="stylesheet" />
-
-
 </head>
-  <body ng-app="Chefboard" ng-controller="BoardController">
+<body ng-app="Chefboard" ng-controller="BoardController" >
     <!-- FACEBOOK SCRIPT FOR BUTTON -->
   <div id="fb-root"></div>
-  <script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-      alert('index.html goes here')
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
-    }
-  }
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1520208361571689',
-    cookie     : true,  // enable cookies to allow the server to access
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1' // use version 2.1
-  });
-
-  // Now that we've initialized the JavaScript SDK, we call
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
+<div id="status"></div>
 
 
+<div id="index-template" class="hidden-div">
+  <div class="main-container">
+    <!-- HEADER  -->
+    <div class="main-header">
+      <div class="logo" ng-click="myFilter = null">
+        <a href ng-click="myFilter = null">chefboard.</a>
+      </div>
+      <ul class="masthead-nav">
+        <li class="search-bar">
+          <form>
+            <input type="text" placeholder="Search" class="search-text" ng-model="query">
+          </form>
+        </li>
+        <li>
+          <a href="#" class="logout-button">Logout</a>
+        </li>
+      </ul>
+    </div>
 
-<div id="status">
-</div>
-    <!-- WHEN USER NOT LOGGED IN -->
-  <div class="login-container">
-    <h1>welcome to chefboard.</h1>
-    <!-- FACEBOOK BUTTON -->
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-    <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-  </div> -->
-    <!-- WHEN USER LOGGED IN -->
+    <div class="wrap">
+    <!-- SIDEBAR  -->
+      <div class="sidebar">
+          <ul class="sidebar-list">
+              <li><a href ng-click="myFilter = {category_id: 1}">Appetizers</a></li>
+              <li><a href ng-click="myFilter = {category_id: 2}">Beverages</a></li>
+              <li><a href ng-click="myFilter = {category_id: 3}">Breakfast</a></li>
+              <li><a href ng-click="myFilter = {category_id: 4}">Desserts</a></li>
+              <li><a href ng-click="myFilter = {category_id: 5}">Entrees</a></li>
+              <li><a href ng-click="myFilter = {category_id: 6}">Salads</a></li>
+              <li><a href ng-click="myFilter = {category_id: 7}">Sides</a></li>
+          </ul>
+          <!-- <div class="new-pin">
+            <form ng-submit="addRecipe()">
+              <input class="new-pin-input" type="text" placeholder="Recipe title" ng-model="recipeTitle">
+              <input class="new-pin-input" type="text" placeholder="Recipe link" ng-model="recipeLink">
+              <input class="new-pin-input" type="text" placeholder="Image link" ng-model="imageLink">
+              <input class="new-pin-input" type="text" placeholder="Tags" ng-model="recipeTags">
+              <select ng-model="category" class="category-dropdown" ng-options="categories for categories in ['Appetizers', 'Beverages', 'Desserts', 'Entrees', 'Salads', 'Sides']" title="Categories">
+                <option value>Select Category</option>
+              </select>
+              <input type="submit" value="New Pin">
+            </form>
+          </div> -->
+      </div>
 
-  <!-- END MAIN CONTENT -->
+  <!-- MAIN CONTENT  -->
+      <div class="content">
+      <!-- PINS -->
+          <div class="all-tiles">
+                <div class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                  <div class="offset_div">
+                  </div>
+                  <div class="caption">
+                    <div class="blur">
+                    </div>
+                    <div class="caption-text">
+                      <br>
+                      <h3>{{recipe.title}}</h3>
+                    </div>
+                  </div>
+                </div>
 
+
+          <!-- <div class="recipe-image"> -->
+                    <!-- <img ng-src="{{recipe.img_url}}"> -->
+                <!-- </div> -->
+          </div>
+      </div>
+      <div class="footer"></div>
+    </div>
   </div>
 </div>
+<!-- WHEN USER NOT LOGGED IN -->
+<div id="login-template" class="hidden-div">
+  <h1>welcome to chefboard.</h1>
+  <div class="fb-button-div"><fb:login-button scope='public_profile,email' onlogin='checkLoginState();' class=".fb-button"></div>
+  </fb:login-button>
+</div>
 
-<script src="assets/application.js"></script>
+    <!-- FACEBOOK BUTTON -->
+    <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+  </div> -->
 
-
-
+  <script src="assets/application.js"></script>
 </body>
 </html>
 

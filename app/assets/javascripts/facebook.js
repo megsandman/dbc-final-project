@@ -71,6 +71,7 @@
     // var indexHtml   = $("#index-template").html();
     $('#index-template').removeClass('hidden-div')
     $('#login-template').addClass('hidden-div')
+    $('body').removeClass('body-background-image')
     // $('#status').empty()
     // $('#status').append(indexHtml)
   };
