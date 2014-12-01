@@ -3,6 +3,10 @@
   <head>
     <title>ChefBoard-Extended</title>
     <link rel="stylesheet" type="text/css" href="popup.css">
+        <script src="jquery-2.1.1.min.js"></script>
+    <script src="facebook.js"></script>
+    <script src="popup.js"></script>
+
   </head>
   <body class="popup">
     <header class="header">
@@ -35,7 +39,9 @@
       <br>
       <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">
     </form>
-    <script src="jquery-2.1.1.min.js"></script>
-    <script src="popup.js"></script>
+    <!-- fb login button -->
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <!-- end of FB login -->
   </body>
 </html>
