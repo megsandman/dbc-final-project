@@ -370,3 +370,9 @@ a.thumbnail:hover {
   margin: auto;
   z-index: 11;
 }
+
+.lightbox_background{
+  background-color: white;
+  width: 70%;
+  margin: auto;
+}

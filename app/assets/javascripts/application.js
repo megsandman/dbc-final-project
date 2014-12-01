@@ -13,8 +13,9 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                       '<img class="lb-image" src=' + recipeImgUrl + '>' +
                       '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
                       '<button ng-click="showEdit=true">Edit</button>' +
-                      '<div ng-show="showEdit">' +
-                        '<form>' +
+                      '<div ng-show="showEdit" class="caption">' +
+                        '<div class="blur"></div>' +
+                        '<form class="caption-text">' +
                             '<input type="text" name="title" value="' + recipeTitle + '">' +
                             '<select class="categories thick-txt-bx">' +
                               '<option selected="selected">' + recipeCategory + '</option>' +
@@ -30,7 +31,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                         '</form>' +
                        '</div>' +
                       '</div>' +
-                '</div>',
+                  '</div>',
       plain: true
     });
     console.log(recipeImgUrl, recipeTitle);
