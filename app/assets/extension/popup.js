@@ -41,9 +41,20 @@ $('#new-recipe').on('submit', function(event) {
 });
 ///////  END NEW RECIPE  ///////
 
+////////   SESSIONS   /////////
+
 function checkLogin() {
   var session = jQuery.cookie("user_id");
   if ( session == null ) {
     console.log("No one is logged in!");
   }
 }
+
+
+/////    IMAGE SELECT    //////
+
+// document.mouseOver {
+//   img.draggable
+//   extension.droppable
+// }
+
