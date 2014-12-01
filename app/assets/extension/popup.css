@@ -27,6 +27,11 @@ html, body {
   margin: 0;
 }
 
+.title a {
+  text-decoration: none;
+  color: white;
+}
+
 #new-recipe {
   /*background-color: gray;*/
   width: 50%;
