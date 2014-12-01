@@ -7,17 +7,17 @@
     // Full docs on the response object can be found in the documentation for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      // print access token
+      console.log('token: ', response.authResponse.accessToken);
+      // stores users access token on login in session or local storage to send along with
+      //  every ajax call to your server
+      window.access_key = response.authResponse.accessToken;
       renderIndex();
     } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      console.log('not authorized');
+      console.log('in not authorized');
       renderLogin();
     } else {
-      console.log("else");
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      // document.getElementById('status').innerHTML = 'Please log ' +
-      //   'into Facebook.';
+      console.log("in else");
       renderLogin();
     }
   }
