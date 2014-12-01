@@ -1,24 +1,25 @@
-console.log("page ready man")
+////////////////////////////////
+/////// BUILD NEW RECIPE ///////
+////////////////////////////////
 
 $('#new-recipe').on('submit', function(event) {
   event.preventDefault();
 
   var recipeData = {
-    title: $('.recipe-title').val(),
-    source_url: $('.recipe-source-url').val(),
-    img_url: $('.recipe-img-url').val(),
+    recipe: {
+      title: $('.recipe-title').val(),
+      source_url: $('.recipe-source-url').val(),
+      img_url: $('.recipe-img-url').val(),
+    },
     tags: $('.recipe-tags').val(),
-    category_id: 1,
+    category: $('.categories').val()
   };
-  // var recipeData = $(this).serialize();
-  // debugger;
 
   var request = $.ajax({
     type: 'POST',
     url: 'http://chefboard.herokuapp.com/users/1/recipes',
     // url: 'http://localhost:3000/users/1/recipes',
     data: recipeData,
-    // dataType: 'JSONP',
     crossDomain: true,
     success: function( response ) {
       console.log(response);
@@ -37,16 +38,23 @@ $('#new-recipe').on('submit', function(event) {
     console.log("FAILURE");
 
   });
-
-
-  // console.log(request);
 });
+///////  END NEW RECIPE  ///////
 
-// window.addEventListener('load', function(event) {
+////////   SESSIONS   /////////
 
-//     statusDisplay = $('#status-display').val();
-//     $('#addResource').on('submit', addResource);
-//     chrome.runtime.getBackgroundPage(function(eventPage) {
-//         eventPage.getPageDetails(onPageDetailsReceived);
-//     });
-// });
+function checkLogin() {
+  var session = jQuery.cookie("user_id");
+  if ( session == null ) {
+    console.log("No one is logged in!");
+  }
+}
+
+
+/////    IMAGE SELECT    //////
+
+// document.mouseOver {
+//   img.draggable
+//   extension.droppable
+// }
+

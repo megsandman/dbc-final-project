@@ -16,14 +16,18 @@ class RecipesController < ApplicationController
   end
 
   def create
-    # binding.pry
+    ##########################
+    ### => Need to find the user based on params[:user_id] from URL
+    ### => then add this new recipe to user_name.recipes
+    user = User.find_by(id: params[:user_id])
+
     @recipe = Recipe.new(recipe_params)
     category = params[:category] || "Appetizers"
     @recipe.category_id = Category.get_category_id(category)
 
-    # recipe_tags = params[:tags]
-    # tags_array = recipe_tags.split(',')
-    # tags_array.map! {|tag| tag.strip}
+    recipe_tags = params[:tags]
+    tags_array = recipe_tags.split(',')
+    tags_array.map! {|tag| tag.strip}
 
     tags_array = Tag.process_tags(params[:tags])
 
@@ -36,6 +40,7 @@ class RecipesController < ApplicationController
     end
 
     if @recipe.save
+      user.recipes << @recipe
       render json: @recipe.to_json
     else
       format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -54,7 +59,7 @@ class RecipesController < ApplicationController
     #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
 
     ####### => Do we include tags here??? the Extension will be sending tags with it.
-    params.permit(:title, :source_url, :img_url, :tags, :category_id)
+    params.require(:recipe).permit(:title, :source_url, :img_url, :category_id)
   end
 
   def set_headers
