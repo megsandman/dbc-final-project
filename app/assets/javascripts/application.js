@@ -38,15 +38,15 @@ $('.logout-button').click(function(){
   $('body').addClass('body-background-image')
 })
 
-var token = function() {
-  return {
-    facebook_id: localStorage.getItem("facebook_id"),
-    token: localStorage.getItem("token")
-  };
-};
-var loggedIn = function() {
-  return localStorage.getItem('facebook_id') === null ? false : true;
-};
+// var token = function() {
+//   return {
+//     facebook_id: localStorage.getItem("facebook_id"),
+//     token: localStorage.getItem("token")
+//   };
+// };
+// var loggedIn = function() {
+//   return localStorage.getItem('facebook_id') === null ? false : true;
+// };
 
 
 // $('#status').on('click', '.logout-button', function() {
