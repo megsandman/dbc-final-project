@@ -5,6 +5,10 @@ body, html{
   height: 100%;
 }
 
+.hidden-div {
+  display: none;
+}
+
 .main-container {
   width: 100%;
   height: 100%;
@@ -246,7 +250,9 @@ body, html{
   font-size: 1.5em;
   font: sans-serif;
 }
-
+.footer {
+  height: 50px
+}
 /*----------------------------------------------*/
 /*-----------    CUSTOM CAPTIONING   -----------*/
 /*----------------------------------------------*/
@@ -303,4 +309,40 @@ a.thumbnail:hover {
   width: inherit;
 }
 
+/*----------------------------------------------*/
+/*-----------    LOGIN TEMPLATE   -----------*/
+/*----------------------------------------------*/
 
+#login-template {
+  background-image: ("/assets/images/coffee.jpg");
+  /*background-color: red;*/
+}
+
+
+#login-template h1 {
+  color: #282828;
+  font-size: 4.5em;
+  font: serif;
+  letter-spacing: 3.5px;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.fb-button-div {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80px;
+  padding: 0;
+  /*background-color: green;*/
+}
+
+.fb-button {
+  width: 100px;
+}
+
+.body-background-image {
+  background-position: center;
+  background-size: cover;
+  background-image: url('coffee.jpg')
+}

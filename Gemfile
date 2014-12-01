@@ -19,6 +19,9 @@ gem 'rack-cors', :require => 'rack/cors'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem "koala", "~> 1.10.0rc"
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

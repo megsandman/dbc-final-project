@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chefboard</title>
+  <title>chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="assets/application.css" rel="stylesheet" type="text/css">
+  <script src="assets/facebook.js"></script>
   <script src="assets/angular.js"></script>
   <script src="assets/jquery-1.11.0.min.js"></script>
+  <link href="assets/application.css" rel="stylesheet" type="text/css">
   <script src="assets/lightbox.min.js"></script>
   <link href="assets/lightbox.css" rel="stylesheet" />
-
-
 </head>
-  <body ng-app="Chefboard" ng-controller="BoardController">
+<body ng-app="Chefboard" ng-controller="BoardController" >
+    <!-- FACEBOOK SCRIPT FOR BUTTON -->
+  <div id="fb-root"></div>
+
+<div id="status"></div>
+
+
+<div id="index-template" class="hidden-div">
   <div class="main-container">
     <!-- HEADER  -->
     <div class="main-header">
@@ -28,7 +32,7 @@
           </form>
         </li>
         <li>
-          <a href="#">Logout</a>
+          <a href="#" class="logout-button">Logout</a>
         </li>
       </ul>
     </div>
@@ -56,53 +60,48 @@
               </select>
               <input type="submit" value="New Pin">
             </form>
-            <! <button class="new-pin-button" ng-click="">New Pin</button>
           </div> -->
       </div>
 
   <!-- MAIN CONTENT  -->
-    <div class="content">
-    <!-- PINS -->
-        <div class="all-tiles">
-          <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}">
-
-
-              <div class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
-
-                <div class="offset_div">
-                </div>
-
-                <div class="caption">
-                  <div class="blur">
+      <div class="content">
+      <!-- PINS -->
+          <div class="all-tiles">
+                <div class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                  <div class="offset_div">
                   </div>
-                  <div class="caption-text">
-                    <br>
-                    <h3>{{recipe.title}}</h3>
+                  <div class="caption">
+                    <div class="blur">
+                    </div>
+                    <div class="caption-text">
+                      <br>
+                      <h3>{{recipe.title}}</h3>
+                    </div>
                   </div>
                 </div>
 
-              </div>
 
-
-          </a>
-
-        <!-- <div class="recipe-image"> -->
-                  <!-- <img ng-src="{{recipe.img_url}}"> -->
-              <!-- </div> -->
-
-
-        </div>
+          <!-- <div class="recipe-image"> -->
+                    <!-- <img ng-src="{{recipe.img_url}}"> -->
+                <!-- </div> -->
+          </div>
+      </div>
+      <div class="footer"></div>
     </div>
-
-  <!-- END MAIN CONTENT -->
-
   </div>
 </div>
+<!-- WHEN USER NOT LOGGED IN -->
+<div id="login-template" class="hidden-div">
+  <h1>welcome to chefboard.</h1>
+  <div class="fb-button-div"><fb:login-button scope='public_profile,email' onlogin='checkLoginState();' class=".fb-button"></div>
+  </fb:login-button>
+</div>
 
-<script src="assets/application.js"></script>
+    <!-- FACEBOOK BUTTON -->
+    <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+  </div> -->
 
-
-
+  <script src="assets/application.js"></script>
 </body>
 </html>
 
