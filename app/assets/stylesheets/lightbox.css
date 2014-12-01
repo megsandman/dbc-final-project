@@ -34,6 +34,8 @@ body:after {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+  margin: auto;
+  z-index: 11;
 }
 
 .lightbox a img {

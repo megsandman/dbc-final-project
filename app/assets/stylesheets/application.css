@@ -208,6 +208,7 @@ body, html{
 .all-tiles {
   margin-top: 80px;
   width: 100%;
+  position: relative;
 }
 
 .recipe-container {
@@ -216,6 +217,7 @@ body, html{
   border-radius: 4px;
   height: 200px;
   overflow: hidden;
+  position: relative;
 }
 
 .col-xs-3 {
@@ -301,6 +303,30 @@ a.thumbnail:hover {
 .offset_div{
   height: inherit;
   width: inherit;
+}
+
+.lightbox {
+  position: relative;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-weight: normal;
+}
+
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  margin: auto;
+  z-index: 11;
 }
 
 
