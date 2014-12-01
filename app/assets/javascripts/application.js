@@ -6,6 +6,8 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   });
 
    $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
+    var recipeTags = recipeTagString.split(", ");
+    $scope.recipeTags = recipeTags;
     console.log(recipeTagString);
 
     ngDialog.open({
@@ -20,34 +22,32 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                                   '<div class="blur">' +
                                   '</div>' +
                                   '<div class="caption-text">' +
-                                    '<h3>Edit Form Goes Here</h3>' +
+                                    '<form>' +
+                                        '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                        '<select class="categories thick-txt-bx">' +
+                                          '<option selected="selected">' + recipeCategory + '</option>' +
+                                          // '<option value="" disabled selected>' + recipeCategory +'</option>' +
+                                          '<option value="1">Appetizers</option>' +
+                                          '<option value="2">Beverages</option>' +
+                                          '<option value="3">Breakfast</option>' +
+                                          '<option value="4">Entrees</option>' +
+                                          '<option value="5">Salads</option>' +
+                                          '<option value="6">Sides</option>' +
+                                        '</select>' +
+                                        '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
+                                        '<div class="form-group" ng-repeat="tag in recipeTags">' +
+                                          '<p>"{{tag}}"</p>' +
+                                        '</div>' +
+                                    '</form>' +
                                   '</div>' +
                                 '</div>' +
                               '</div>' +
-
                             '</td>' +
                           '</tr>' +
                           '<tr>' +
                             '<td>' +
                               '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
-                              '<button ng-click="editPin()">Edit</button>' +
-                              '<div ng-show="showEdit">' +
-                                '<div class="blur"></div>' +
-                                '<form class="caption-text">' +
-                                    '<input type="text" name="title" value="' + recipeTitle + '">' +
-                                    '<select class="categories thick-txt-bx">' +
-                                      '<option selected="selected">' + recipeCategory + '</option>' +
-                                      // '<option value="" disabled selected>' + recipeCategory +'</option>' +
-                                      '<option value="1">Appetizers</option>' +
-                                      '<option value="2">Beverages</option>' +
-                                      '<option value="3">Breakfast</option>' +
-                                      '<option value="4">Entrees</option>' +
-                                      '<option value="5">Salads</option>' +
-                                      '<option value="6">Sides</option>' +
-                                    '</select>' +
-                                    '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
-                                '</form>' +
-                               '</div>' +
+                              '<button ng-click="editPin(); showEdit=true">Edit</button>' +
                               '</td>' +
                             '</tr>' +
                          '</table>' +
@@ -65,7 +65,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   };
 
   $scope.editPin = function(){
-    // alert("editPin function called. Make it apply the hover css class stuff on click");
+    alert("editPin function called. Make it apply the hover css class stuff on click");
   };
 
 
