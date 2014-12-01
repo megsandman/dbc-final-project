@@ -11,6 +11,12 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
        template: '<div class="lightbox">' +
                     '<img class="lb-image" src=' + recipeImgUrl + '>' +
                     '<a href=' + recipeSourceUrl + ' target="_blank"><p>' + recipeTitle + '</p></a>' +
+                    '<button ng-click="showEdit=true">Edit</button>' +
+                    '<div ng-show="showEdit">' +
+                    '<form>' +
+                        '<input type="text" name="title" value="' + recipeTitle + '">' +
+                    '</form>' +
+                    '</div>' +
                 '</div>',
       plain: true
     });
