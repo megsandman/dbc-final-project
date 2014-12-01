@@ -6,7 +6,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   });
 
 
-  $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl) {
+  $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory) {
     ngDialog.open({
        template: '<div class="lightbox">' +
                     '<img class="lb-image" src=' + recipeImgUrl + '>' +
@@ -15,6 +15,16 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                     '<div ng-show="showEdit">' +
                     '<form>' +
                         '<input type="text" name="title" value="' + recipeTitle + '">' +
+                        '<select class="categories thick-txt-bx">' +
+                          '<option selected="selected">' + recipeCategory + '</option>' +
+                          // '<option value="" disabled selected>' + recipeCategory +'</option>' +
+                          '<option value="1">Appetizers</option>' +
+                          '<option value="2">Beverages</option>' +
+                          '<option value="3">Breakfast</option>' +
+                          '<option value="4">Entrees</option>' +
+                          '<option value="5">Salads</option>' +
+                          '<option value="6">Sides</option>' +
+                        '</select>' +
                     '</form>' +
                     '</div>' +
                 '</div>',

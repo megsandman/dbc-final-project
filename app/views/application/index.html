@@ -78,7 +78,7 @@
           <!-- <a href="{{recipe.img_url}}" data-lightbox="recipe-{{recipe.id}}" data-title="{{recipe.title}}"> -->
 
 
-              <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+              <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
 
                 <div class="offset_div">
                 </div>
