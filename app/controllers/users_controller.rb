@@ -20,4 +20,23 @@ class UsersController < ApplicationController
         p response
     end
 
+    def login
+
+      # takes FB ID and checks to see if user exists
+
+      # if user exists
+        # Assign access key
+
+      # if user does NOT exist
+        # Create new user based on params
+        # Assign access key
+
+    end
+
+    def logout
+
+      # delete access key
+
+    end
+
 end
