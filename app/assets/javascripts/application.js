@@ -7,6 +7,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
 
    $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
     console.log(recipeTagString);
+
     ngDialog.open({
        template: '<div class="lightbox">' +
                     '<div>' +
@@ -19,7 +20,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                           '<tr>' +
                             '<td>' +
                               '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
-                              '<button ng-click="showEdit=true">Edit</button>' +
+                              '<button ng-click="editPin()">Edit</button>' +
                               '<div ng-show="showEdit" class="caption">' +
                                 '<div class="blur"></div>' +
                                 '<form class="caption-text">' +
@@ -42,10 +43,15 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                          '</table>' +
                       '</div>' +
                   '</div>',
-      plain: true
+      plain: true,
+      scope: $scope
     });
     console.log(recipeImgUrl, recipeTitle);
-  }
+  };
+
+  $scope.editPin = function(){
+    alert("editPin function called. Make it apply the hover css class stuff on click");
+  };
 
 //MEG SUN NIGHT
   // $scope.submittedLogin = false;
@@ -127,3 +133,7 @@ $('.logout-button').click(function(){
 // });
 
 // test
+
+// $("#edit").on('click', function(){
+//   alert("hi");
+// });

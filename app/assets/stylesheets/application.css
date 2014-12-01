@@ -373,4 +373,7 @@ a.thumbnail:hover {
 
 .lightbox table{
   margin: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
 }
