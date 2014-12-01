@@ -1,6 +1,6 @@
-angular.module('Chefboard', []);
+angular.module('Chefboard', ["ui.bootstrap", "ngDialog"]);
 
-angular.module('Chefboard').controller('BoardController', function ($scope, $http) {
+angular.module('Chefboard').controller('BoardController', function ($scope, $http, ngDialog) {
   $http.get('/users/1/recipes').success(function(data) {
     $scope.recipes = data;
   });
