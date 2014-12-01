@@ -347,3 +347,26 @@ a.thumbnail:hover {
   background-image: url('coffee.jpg')
 }
 
+.lightbox {
+  position: relative;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-weight: normal;
+}
+
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  margin: auto;
+  z-index: 11;
+}
