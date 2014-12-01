@@ -5,7 +5,8 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
     $scope.recipes = data;
   });
 
-   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory) {
+   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
+    console.log(recipeTagString);
     ngDialog.open({
        template: '<div class="lightbox">' +
                     '<div class="lightbox_background">' +
@@ -25,6 +26,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                               '<option value="5">Salads</option>' +
                               '<option value="6">Sides</option>' +
                             '</select>' +
+                            '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
                         '</form>' +
                        '</div>' +
                       '</div>' +
