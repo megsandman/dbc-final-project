@@ -1,4 +1,3 @@
-// <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -64,7 +63,7 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made
-  function renderIndex(data) {
+  function renderIndex() {
     FB.api('/me', function(response) {
       console.log(response);
     });
