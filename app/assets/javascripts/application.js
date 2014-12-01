@@ -16,12 +16,12 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                       '<table>' +
                           '<tr>' +
                             '<td>' +
-                              '<div class="custom_captioning">' +
+                              '<div class="custom_editing">' +
                                 '<img class="lb-image" src=' + recipeImgUrl + '>' +
-                                '<div class="caption">' +
+                                '<div class="edit_form">' +
                                   '<div class="blur">' +
                                   '</div>' +
-                                  '<div class="caption-text">' +
+                                  '<div class="edit_form-text">' +
                                     '<form>' +
                                         '<input type="text" name="title" value="' + recipeTitle + '">' +
                                         '<select class="categories thick-txt-bx">' +

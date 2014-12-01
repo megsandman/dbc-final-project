@@ -377,3 +377,48 @@ a.thumbnail:hover {
   padding: 20px;
   border-radius: 3px;
 }
+
+/**********STYLING FOR EDIT FORM********/
+.custom_editing{
+  position: relative;
+  overflow: hidden;
+}
+
+.custom_editing:hover .edit_form{
+  opacity: 1;
+  transform: translateY(-300px);
+  -webkit-transform:translateY(-300px);
+  -moz-transform:translateY(-300px);
+  -ms-transform:translateY(-300px);
+  -o-transform:translateY(-300px);
+}
+.custom_editing img{
+  z-index: 4;
+}
+.custom_editing .edit_form{
+  position: absolute;
+  -webkit-transition:all 0.1s ease-in-out;
+  -moz-transition:all 0.1s ease-in-out;
+  -o-transition:all 0.1s ease-in-out;
+  -ms-transition:all 0.1s ease-in-out;
+  transition:all 0.1s ease-in-out;
+  width: 100%;
+}
+
+.custom_editing .blur{
+  background-color: rgba(251,251,251,0.7);
+  height: 300px;
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+}
+
+.custom_editing .edit_form-text{
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  height: 300px;
+  text-align: center;
+  top:-20px;
+  width: 100%;
+}
