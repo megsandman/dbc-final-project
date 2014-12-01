@@ -9,27 +9,37 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
     console.log(recipeTagString);
     ngDialog.open({
        template: '<div class="lightbox">' +
-                    '<div class="lightbox_background">' +
-                      '<img class="lb-image" src=' + recipeImgUrl + '>' +
-                      '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
-                      '<button ng-click="showEdit=true">Edit</button>' +
-                      '<div ng-show="showEdit" class="caption">' +
-                        '<div class="blur"></div>' +
-                        '<form class="caption-text">' +
-                            '<input type="text" name="title" value="' + recipeTitle + '">' +
-                            '<select class="categories thick-txt-bx">' +
-                              '<option selected="selected">' + recipeCategory + '</option>' +
-                              // '<option value="" disabled selected>' + recipeCategory +'</option>' +
-                              '<option value="1">Appetizers</option>' +
-                              '<option value="2">Beverages</option>' +
-                              '<option value="3">Breakfast</option>' +
-                              '<option value="4">Entrees</option>' +
-                              '<option value="5">Salads</option>' +
-                              '<option value="6">Sides</option>' +
-                            '</select>' +
-                            '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
-                        '</form>' +
-                       '</div>' +
+                    '<div>' +
+                      '<table>' +
+                          '<tr>' +
+                            '<td>' +
+                              '<img class="lb-image" src=' + recipeImgUrl + '>' +
+                            '</td>' +
+                          '</tr>' +
+                          '<tr>' +
+                            '<td>' +
+                              '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
+                              '<button ng-click="showEdit=true">Edit</button>' +
+                              '<div ng-show="showEdit" class="caption">' +
+                                '<div class="blur"></div>' +
+                                '<form class="caption-text">' +
+                                    '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                    '<select class="categories thick-txt-bx">' +
+                                      '<option selected="selected">' + recipeCategory + '</option>' +
+                                      // '<option value="" disabled selected>' + recipeCategory +'</option>' +
+                                      '<option value="1">Appetizers</option>' +
+                                      '<option value="2">Beverages</option>' +
+                                      '<option value="3">Breakfast</option>' +
+                                      '<option value="4">Entrees</option>' +
+                                      '<option value="5">Salads</option>' +
+                                      '<option value="6">Sides</option>' +
+                                    '</select>' +
+                                    '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
+                                '</form>' +
+                               '</div>' +
+                              '</td>' +
+                            '</tr>' +
+                         '</table>' +
                       '</div>' +
                   '</div>',
       plain: true
