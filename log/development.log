@@ -57327,3 +57327,266 @@ Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 a
 
 
 Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-11-30 19:47:53 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:45:22 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:45:22 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:45:22 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:45:32 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:45:32 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:45:32 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (1.4ms)
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/lightbox.min.js" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/ui-bootstrap-tpls-0.11.2.js" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/lightbox.css" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/jquery-1.11.0.min.js" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/ngDialog.css" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/ngDialog.js" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (1.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:45:51 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.0ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/jquery-1.11.0.min.js" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/lightbox.min.js" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/lightbox.css" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/ui-bootstrap-tpls-0.11.2.js" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/ngDialog.css" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/ngDialog.js" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:47:03 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.1ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/lightbox.min.js" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/ngDialog.css" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/ui-bootstrap-tpls-0.11.2.js" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/lightbox.css" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/jquery-1.11.0.min.js" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/ngDialog.js" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:47:24 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-01 09:47:51 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/jquery-1.11.0.min.js" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/lightbox.min.js" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/lightbox.css" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/ngDialog.css" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/ui-bootstrap-tpls-0.11.2.js" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/ngDialog.js" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY created_at desc
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:47:52 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html (0.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/angular.js" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/lightbox.css" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/jquery-1.11.0.min.js" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/lightbox.min.js" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/ui-bootstrap-tpls-0.11.2.js" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/ngDialog.css" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/ngDialog.js" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/users/1/recipes" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+Processing by RecipesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY created_at desc[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/chocolate-chip-cookie.jpg" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/crispy-sweet-potato-roast.jpg" for 127.0.0.1 at 2014-12-01 09:48:02 -0800
+
+
+Started GET "/assets/cranberry-pie-with-thick-pecan-crumble.jpg" for 127.0.0.1 at 2014-12-01 09:48:02 -0800

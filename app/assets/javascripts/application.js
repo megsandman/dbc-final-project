@@ -10,7 +10,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
     ngDialog.open({
        template: '<div class="lightbox">' +
                     '<img class="lb-image" src=' + recipeImgUrl + '>' +
-                    '<a href=' + recipeSourceUrl + '><p>' + recipeTitle + '</p></a>' +
+                    '<a href=' + recipeSourceUrl + ' target="_blank"><p>' + recipeTitle + '</p></a>' +
                 '</div>',
       plain: true
     });
