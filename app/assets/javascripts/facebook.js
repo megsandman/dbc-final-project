@@ -1,19 +1,23 @@
- // </script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
+    // console.log('statusChangeCallback');
+    // console.log('printing response from status change callback:')
+    // console.log(response);
     // The response object is returned with a status field that lets the app know the current login status of the person.
     // Full docs on the response object can be found in the documentation for FB.getLoginStatus().
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
+      console.log('printing from status connected')
+      console.log('token: ', response.authResponse.accessToken);
+      // if the user logs in, store users access token on login in session or local storage to send along with every ajax call to your server
+      window.access_key = response.authResponse.accessToken;
+      window.facebook_id = response.authResponse.userID;
       renderIndex();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      console.log('not authorized');
+      console.log('in not authorized');
       renderLogin();
     } else {
-      console.log("else");
+      console.log("in else");
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       // document.getElementById('status').innerHTML = 'Please log ' +
@@ -63,26 +67,18 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made
+
   function renderIndex() {
     FB.api('/me', function(response) {
+      console.log('printing response in render index:')
       console.log(response);
     });
-    // var indexHtml   = $("#index-template").html();
     $('#index-template').removeClass('hidden-div')
     $('#login-template').addClass('hidden-div')
     $('body').removeClass('body-background-image')
-    // $('#status').empty()
-    // $('#status').append(indexHtml)
   };
 
   function renderLogin() {
-    console.log('in login')
-    // var loginHtml   = $("#login-template").html();
     $('#login-template').removeClass('hidden-div')
     $('#index-template').addClass('hidden-div')
-    // $('#status').empty()
-    // $('#status').append(loginHtml)
   };
-// </script>
