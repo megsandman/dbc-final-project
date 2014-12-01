@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+<html ng-app="Chefboard" ng-controller="BoardController" >
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="assets/facebook.js"></script>
+  <link href="assets/application.css" rel="stylesheet" type="text/css">
   <script src="assets/angular.js"></script>
   <script src="assets/jquery-1.11.0.min.js"></script>
-  <link href="assets/application.css" rel="stylesheet" type="text/css">
   <script src="assets/lightbox.min.js"></script>
   <link href="assets/lightbox.css" rel="stylesheet" />
+  <script src="assets/ui-bootstrap-tpls-0.11.2.js"></script>
+  <script src="assets/ngDialog.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/ngDialog.css">
 </head>
-<body ng-app="Chefboard" ng-controller="BoardController" >
+<body>
     <!-- FACEBOOK SCRIPT FOR BUTTON -->
   <div id="fb-root"></div>
 
@@ -67,7 +71,7 @@
       <div class="content">
       <!-- PINS -->
           <div class="all-tiles">
-                <div class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
                   <div class="offset_div">
                   </div>
                   <div class="caption">
