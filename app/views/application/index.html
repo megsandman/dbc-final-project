@@ -93,13 +93,15 @@
 <!-- WHEN USER NOT LOGGED IN -->
 <div id="login-template" class="hidden-div">
   <h1>welcome to chefboard.</h1>
-  <div class="fb-button-div"><fb:login-button scope='public_profile,email' onlogin='checkLoginState();' class=".fb-button"></div>
-  </fb:login-button>
+  <div class="fb-button-div">
+    <!-- <fb:login-button scope='public_profile,email' onlogin='checkLoginState();' class="fb-button">
+    </fb:login-button> -->
+    <!-- FACEBOOK BUTTON V2 -->
+    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+  </div>
 </div>
 
-    <!-- FACEBOOK BUTTON -->
-    <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-  </div> -->
+
 
   <script src="assets/application.js"></script>
 </body>

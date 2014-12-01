@@ -3,6 +3,7 @@
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
+    alert('hi')
     // The response object is returned with a status field that lets the app know the current login status of the person.
     // Full docs on the response object can be found in the documentation for FB.getLoginStatus().
     if (response.status === 'connected') {
@@ -54,6 +55,12 @@
       statusChangeCallback(response);
     });
 
+    $('.fb-login-button').on('click', function() {
+        FB.login(function(response) {
+            checkLoginState();
+        }, {scope: 'public_profile,email'});
+    });
+
   };
 
   // Load the SDK asynchronously
@@ -71,12 +78,9 @@
     FB.api('/me', function(response) {
       console.log(response);
     });
-    // var indexHtml   = $("#index-template").html();
     $('#index-template').removeClass('hidden-div')
     $('#login-template').addClass('hidden-div')
     $('body').removeClass('body-background-image')
-    // $('#status').empty()
-    // $('#status').append(indexHtml)
   };
 
   function renderLogin() {
