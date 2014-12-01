@@ -49,6 +49,11 @@ $('#new-recipe').on('submit', function(event) {
 //   extension.droppable
 // }
 
+$('.recipe-img-url').mouseup( function(event) {
+  console.log(event);
+})
+
+
 chrome.tabs.query({active: true, currentWindow:true}, function(array) {
   var currentPage = array[0];
   var currentUrl = currentPage.url;
@@ -56,5 +61,7 @@ chrome.tabs.query({active: true, currentWindow:true}, function(array) {
 
   $('.recipe-source-url').val(currentUrl);
   $('.recipe-title').val(currentTitle)
+  // console.log(chrome.extension.getExtensionTabs(currentPage.id))
   console.log(currentPage);
+  console.log(chrome.extension.getBackgroundPage());
 });

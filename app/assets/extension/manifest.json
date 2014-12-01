@@ -6,7 +6,7 @@
   "background": {
     "scripts": ["event.js"],
     "persistent": false
-  }
+  },
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -17,6 +17,7 @@
 
   "permissions": [
     "tabs",
+    "activeTab",
     "http://*/*",
     "https://*/*",
     "https://chefboard.herokuapp.com/",
