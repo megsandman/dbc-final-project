@@ -14,14 +14,24 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                       '<table>' +
                           '<tr>' +
                             '<td>' +
-                              '<img class="lb-image" src=' + recipeImgUrl + '>' +
+                              '<div class="custom_captioning">' +
+                                '<img class="lb-image" src=' + recipeImgUrl + '>' +
+                                '<div class="caption">' +
+                                  '<div class="blur">' +
+                                  '</div>' +
+                                  '<div class="caption-text">' +
+                                    '<h3>Edit Form Goes Here</h3>' +
+                                  '</div>' +
+                                '</div>' +
+                              '</div>' +
+
                             '</td>' +
                           '</tr>' +
                           '<tr>' +
                             '<td>' +
                               '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
                               '<button ng-click="editPin()">Edit</button>' +
-                              '<div ng-show="showEdit" class="caption">' +
+                              '<div ng-show="showEdit">' +
                                 '<div class="blur"></div>' +
                                 '<form class="caption-text">' +
                                     '<input type="text" name="title" value="' + recipeTitle + '">' +
@@ -46,12 +56,19 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
       plain: true,
       scope: $scope
     });
+
+    //  $("body").on('load', '.lightbox', function(){
+    //   alert("lightbox loaded");
+    // });
+
     console.log(recipeImgUrl, recipeTitle);
   };
 
   $scope.editPin = function(){
-    alert("editPin function called. Make it apply the hover css class stuff on click");
+    // alert("editPin function called. Make it apply the hover css class stuff on click");
   };
+
+
 
 //MEG SUN NIGHT
   // $scope.submittedLogin = false;
