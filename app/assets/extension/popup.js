@@ -14,12 +14,7 @@ function renderExtension() {
   }
 }
 
-  renderExtension();
-
-
-
-
-
+  // renderExtension();
 
 ////////////////////////////////
 /////// BUILD NEW RECIPE ///////
@@ -70,20 +65,16 @@ chrome.tabs.query({active: true, currentWindow:true}, function(array) {
   var currentPage = array[0];
   var currentUrl = currentPage.url;
   var currentTitle = currentPage.title;
+    images = scrapeImage(currentPage);
 
-  $('.recipe-source-url').val(currentUrl);
-  $('.recipe-title').val(currentTitle)
-
-    images = scrapeImage(currentUrl);
     console.log(images);
 });
 
 /////    IMAGE SELECT    //////
 // go to currentPage.url and scrape that bad boy
-function scrapeImage(targetUrl) {
-
+function scrapeImage(currentPage) {
     $.ajax({
-      url: targetUrl,
+      url: currentPage.url,
       type: 'get',
       dataType: "", //JSONP?
       success: function(data) {
@@ -93,9 +84,10 @@ function scrapeImage(targetUrl) {
         //find images in the document
         $.each($magic.find('img[src]'), function(index, item) {
           image_src = $(item).attr('src')
-          $('<option>' + image_src + '</option>').appendTo('.scraped-images');
+          $('<img src=' + image_src + '>').appendTo('.scraped-images');
           images.push(image_src);
         })
+        addImageListeners(currentPage);
         return images
       },
       error: function(status) {
@@ -104,4 +96,14 @@ function scrapeImage(targetUrl) {
     })
   }
 
+  function addImageListeners(currentPage) {
+    $('img').on('click', function() {
+      $('#new-recipe').append(form);
+      $('.scraped-images').toggle();
+      var src = $(this).attr('src');
+      $('.recipe-img-url').val(src);
+      $('.recipe-source-url').val(currentPage.url);
+      $('.recipe-title').val(currentPage.title)
+    });
+  }
 });/// END ON READY
