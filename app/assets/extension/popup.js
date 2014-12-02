@@ -20,12 +20,15 @@ $(document).ready( function() {
       }
     })
   }///////////      END AUTHENTICATE      ///////////
+
+
   /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
   chrome.tabs.query({active: true, currentWindow:true}, function(array) {
     var currentPage = array[0];
     var currentUrl = currentPage.url;
     var currentTitle = currentPage.title;
-    scrapeImages(currentPage);
+    renderPinnedSuccess();
+    // scrapeImages(currentPage);
   });
   //////////////////////    IMAGE SELECT    ///////////////////////
   function scrapeImages(currentPage) {
@@ -35,6 +38,8 @@ $(document).ready( function() {
       dataType: "",
       success: function(data) {
         $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
+        var title = '<br><h5>Select Recipe Image:</h5><br>'
+        $('.scraped-images').prepend(title);
         //find images in the document
         $.each($pageData.find('img[src]'), function(index, item) {
           image_src = $(item).attr('src')
@@ -77,6 +82,14 @@ $(document).ready( function() {
       document.location.href="http://chefboard.herokuapp.com/"
     });
   }
+  function getPinnedPrompt() {
+    // on submit of form, render this and toggle off form.
+    // var successfulPin =
+  }
+  function renderPinnedSuccess() {
+
+  }
+  ///////      This will be used for varifying LOGIN
   function renderExtension() {
     var testNum = 1 //test value for checking the toggling between form/loggedout prompt
     if (testNum == 1) {
