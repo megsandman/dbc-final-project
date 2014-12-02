@@ -71,3 +71,14 @@ html, body {
   letter-spacing: 3px;
   padding: auto;
 }
+
+.scraped-images {
+  text-align: center;
+  width: 55%;
+  margin: auto;
+}
+
+.scraped-images img {
+  width: 50%;
+  /*margin: 2%;*/
+}
