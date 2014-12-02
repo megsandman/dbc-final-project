@@ -6,10 +6,27 @@ class RecipesController < ApplicationController
   def index
     fb_id = params[:user_id]
     if User.find_by_facebook_id(fb_id) == nil
-      #CREATE USER
-      @oauth = Koala::Facebook::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')
-      @oauth.get_user_info_from_cookies(cookes)
+      p "*" * 50
+      p "in create user section"
+      @oauth = Koala::Facebook::OAuth.new(ENV['APP_ID'], ENV['APP_SECRET'], ENV['CALLBACK_URI'])
+      @facebook_cookies = @oauth.get_user_info_from_cookies(cookies)
+      @fb_user_id = @facebook_cookies["user_id"]
+      @access_token = @facebook_cookies["access_token"]
+      @graph = Koala::Facebook::API.new(@access_token)
+      graph = @graph.get_object("#{@fb_user_id}")
+      p "*" * 50
+      user = User.new(facebook_id: @fb_user_id,
+                      first_name: graph["first_name"],
+                      last_name: graph["last_name"],
+                      email: graph["email"])
+      if user.save
+        p "saved!"
+      else
+        p "didn't save"
+      end
+
     else
+      p "!" * 50
       user = User.find_by_facebook_id(fb_id)
       @recipes = user.recipes.order('created_at desc')
       render json: @recipes.to_json
