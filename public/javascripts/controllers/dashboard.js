@@ -73,25 +73,37 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     };
 
     $scope.editPin = function(){
-      $(".edit_form_click").removeClass("edit_form_cancel");
-      $(".edit_form_click").addClass("edit_form");
+      if ( loggedIn() ){
+        $(".edit_form_click").removeClass("edit_form_cancel");
+        $(".edit_form_click").addClass("edit_form");
+      } else {
+        $location.path('/');
+      }
     };
 
     $scope.cancelEdit = function(){
-      $(".edit_form_click").removeClass("edit_form");
-      $(".edit_form_click").addClass("edit_form_cancel");
+      if ( loggedIn() ){
+        $(".edit_form_click").removeClass("edit_form");
+        $(".edit_form_click").addClass("edit_form_cancel");
+      } else {
+        $location.path('/');
+      }
     }
 
     $scope.addRecipe = function() {
-      $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
-        $scope.recipes.unshift(data);
-        console.log(data)
-        $scope.recipeTitle = "";
-        $scope.recipeLink = "";
-        $scope.imageLink = "";
-        $scope.recipeTags = "";
-        $scope.category = {};
-      });
+      if ( loggedIn() ){
+        $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
+          $scope.recipes.unshift(data);
+          console.log(data)
+          $scope.recipeTitle = "";
+          $scope.recipeLink = "";
+          $scope.imageLink = "";
+          $scope.recipeTags = "";
+          $scope.category = {};
+        });
+      } else {
+        $location.path('/');
+      }
     };
 
   }
@@ -100,8 +112,8 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
 // LOGOUT BUTTON FUNCTIONALITY
 
-$('.logout-button').click(function(){
-  FB.logout();
-  renderLogin();
-  $('body').addClass('body-background-image')
-})
+// $('.logout-button').click(function(){
+//   FB.logout();
+//   renderLogin();
+//   $('body').addClass('body-background-image')
+// })
