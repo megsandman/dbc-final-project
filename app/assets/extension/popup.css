@@ -80,5 +80,23 @@ html, body {
 
 .scraped-images img {
   width: 50%;
-  /*margin: 2%;*/
 }
+
+.successful-pin {
+  width:55%;
+  margin: 90px auto auto auto;
+  text-align: center;
+  line-height: 50%;
+}
+
+.success-subtitle {
+  font-size: 12px;
+}
+
+.successful-pin p {
+  line-height: 15%;
+}
+
+.success {
+  font-size: 18px;
+ }
