@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "ChefBoard",
+  "name": "chefboard.",
   "description": "Save recipe link and details to your webapp",
   "version": "1.0",
   "background": {

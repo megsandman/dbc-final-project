@@ -1,35 +1,12 @@
 $(document).ready( function() {
-
-  function getForm() {
-    var form =
-      '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
-    return form;
-  }
-
-  function getLoggedOut() {
-    var loggedOut = '<p>You are not logged in</p><a href="http://chefboard.herokuapp.com/"><button class="chefboard-btn">chefboard.</button></a>'
-    return loggedOut;
-  }
-
-  function renderExtension() {
-    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
-    if (testNum == 1) {
-      $('#new-recipe').append(getForm);
-    } else {
-      $('.logged-out').append(getLoggedOut);
-      $('#new-recipe').toggle();
-    }
-  }
-
 /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
   chrome.tabs.query({active: true, currentWindow:true}, function(array) {
     var currentPage = array[0];
     var currentUrl = currentPage.url;
     var currentTitle = currentPage.title;
+    scrapeImages(currentPage);
   });
-
-  /////    IMAGE SELECT    //////
-  // go to currentPage.url and scrape that bad boy of it's images!
+  //////////////////////    IMAGE SELECT    ///////////////////////
   function scrapeImages(currentPage) {
     $.ajax({
       url: currentPage.url,
@@ -53,7 +30,7 @@ $(document).ready( function() {
 
   function addImageListeners(currentPage) {
     $('img').on('click', function() {
-      $('#new-recipe').append(form);
+      $('#new-recipe').append(getForm);
       $('.scraped-images').toggle();
       var src = $(this).attr('src');
 
@@ -66,11 +43,28 @@ $(document).ready( function() {
     $('.recipe-title').val(currentPage.title)
     $('.recipe-img-url').val(src);
   }
+  ///////////////// VIEW TEMPLATES /////////////////
+  function getForm() {
+    var form =
+      '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
+    return form;
+  }
 
-  ////////////////////////////////
-  /////// BUILD NEW RECIPE ///////
-  ////////////////////////////////
+  function getLoggedOut() {
+    var loggedOut = '<p>You are not logged in</p><a href="http://chefboard.herokuapp.com/"><button class="chefboard-btn">chefboard.</button></a>'
+    return loggedOut;
+  }
 
+  function renderExtension() {
+    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
+    if (testNum == 1) {
+      $('#new-recipe').append(getForm);
+    } else {
+      $('.logged-out').append(getLoggedOut);
+      $('#new-recipe').toggle();
+    }
+  }
+  ////////////////////// BUILD NEW RECIPE ////////////////////////
   function getFormData() {
     var recipeData = {
       recipe: {
@@ -90,8 +84,8 @@ $(document).ready( function() {
 
     $.ajax({
       type: 'POST',
-      // url: 'http://chefboard.herokuapp.com/users/1/recipes',
-      url: 'http://localhost:3000/users/1/recipes',
+      url: 'http://chefboard.herokuapp.com/users/1/recipes',
+      // url: 'http://localhost:3000/users/1/recipes',
       data: recipeData,
       crossDomain: true,
       success: function( response ) {
