@@ -1,3 +1,11 @@
+$(document).ready( function() {
+  var form =
+      '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
+
+  $('#new-recipe').append(form);
+
+});
+
 ////////////////////////////////
 /////// BUILD NEW RECIPE ///////
 ////////////////////////////////
@@ -15,40 +23,31 @@ $('#new-recipe').on('submit', function(event) {
     category: $('.categories').val()
   };
 
-  var request = $.ajax({
+  $.ajax({
     type: 'POST',
-    url: 'http://chefboard.herokuapp.com/users/1/recipes',
-    // url: 'http://localhost:3000/users/1/recipes',
+    // url: 'http://chefboard.herokuapp.com/users/1/recipes',
+    url: 'http://localhost:3000/users/1/recipes',
     data: recipeData,
     crossDomain: true,
     success: function( response ) {
       console.log(response);
     },
     error: function( error ) {
-      console.log(recipeData);
-      console.log(this);
       console.log(error);
     }
-  }).done( function(serverData) {
-    console.log(serverData);
-    console.log("THIS WAS A SUCCESS");
-
-  }).fail( function(serverData) {
-    console.log(serverData);
-    console.log("FAILURE");
+  })
+  .done( function(serverData) {
+      console.log("THIS WAS A SUCCESS");
+      // close extension after ajax sent...hopefully
+      // window.close();
+  })
+  .fail( function(serverData) {
+      console.log("FAILURE");
+      // window.close();
 
   });
 });
 ///////  END NEW RECIPE  ///////
-
-////////   SESSIONS   /////////
-
-function checkLogin() {
-  var session = jQuery.cookie("user_id");
-  if ( session == null ) {
-    console.log("No one is logged in!");
-  }
-}
 
 
 /////    IMAGE SELECT    //////
@@ -58,3 +57,25 @@ function checkLogin() {
 //   extension.droppable
 // }
 
+chrome.tabs.query({active: true, currentWindow:true}, function(array) {
+  var currentPage = array[0];
+  var currentUrl = currentPage.url;
+  var currentTitle = currentPage.title;
+
+  $('.recipe-source-url').val(currentUrl);
+  $('.recipe-title').val(currentTitle)
+  // console.log(chrome.extension.getExtensionTabs(currentPage.id))
+  console.log(currentPage);
+  // console.log(chrome.extension.getBackgroundPage());
+});
+
+chrome.tabs.getSelected(null, function(tab) {
+  console.log(tab);
+})
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////

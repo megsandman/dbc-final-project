@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="popup.css">
     <script src="jquery-2.1.1.min.js"></script>
     <script src="popup.js"></script>
-
   </head>
 
   <body class="popup">
@@ -21,35 +20,14 @@
       </h3>
     </header>
     <br><br>
-     <form id="new-recipe">
-      <input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title">
-      <br>
-      <br>
-      <input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url">
-      <br>
-      <br>
-      <input type="text" class="recipe-img-url thick-txt-bx" name="img_url" placeholder="Image Url">
-      <br>
-      <br>
-      <input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="Recipe Tags">
-      <br>
-      <br>
-      <select class="categories thick-txt-bx">
-        <option value="" disabled selected>Select Recipe Category</option>
-        <option value="Appetizers">Appetizers</option>
-        <option value="Beverages">Beverages</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Entrees">Entrees</option>
-        <option value="Salads">Salads</option>
-        <option value="Sides">Sides</option>
-      </select>
-      <br>
-      <br>
-      <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">
-    </form>
-
-    <a href="http://chefboard.herokuapp.com/" target="_blank">
-      <button>Login to chefboard</button>
-    </a>
+    <div class="logged-out">
+      <p>You are not logged in</p>
+      <a href="http://chefboard.herokuapp.com/">
+        <button class="chefboard-btn">chefboard.</button>
+      </a>
+    </div>
+    <form id="new-recipe"></form>
+    <br>
+    <br>
   </body>
 </html>
