@@ -20,6 +20,17 @@ $(document).ready( function() {
       }
     })
   }///////////      END AUTHENTICATE      ///////////
+  ///////      This will be used for varifying LOGIN
+  function renderExtension() {
+    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
+    if (testNum == 1) {
+      $('#new-recipe').append(getForm);
+      submitRecipeListener();
+    } else {
+      $('.logged-out').append(getLoggedOut);
+      $('#new-recipe').toggle();
+    }
+  }
   /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
   chrome.tabs.query({active: true, currentWindow:true}, function(array) {
     var currentPage = array[0];
@@ -92,17 +103,6 @@ $(document).ready( function() {
   function renderPinnedSuccess() {
     $('.successful-pin').append(getPinnedPrompt());
     addRedirectListener();
-  }
-  ///////      This will be used for varifying LOGIN
-  function renderExtension() {
-    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
-    if (testNum == 1) {
-      $('#new-recipe').append(getForm);
-      submitRecipeListener();
-    } else {
-      $('.logged-out').append(getLoggedOut);
-      $('#new-recipe').toggle();
-    }
   }
   ////////////////////// BUILD NEW RECIPE ////////////////////////
   function getFormData() {
