@@ -17,7 +17,8 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                           '<tr>' +
                             '<td>' +
                               '<div class="custom_editing">' +
-                                '<img class="lb-image" src=' + recipeImgUrl + '>' +
+                                '<div class="lightbox_recipe_bg" style="background-image: url('+recipeImgUrl+')"></div>' +
+                                // '<img class="lb-image" src=' + recipeImgUrl + '>' +
                                 '<div class="edit_form_click">' +
                                   '<div class="blur">' +
                                   '</div>' +
