@@ -160,7 +160,7 @@ body, html{
 .sidebar-list li a {
   color: black;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-left: -10px;
   height: 100%;
   display: block;
@@ -176,7 +176,7 @@ body, html{
 .sidebar ul li:hover a {
   color: white;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-left: -10px;
 }
 
@@ -286,7 +286,7 @@ body, html{
 
 .custom_captioning .blur{
   background-color: rgba(0,0,0,0.7);
-  height: 300px;
+  height: 100px;
   z-index: 5;
   position: absolute;
   width: 100%;
@@ -296,7 +296,7 @@ body, html{
   z-index: 10;
   color: #fff;
   position: absolute;
-  height: 300px;
+  height: 0px;
   text-align: center;
   top:-20px;
   width: 100%;
@@ -380,6 +380,15 @@ a.thumbnail:hover {
   background-color: white;
   padding: 20px;
   border-radius: 3px;
+}
+
+.lightbox_link_label {
+  color: #282828;
+  text-decoration: none;
+}
+
+.lightbox_link_label:hover{
+  color: #323D43;
 }
 
 /**********STYLING FOR EDIT FORM********/
