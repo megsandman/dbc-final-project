@@ -16,7 +16,7 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
       localStorage.setItem("fbUserId", response.authResponse.userID);
       console.log('in status connected')
-      console.log(response.authResponse.userID)
+      // console.log(response)
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       localStorage.removeItem("fbUserId");

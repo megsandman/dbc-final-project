@@ -4,8 +4,8 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     $location.path('/');
   } else {
     console.log(localStorage.getItem('fbUserId'))
-    console.log('in else on /dashboard')
-    $http.get('/users/1/recipes').success(function(data) {
+    var fbID = localStorage.getItem('fbUserId')
+    $http.get('/users/' + fbID + '/recipes').success(function(data) {
       $scope.recipes = data;
     });
 
@@ -22,7 +22,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
       var recipeTags = recipeTagString.split(", ");
       $scope.recipeTags = recipeTags;
-      console.log(recipeTagString);
+      // console.log(recipeTagString);
 
       ngDialog.open({
          template: '<div class="lightbox">' +
@@ -95,7 +95,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       if ( loggedIn() ){
         $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
           $scope.recipes.unshift(data);
-          console.log(data)
+          // console.log(data)
           $scope.recipeTitle = "";
           $scope.recipeLink = "";
           $scope.imageLink = "";

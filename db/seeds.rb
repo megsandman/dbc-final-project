@@ -1,8 +1,8 @@
 CATEGORIES = ["Appetizers", "Beverages", "Breakfast", "Desserts", "Entrees", "Salads", "Sides"]
 
-CATEGORIES.each do |category|
-  Category.create(name: category)
-end
+# CATEGORIES.each do |category|
+#   Category.create(name: category)
+# end
 
 Recipe.create(
       title: "Chocolate Chip Cookies",
@@ -118,5 +118,5 @@ Recipe.create(
       user_id: 1
     )
 
-# User.create(username: "meg", email: "meg@meg.com", password: "password")
+# User.create(first_name: "Meg", last_name: "Sandman", facebook_id: "10100684954327834", email: "margaret.sandman@gmail.com")
 

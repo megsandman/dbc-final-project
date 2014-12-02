@@ -4,10 +4,14 @@ class RecipesController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
-    # user = User.find(params[:user_id])
-    # @recipes = Recipe.where(user_id: user.id)
-    @recipes = Recipe.all.order('created_at desc')
-    render json: @recipes.to_json
+    fb_id = params[:user_id]
+    if User.find_by_facebook_id(fb_id) == nil
+      #CREATE USER
+    else
+      user = User.find_by_facebook_id(fb_id)
+      @recipes = user.recipes.order('created_at desc')
+      render json: @recipes.to_json
+    end
   end
 
   def show
