@@ -3,7 +3,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   if(!loggedIn()) {
     $location.path('/');
   } else {
-    console.log(localStorage.getItem('fbUserId'))
+    // console.log(localStorage.getItem('fbUserId'))
     var fbID = localStorage.getItem('fbUserId')
     $http.get('/users/' + fbID + '/recipes').success(function(data) {
       $scope.recipes = data;
