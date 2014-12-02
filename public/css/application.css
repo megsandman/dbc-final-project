@@ -313,8 +313,9 @@ a.thumbnail:hover {
 /*----------------------------------------------*/
 
 #login-template {
-  background-image: ("images/coffee.jpg");
+  /*background-image: ("images/coffee.jpg");*/
   /*background-color: red;*/
+
   height: 100%;
 }
 
@@ -330,12 +331,17 @@ a.thumbnail:hover {
 }
 
 .fb-button-div {
+
+  background: url(http://i.imgur.com/tcVYwG5.png);
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
   margin-right: auto;
   margin-left: auto;
-  width: 160px;
+  width: 350px;
   height: 50px;
   padding: 0;
-  background-color: blue;
+  /*background-color: blue;*/
 }
 
 .fb-button {
