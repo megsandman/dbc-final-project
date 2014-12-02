@@ -5,34 +5,71 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
     $scope.recipes = data;
   });
 
-   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory) {
+   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
+    var recipeTags = recipeTagString.split(", ");
+    $scope.recipeTags = recipeTags;
+    console.log(recipeTagString);
+
     ngDialog.open({
        template: '<div class="lightbox">' +
-                    '<div class="lightbox_background">' +
-                      '<img class="lb-image" src=' + recipeImgUrl + '>' +
-                      '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
-                      '<button ng-click="showEdit=true">Edit</button>' +
-                      '<div ng-show="showEdit">' +
-                        '<form>' +
-                            '<input type="text" name="title" value="' + recipeTitle + '">' +
-                            '<select class="categories thick-txt-bx">' +
-                              '<option selected="selected">' + recipeCategory + '</option>' +
-                              // '<option value="" disabled selected>' + recipeCategory +'</option>' +
-                              '<option value="1">Appetizers</option>' +
-                              '<option value="2">Beverages</option>' +
-                              '<option value="3">Breakfast</option>' +
-                              '<option value="4">Entrees</option>' +
-                              '<option value="5">Salads</option>' +
-                              '<option value="6">Sides</option>' +
-                            '</select>' +
-                        '</form>' +
-                       '</div>' +
+                    '<div>' +
+                      '<table>' +
+                          '<tr>' +
+                            '<td>' +
+                              '<div class="custom_editing">' +
+                                '<img class="lb-image" src=' + recipeImgUrl + '>' +
+                                '<div class="edit_form_click">' +
+                                  '<div class="blur">' +
+                                  '</div>' +
+                                  '<div class="edit_form-text">' +
+                                    '<form>' +
+                                        '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                        '<select class="categories thick-txt-bx">' +
+                                          '<option selected="selected">' + recipeCategory + '</option>' +
+                                          // '<option value="" disabled selected>' + recipeCategory +'</option>' +
+                                          '<option value="1">Appetizers</option>' +
+                                          '<option value="2">Beverages</option>' +
+                                          '<option value="3">Breakfast</option>' +
+                                          '<option value="4">Entrees</option>' +
+                                          '<option value="5">Salads</option>' +
+                                          '<option value="6">Sides</option>' +
+                                        '</select>' +
+                                        '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
+                                        '<div class="form-group" ng-repeat="tag in recipeTags">' +
+                                          '<p>"{{tag}}"</p>' +
+                                        '</div>' +
+                                    '</form>' +
+                                    '<button ng-click="cancelEdit()">Cancel</button>' +
+                                  '</div>' +
+                                '</div>' +
+                              '</div>' +
+                            '</td>' +
+                          '</tr>' +
+                          '<tr>' +
+                            '<td>' +
+                              '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
+                              '<button ng-click="editPin(); showEdit=true">Edit</button>' +
+                              '</td>' +
+                            '</tr>' +
+                         '</table>' +
                       '</div>' +
-                '</div>',
-      plain: true
+                  '</div>',
+      plain: true,
+      scope: $scope
     });
-    console.log(recipeImgUrl, recipeTitle);
+  };
+
+  $scope.editPin = function(){
+    $(".edit_form_click").removeClass("edit_form_cancel");
+    $(".edit_form_click").addClass("edit_form");
+  };
+
+  $scope.cancelEdit = function(){
+    $(".edit_form_click").removeClass("edit_form");
+    $(".edit_form_click").addClass("edit_form_cancel");
   }
+
+
 
 //MEG SUN NIGHT
   // $scope.submittedLogin = false;
@@ -114,3 +151,7 @@ $('.logout-button').click(function(){
 // });
 
 // test
+
+// $("#edit").on('click', function(){
+//   alert("hi");
+// });
