@@ -420,7 +420,7 @@ a.thumbnail:hover {
   z-index: 4;
 }
 .custom_editing .blur{
-  background-color: rgba(251,251,251,0.7);
+  background-color: rgba(251,251,251,0.8);
   height: 500px;
   z-index: 5;
   position: absolute;
@@ -429,9 +429,9 @@ a.thumbnail:hover {
 
 .custom_editing .edit_form-text{
   z-index: 10;
-  color: #fff;
+  /*color: #fff;*/
   position: absolute;
-  height: inherit;
+  height: 800px;
   text-align: center;
   width: 100%;
 }
@@ -443,3 +443,46 @@ a.thumbnail:hover {
   height: 500px;
   width: 800px;
 }
+
+/*.recipe_edit_form{
+  width: 50%;
+  margin: auto;
+  text-align: left;
+}*/
+
+
+.recipe_edit_form {
+    width: 100%;
+    margin: 2% auto;
+    margin-top: 20%;
+
+}
+
+.recipe_edit_form > *{
+  margin-top: 2%;
+}
+
+.recipe_edit_form label, input, select {
+    display: inline-block;
+}
+
+
+.recipe_edit_form label {
+    width: 30%;
+    text-align: right;
+}
+
+
+.recipe_edit_form label + input, .recipe_edit_form label + select {
+    width: 30%;
+    margin: 0 30% 0 4%;
+}
+
+
+
+
+
+
+
+
+

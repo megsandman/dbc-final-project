@@ -23,8 +23,10 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                                   '<div class="blur">' +
                                   '</div>' +
                                   '<div class="edit_form-text">' +
-                                    '<form>' +
+                                    '<form class="recipe_edit_form">' +
+                                        '<label>Recipe Name</label>' +
                                         '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                        '<label>Category</label>' +
                                         '<select class="categories thick-txt-bx">' +
                                           '<option selected="selected">' + recipeCategory + '</option>' +
                                           // '<option value="" disabled selected>' + recipeCategory +'</option>' +
@@ -34,12 +36,12 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                                           '<option value="4">Entrees</option>' +
                                           '<option value="5">Salads</option>' +
                                           '<option value="6">Sides</option>' +
-                                        '</select>' +
-                                        '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
-                                        '<div class="form-group" ng-repeat="tag in recipeTags">' +
-                                          '<p>"{{tag}}"</p>' +
-                                        '</div>' +
+                                        '</select><br>' +
+                                        '<label>Tags</label>' +
+                                        '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                     '</form>' +
+                                    '<button>Save</button>' +
+                                    '<button>Delete</button>' +
                                     '<button ng-click="cancelEdit()">Cancel</button>' +
                                   '</div>' +
                                 '</div>' +
