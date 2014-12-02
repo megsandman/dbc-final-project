@@ -71,6 +71,12 @@ class RecipesController < ApplicationController
 
   end
 
+  def update
+    # update content of recipe
+    recipe = Recipe.find(params[:id])
+    #TODO: flesh out rest of method
+  end
+
   def destroy
     recipe = Recipe.find_by(id: params[:id])
     recipe.destroy
