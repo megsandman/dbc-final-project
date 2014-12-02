@@ -8,8 +8,6 @@ app.controller("LoginController", ["$scope", "$http", "$location", function($sco
         statusChangeCallback(response);
         if (response.status === "connected");{
           localStorage.setItem("fbUserId", response.authResponse.userID);
-          // $http.post('/sessions', {user: {facebook_id: response.authResponse.userID}})
-          //MAYBE PUT REDIRECT IN SUCCESS OF FOR POST REQUEST
           $location.path('/dashboard');
         }
         }, {scope: 'public_profile,email'});

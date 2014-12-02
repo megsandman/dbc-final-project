@@ -5,15 +5,15 @@ class RecipesController < ApplicationController
   def index
     fb_id = params[:user_id]
     if User.find_by_facebook_id(fb_id) == nil
-      p "*" * 50
-      p "in create user section"
+      # p "*" * 50
+      # p "in create user section"
       @oauth = Koala::Facebook::OAuth.new(ENV['APP_ID'], ENV['APP_SECRET'], ENV['CALLBACK_URI'])
       @facebook_cookies = @oauth.get_user_info_from_cookies(cookies)
       @fb_user_id = @facebook_cookies["user_id"]
       @access_token = @facebook_cookies["access_token"]
       @graph = Koala::Facebook::API.new(@access_token)
       graph = @graph.get_object("#{@fb_user_id}")
-      p "*" * 50
+      # p "*" * 50
       user = User.new(facebook_id: @fb_user_id,
                       first_name: graph["first_name"],
                       last_name: graph["last_name"],
@@ -25,23 +25,23 @@ class RecipesController < ApplicationController
       end
 
     else
-      p "!" * 50
+      # p "!" * 50
       user = User.find_by_facebook_id(fb_id)
       @recipes = user.recipes.order('created_at desc')
       render json: @recipes.to_json
     end
   end
 
-  def show
+  # def show
     # recipe = Recipe.find(params[:id])
     # render json: recipe.to_json
-  end
+  # end
 
   def create
     ##########################
     ### => Need to find the user based on params[:user_id] from URL
     ### => then add this new recipe to user_name.recipes
-    user = User.find_by(id: params[:user_id])
+    user = User.find_by_facebook_id(fb_id)
 
     @recipe = Recipe.new(recipe_params)
     category = params[:category] || "Appetizers"
@@ -70,10 +70,16 @@ class RecipesController < ApplicationController
 
   end
 
+  def update
+    # update content of recipe
+    recipe = Recipe.find(params[:id])
+    #TODO: flesh out rest of method
+  end
+
   def destroy
     recipe = Recipe.find_by(id: params[:id])
     recipe.destroy
-    redirect_to user_recipes_path
+    # redirect_to user_recipes_path
   end
 
   private #--------------------------------------------------
