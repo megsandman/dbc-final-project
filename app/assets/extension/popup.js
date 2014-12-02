@@ -1,3 +1,11 @@
+$(document).ready( function() {
+  var form =
+      '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
+
+  $('#new-recipe').append(form);
+
+});
+
 ////////////////////////////////
 /////// BUILD NEW RECIPE ///////
 ////////////////////////////////
@@ -31,11 +39,11 @@ $('#new-recipe').on('submit', function(event) {
   .done( function(serverData) {
       console.log("THIS WAS A SUCCESS");
       // close extension after ajax sent...hopefully
-      window.close();
+      // window.close();
   })
   .fail( function(serverData) {
       console.log("FAILURE");
-      window.close();
+      // window.close();
 
   });
 });
@@ -49,11 +57,6 @@ $('#new-recipe').on('submit', function(event) {
 //   extension.droppable
 // }
 
-$('.recipe-img-url').mouseup( function(event) {
-  console.log(event);
-})
-
-
 chrome.tabs.query({active: true, currentWindow:true}, function(array) {
   var currentPage = array[0];
   var currentUrl = currentPage.url;
@@ -63,5 +66,16 @@ chrome.tabs.query({active: true, currentWindow:true}, function(array) {
   $('.recipe-title').val(currentTitle)
   // console.log(chrome.extension.getExtensionTabs(currentPage.id))
   console.log(currentPage);
-  console.log(chrome.extension.getBackgroundPage());
+  // console.log(chrome.extension.getBackgroundPage());
 });
+
+chrome.tabs.getSelected(null, function(tab) {
+  console.log(tab);
+})
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////

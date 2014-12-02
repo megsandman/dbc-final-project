@@ -44,10 +44,6 @@ html, body {
   width: 100%;
 }
 
-.recipe-title {
-  /*width: 75%;*/
-}
-
 .categories {
   -webkit-appearance: menulist-button;
   height: 20px;
@@ -57,4 +53,21 @@ html, body {
   /*-webkit-appearance: button;*/
   height: 30px;
   border-radius: 7px;
+}
+
+.logged-out {
+  margin: 50px auto auto auto;
+  text-align: center;
+}
+
+.chefboard-btn {
+  margin: auto;
+  width: 100px;
+  height: 30px;
+  background-color: #282828;
+  color: white;
+  font-weight: 200;
+  font-family: serif;
+  letter-spacing: 3px;
+  padding: auto;
 }
