@@ -7,6 +7,9 @@
     // Full docs on the response object can be found in the documentation for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      window.access_key = response.authResponse.accessToken;
+      window.facebook_id = response.authResponse.userID;
+
       renderIndex();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -30,7 +33,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1520208361571689',
+    // appId      : '1520208361571689',
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -52,6 +55,19 @@
     statusChangeCallback(response);
   });
 
+  $('.fb-button-div').on('click', function() {
+    alert('in login')
+    FB.login(function(response) {
+    statusChangeCallback(response);
+    }, {scope: 'public_profile,email'});
+  });
+
+  $('.logout-button').click(function(){
+    FB.logout();
+    renderLogin();
+    $('body').addClass('body-background-image')
+  })
+
   };
 
   // Load the SDK asynchronously
@@ -70,9 +86,10 @@
       console.log(response);
     });
     // var indexHtml   = $("#index-template").html();
-    $('#index-template').removeClass('hidden-div')
-    $('#login-template').addClass('hidden-div')
-    $('body').removeClass('body-background-image')
+    $('#index-template').removeClass('hidden-div');
+    $('#login-template').addClass('hidden-div');
+    $('body').removeClass('body-background-image');
+    // reloadWindow();
     // $('#status').empty()
     // $('#status').append(indexHtml)
   };
@@ -82,7 +99,26 @@
     // var loginHtml   = $("#login-template").html();
     $('#login-template').removeClass('hidden-div')
     $('#index-template').addClass('hidden-div')
+    // location.reload();
     // $('#status').empty()
     // $('#status').append(loginHtml)
   };
-// </script>
+
+  function reloadWindow() {
+    location.reload(true);
+  };
+
+$( document ).ready(function() {
+
+  $('.logo').on('click', function() {
+    console.log(window.access_key)
+      $.ajax({
+          url: 'http://localhost:3000/current_user',
+          type: 'get',
+          data: {
+              // send along the access token stored when the user logged in via facebook
+              access_key: window.access_key
+          }
+      });
+  })
+});

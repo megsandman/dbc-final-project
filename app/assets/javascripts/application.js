@@ -62,11 +62,11 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
 
 // LOGOUT BUTTON FUNCTIONALITY
 
-$('.logout-button').click(function(){
-  FB.logout();
-  renderLogin();
-  $('body').addClass('body-background-image')
-})
+// $('.logout-button').click(function(){
+//   FB.logout();
+//   renderLogin();
+//   $('body').addClass('body-background-image')
+// })
 
 // var token = function() {
 //   return {
