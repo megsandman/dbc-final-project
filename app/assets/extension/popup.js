@@ -25,8 +25,8 @@ $(document).ready( function() {
     var currentPage = array[0];
     var currentUrl = currentPage.url;
     var currentTitle = currentPage.title;
-    renderPinnedSuccess();
-    // scrapeImages(currentPage);
+    // renderPinnedSuccess();
+    scrapeImages(currentPage);
   });
   //////////////////////    IMAGE SELECT    ///////////////////////
   function scrapeImages(currentPage) {
@@ -73,20 +73,24 @@ $(document).ready( function() {
   }
   function getLoggedOut() {
     var loggedOut = '<p>You are not logged in</p><button class="chefboard-btn">chefboard.</button>'
-    addLoggedOutListener();
+    addRedirectListener();
     return loggedOut;
   }
-  function addLoggedOutListener() {
-    $('chefboard-btn').on('click', function() {
-      document.location.href="http://chefboard.herokuapp.com/"
+  function addRedirectListener() {
+    $('.chefboard-btn').on('click', function() {
+      // document.location.href="http://chefboard.herokuapp.com/"
+      var newTab = "https://chefboard.herokuapp.com/"
+      chrome.tabs.create({url: newTab})
     });
   }
   function getPinnedPrompt() {
     // on submit of form, render this and toggle off form.
-    // var successfulPin =
+    var successfulPin = '<p class="success">Pin successful!</p><p class="success-subtitle">Check it out:</p><br><button class="chefboard-btn">chefboard.</button>';
+    return successfulPin
   }
   function renderPinnedSuccess() {
-
+    $('.successful-pin').append(getPinnedPrompt());
+    addRedirectListener();
   }
   ///////      This will be used for varifying LOGIN
   function renderExtension() {
