@@ -433,7 +433,7 @@ a.thumbnail:hover {
   z-index: 4;
 }
 .custom_editing .blur{
-  background-color: rgba(251,251,251,0.8);
+  background-color: rgba(251,251,251,0.83);
   height: 500px;
   z-index: 5;
   position: absolute;
@@ -468,7 +468,6 @@ a.thumbnail:hover {
     width: 100%;
     margin: 2% auto;
     margin-top: 20%;
-
 }
 
 .recipe_edit_form > *{
@@ -477,12 +476,18 @@ a.thumbnail:hover {
 
 .recipe_edit_form label, input, select {
     display: inline-block;
+    height: 2em;
+    /*font-size: 1em;*/
+    /*border: 0;*/
 }
+
+
 
 
 .recipe_edit_form label {
     width: 30%;
     text-align: right;
+    font-size: 1.2em;
 }
 
 
