@@ -2,11 +2,11 @@ app.config(["$routeProvider", "$httpProvider", function($routeProvider, $httpPro
   $routeProvider
   .when('/', {
     controller: "LoginController",
-    templateUrl: "../../views/application/templates/login.html"
+    templateUrl: "templates/login.html"
   })
   .when("/dashboard", {
     controller: "DashboardController",
-    templateUrl: "../../views/application/templates/dashboard.html"
+    templateUrl: "templates/dashboard.html"
   })
   .otherwise({
     redirectTo: '/'
