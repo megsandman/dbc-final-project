@@ -3,6 +3,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   if(!loggedIn()) {
     $location.path('/');
   } else {
+      alert('hello')
     $http.get('/users/1/recipes').success(function(data) {
       $scope.recipes = data;
     });

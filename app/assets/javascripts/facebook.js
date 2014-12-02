@@ -27,14 +27,14 @@
   //   });
   // }
 
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1520208361571689',
-    cookie     : true,  // enable cookies to allow the server to access
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1' // use version 2.1
-  });
+  // window.fbAsyncInit = function() {
+  // FB.init({
+  //   appId      : '1520208361571689',
+  //   cookie     : true,  // enable cookies to allow the server to access
+  //                       // the session
+  //   xfbml      : true,  // parse social plugins on this page
+  //   version    : 'v2.1' // use version 2.1
+  // });
   // Now that we've initialized the JavaScript SDK, we call
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to

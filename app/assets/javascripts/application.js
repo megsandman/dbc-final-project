@@ -1,20 +1,33 @@
-var app = angular.module('chefboard', ["ngRoute", "ui.bootstrap", "ngDialog"]);
+var app = angular.module("chefboard", ["ngRoute", "ui.bootstrap", "ngDialog"]);
+
+// var token = function() {
+//   return {
+//     email: localStorage.getItem("email"),
+//     token: localStorage.getItem("token")
+//   };
+// };
+
+var loggedIn = function() {
+  return localStorage.getItem('loggedIn') === null ? false : true;
+  alert('in loggedin')
+};
 
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
 
     if (response.status === 'connected') {
-      renderIndex();
+      localStorage.setItem("loggedIn", "true");
+
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      console.log('not authorized');
-      renderLogin();
+      localStorage.setItem("loggedIn", "false");
+      console.log('in not authorized');
     } else {
-      console.log("else");
+      console.log("in else");
+      localStorage.setItem("loggedIn", "false");
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      renderLogin();
     }
   }
 
@@ -39,31 +52,24 @@ window.fbAsyncInit = function() {
 
 };
 
-function renderIndex() {
-    FB.api('/me', function(response) {
-      console.log(response);
-    });
+//////////////
 
-    $('#index-template').removeClass('hidden-div')
-    $('#login-template').addClass('hidden-div')
-    $('body').removeClass('body-background-image')
-  };
+// function renderIndex() {
+//     FB.api('/me', function(response) {
+//       console.log(response);
+//     });
 
-  function renderLogin() {
-    $('#login-template').removeClass('hidden-div')
-    $('#index-template').addClass('hidden-div')
-  };
+//     $('#index-template').removeClass('hidden-div')
+//     $('#login-template').addClass('hidden-div')
+//     $('body').removeClass('body-background-image')
+//   };
 
-
-
-
-
-
-
-
+//   function renderLogin() {
+//     $('#login-template').removeClass('hidden-div')
+//     $('#index-template').addClass('hidden-div')
+//   };
 
 ///////////
-
 
 // angular.module('Chefboard').controller('BoardController', function ($scope, $http, ngDialog) {
 //   $http.get('/users/1/recipes').success(function(data) {
