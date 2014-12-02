@@ -388,6 +388,12 @@ a.thumbnail:hover {
   border-radius: 3px;
 }
 
+.lightbox_caption > * {
+  display: inline;
+  vertical-align : baseline;
+  margin-top: 25px;
+}
+
 .lightbox_link_label {
   color: #282828;
   text-decoration: none;
@@ -395,8 +401,22 @@ a.thumbnail:hover {
 
 .lightbox_link_label:hover{
   color: #323D43;
+  text-decoration: underline;
 }
 
+.float_left{
+  float: center;
+  text-align: center;
+}
+
+
+.float_right{
+  float: right;
+}
+
+.recipe-title{
+  margin-left: 3em;
+}
 /**********STYLING FOR EDIT FORM********/
 .custom_editing{
   position: relative;
