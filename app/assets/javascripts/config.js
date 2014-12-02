@@ -7,5 +7,8 @@ app.config(["$routeProvider", "$httpProvider", function($routeProvider, $httpPro
   .when("/dashboard", {
     controller: "DashboardController",
     templateUrl: "../../views/application/templates/dashboard.html"
+  })
+  .otherwise({
+    redirectTo: '/'
   });
 }]);
