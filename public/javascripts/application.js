@@ -21,11 +21,11 @@ function statusChangeCallback(response) {
 
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      localStorage.setItem("loggedIn", "false");
+      localStorage.removeItem('loggedIn');
       console.log('in not authorized');
     } else {
       console.log("in else");
-      localStorage.setItem("loggedIn", "false");
+      localStorage.removeItem('loggedIn');
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
     }

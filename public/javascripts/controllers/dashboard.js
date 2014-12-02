@@ -3,11 +3,15 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   if(!loggedIn()) {
     $location.path('/');
   } else {
-      alert('hello')
+
     $http.get('/users/1/recipes').success(function(data) {
       $scope.recipes = data;
     });
 
+    $scope.logout = function(){
+      localStorage.removeItem('loggedIn');
+      $location.path('/');
+    }
 
     $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
       var recipeTags = recipeTagString.split(", ");
