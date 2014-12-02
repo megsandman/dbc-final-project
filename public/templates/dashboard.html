@@ -1,0 +1,61 @@
+<div id="status"></div>
+<div id="index-template">
+  <div class="main-container">
+    <!-- HEADER  -->
+    <div class="main-header">
+      <div class="logo" ng-click="myFilter = null">
+        <a href ng-click="myFilter = null">chefboard.</a>
+      </div>
+      <ul class="masthead-nav">
+        <li class="search-bar">
+          <form>
+            <input type="text" placeholder="Search" class="search-text" ng-model="query">
+          </form>
+        </li>
+        <li>
+          <a ng-click="logout()" class="logout-button">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="wrap">
+    <!-- SIDEBAR  -->
+      <div class="sidebar">
+          <ul class="sidebar-list">
+              <li><a href ng-click="myFilter = {category_id: 1}">Appetizers</a></li>
+              <li><a href ng-click="myFilter = {category_id: 2}">Beverages</a></li>
+              <li><a href ng-click="myFilter = {category_id: 3}">Breakfast</a></li>
+              <li><a href ng-click="myFilter = {category_id: 4}">Desserts</a></li>
+              <li><a href ng-click="myFilter = {category_id: 5}">Entrees</a></li>
+              <li><a href ng-click="myFilter = {category_id: 6}">Salads</a></li>
+              <li><a href ng-click="myFilter = {category_id: 7}">Sides</a></li>
+          </ul>
+      </div>
+
+  <!-- MAIN CONTENT  -->
+      <div class="content">
+      <!-- PINS -->
+          <div class="all-tiles">
+                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                  <div class="offset_div">
+                  </div>
+                  <div class="caption">
+                    <div class="blur">
+                    </div>
+                    <div class="caption-text">
+                      <br>
+                      <h3>{{recipe.title}}</h3>
+                    </div>
+                  </div>
+                </div>
+
+
+          <!-- <div class="recipe-image"> -->
+                    <!-- <img ng-src="{{recipe.img_url}}"> -->
+                <!-- </div> -->
+          </div>
+      </div>
+      <div class="footer"></div>
+    </div>
+  </div>
+</div>

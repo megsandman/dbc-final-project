@@ -1,111 +1,43 @@
 <!DOCTYPE html>
-<html ng-app="Chefboard" ng-controller="BoardController" >
+<html ng-app="chefboard">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>chefboard</title>
+  <link href="css/application.css" rel="stylesheet" type="text/css">
+  <script src="javascripts/angular.js"></script>
+  <script src="javascripts/angular-route.js"></script>
+  <script src="javascripts/ngDialog.js"></script>
+  <script src="javascripts/jquery-1.11.0.min.js"></script>
+  <script src="javascripts/lightbox.min.js"></script>
+  <script src="javascripts/ui-bootstrap-tpls-0.11.2.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="assets/facebook.js"></script>
-  <link href="assets/application.css" rel="stylesheet" type="text/css">
-  <script src="assets/angular.js"></script>
-  <script src="assets/jquery-1.11.0.min.js"></script>
-  <script src="assets/lightbox.min.js"></script>
-  <link href="assets/lightbox.css" rel="stylesheet" />
-  <script src="assets/ui-bootstrap-tpls-0.11.2.js"></script>
-  <script src="assets/ngDialog.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/ngDialog.css">
+  <link href="css/lightbox.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/ngDialog.css">
 </head>
 <body>
-    <!-- FACEBOOK SCRIPT FOR BUTTON -->
-  <div id="fb-root"></div>
+<!-- FACEBOOK SDK -->
+  <script>
 
-<div id="status"></div>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
+<div id="fb-root"></div>
 
-
-<div id="index-template" class="hidden-div">
-  <div class="main-container">
-    <!-- HEADER  -->
-    <div class="main-header">
-      <div class="logo" ng-click="myFilter = null">
-        <a href ng-click="myFilter = null">chefboard.</a>
-      </div>
-      <ul class="masthead-nav">
-        <li class="search-bar">
-          <form>
-            <input type="text" placeholder="Search" class="search-text" ng-model="query">
-          </form>
-        </li>
-        <li>
-          <a href="#" class="logout-button">Logout</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="wrap">
-    <!-- SIDEBAR  -->
-      <div class="sidebar">
-          <ul class="sidebar-list">
-              <li><a href ng-click="myFilter = {category_id: 1}">Appetizers</a></li>
-              <li><a href ng-click="myFilter = {category_id: 2}">Beverages</a></li>
-              <li><a href ng-click="myFilter = {category_id: 3}">Breakfast</a></li>
-              <li><a href ng-click="myFilter = {category_id: 4}">Desserts</a></li>
-              <li><a href ng-click="myFilter = {category_id: 5}">Entrees</a></li>
-              <li><a href ng-click="myFilter = {category_id: 6}">Salads</a></li>
-              <li><a href ng-click="myFilter = {category_id: 7}">Sides</a></li>
-          </ul>
-          <!-- <div class="new-pin">
-            <form ng-submit="addRecipe()">
-              <input class="new-pin-input" type="text" placeholder="Recipe title" ng-model="recipeTitle">
-              <input class="new-pin-input" type="text" placeholder="Recipe link" ng-model="recipeLink">
-              <input class="new-pin-input" type="text" placeholder="Image link" ng-model="imageLink">
-              <input class="new-pin-input" type="text" placeholder="Tags" ng-model="recipeTags">
-              <select ng-model="category" class="category-dropdown" ng-options="categories for categories in ['Appetizers', 'Beverages', 'Desserts', 'Entrees', 'Salads', 'Sides']" title="Categories">
-                <option value>Select Category</option>
-              </select>
-              <input type="submit" value="New Pin">
-            </form>
-          </div> -->
-      </div>
-
-  <!-- MAIN CONTENT  -->
-      <div class="content">
-      <!-- PINS -->
-          <div class="all-tiles">
-                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
-                  <div class="offset_div">
-                  </div>
-                  <div class="caption">
-                    <div class="blur">
-                    </div>
-                    <div class="caption-text">
-                      <br>
-                      <h3>{{recipe.title}}</h3>
-                    </div>
-                  </div>
-                </div>
-
-
-          <!-- <div class="recipe-image"> -->
-                    <!-- <img ng-src="{{recipe.img_url}}"> -->
-                <!-- </div> -->
-          </div>
-      </div>
-      <div class="footer"></div>
-    </div>
-  </div>
-</div>
-<!-- WHEN USER NOT LOGGED IN -->
-<div id="login-template" class="hidden-div">
-  <h1>welcome to chefboard.</h1>
-  <div class="fb-button-div"><fb:login-button scope='public_profile,email' onlogin='checkLoginState();' class=".fb-button"></div>
-  </fb:login-button>
+<div ng-view>
 </div>
 
-    <!-- FACEBOOK BUTTON -->
-    <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-  </div> -->
 
-  <script src="assets/application.js"></script>
+
+  <script src="javascripts/application.js"></script>
+  <script src="javascripts/config.js"></script>
+  <script src="javascripts/controllers/dashboard.js"></script>
+  <script src="javascripts/controllers/login.js"></script>
 </body>
 </html>
 
