@@ -328,8 +328,9 @@ a.thumbnail:hover {
   margin-right: auto;
   margin-left: auto;
   width: 80px;
+  height: 80px;
   padding: 0;
-  /*background-color: green;*/
+  background-color: green;
 }
 
 .fb-button {

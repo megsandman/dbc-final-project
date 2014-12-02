@@ -3,11 +3,15 @@ app.controller("LoginController", ["$scope", "$http", "$location", function($sco
     $location.path('/dashboard');
 
   } else {
-    console.log('hello');
-
     $scope.login = function(){
-      localStorage.setItem("loggedIn", "true");
-      $location.path('/dashboard');
+      FB.login(function(response) {
+        statusChangeCallback(response);
+        if (response.status === "connected");{
+          localStorage.setItem("fbUserId", response.authResponse.userID);
+          // $http.post('/sessions', {user: {facebook_id: response.authResponse.userID}})
+          $location.path('/dashboard');
+        }
+        }, {scope: 'public_profile,email'});
     }
 
   }

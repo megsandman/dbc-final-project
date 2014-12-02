@@ -3,14 +3,19 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   if(!loggedIn()) {
     $location.path('/');
   } else {
-
+    console.log(localStorage.getItem('fbUserId'))
     $http.get('/users/1/recipes').success(function(data) {
       $scope.recipes = data;
     });
 
     $scope.logout = function(){
-      localStorage.removeItem('loggedIn');
+      fbID = localStorage.getItem("fbUserId");
+      window.fbAsyncInit;
+      FB.logout();
+      // $http.delete('/sessions/' + fbID)
+      localStorage.removeItem("fbUserId");
       $location.path('/');
+
     }
 
     $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
