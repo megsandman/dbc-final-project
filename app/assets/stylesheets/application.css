@@ -384,7 +384,7 @@ a.thumbnail:hover {
   overflow: hidden;
 }
 
-.custom_editing:hover .edit_form{
+.custom_editing .edit_form{
   opacity: 1;
   transform: translateY(-300px);
   -webkit-transform:translateY(-300px);
@@ -392,6 +392,7 @@ a.thumbnail:hover {
   -ms-transform:translateY(-300px);
   -o-transform:translateY(-300px);
 }
+
 .custom_editing img{
   z-index: 4;
 }

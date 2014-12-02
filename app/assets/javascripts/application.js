@@ -18,7 +18,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                             '<td>' +
                               '<div class="custom_editing">' +
                                 '<img class="lb-image" src=' + recipeImgUrl + '>' +
-                                '<div class="edit_form">' +
+                                '<div class="edit_form_click">' +
                                   '<div class="blur">' +
                                   '</div>' +
                                   '<div class="edit_form-text">' +
@@ -65,7 +65,8 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
   };
 
   $scope.editPin = function(){
-    alert("editPin function called. Make it apply the hover css class stuff on click");
+    $(".edit_form_click").addClass("edit_form");
+    console.log(test);
   };
 
 
