@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 20141128201338) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "facebook_id"
     t.string   "email"
-    t.string   "password"
+    t.string   "access_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
