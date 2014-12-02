@@ -90,10 +90,11 @@ body, html{
   font: serif;
   letter-spacing: 2px;
   font-weight: 300;
+  cursor: pointer;
 }
 .masthead-nav li a:hover {
   color: white;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 /*.logout h2 {
   color: white;
