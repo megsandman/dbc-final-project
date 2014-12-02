@@ -162,6 +162,8 @@ body, html{
   text-decoration: none;
   font-size: 1.2em;
   margin-left: -10px;
+  height: 100%;
+  display: block;
 }
 
 .sidebar ul li:hover {
