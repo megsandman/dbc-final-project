@@ -1,5 +1,26 @@
 $(document).ready( function() {
-/////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
+  ///////////      AUTHENTICATE      ///////////
+  function authenticateUser() {
+    // get request to current_user route
+      // verify logged in from params
+    // if logged in:
+      // render pictures...then form...
+      // assign a variable that will be the userID used in the POST route URL
+    //if NOT logged in:
+      //display the loggedOut view
+    $.ajax({
+      url: 'http://chefboard.herokuapp.com/current_user',
+      type: 'get',
+      dataType: 'JSONP',
+      success: function(userData) {
+
+      },
+      error: function(errorCode) {
+        console.log('FAILED REQUEST');
+      }
+    })
+  }///////////      END AUTHENTICATE      ///////////
+  /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
   chrome.tabs.query({active: true, currentWindow:true}, function(array) {
     var currentPage = array[0];
     var currentUrl = currentPage.url;
@@ -26,7 +47,6 @@ $(document).ready( function() {
       }
     })
   }
-
   function addImageListeners(currentPage) {
     $('img').on('click', function() {
       $('#new-recipe').append(getForm);
@@ -36,24 +56,27 @@ $(document).ready( function() {
       populateFields(currentPage, src);
     });
   }
-
   function populateFields(currentPage, src) {
     $('.recipe-source-url').val(currentPage.url);
     $('.recipe-title').val(currentPage.title)
     $('.recipe-img-url').val(src);
   }
-  ///////////////// VIEW TEMPLATES /////////////////
+  /////////////////  TEMPLATES  /////////////////
   function getForm() {
     var form =
       '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
     return form;
   }
-
   function getLoggedOut() {
-    var loggedOut = '<p>You are not logged in</p><a href="http://chefboard.herokuapp.com/"><button class="chefboard-btn">chefboard.</button></a>'
+    var loggedOut = '<p>You are not logged in</p><button class="chefboard-btn">chefboard.</button>'
+    addLoggedOutListener();
     return loggedOut;
   }
-
+  function addLoggedOutListener() {
+    $('chefboard-btn').on('click', function() {
+      document.location.href="http://chefboard.herokuapp.com/"
+    });
+  }
   function renderExtension() {
     var testNum = 1 //test value for checking the toggling between form/loggedout prompt
     if (testNum == 1) {
@@ -76,7 +99,6 @@ $(document).ready( function() {
     };
     return recipeData;
   }
-
   $('#new-recipe').on('submit', function(event) {
     event.preventDefault();
     var recipeData = getFormData;
