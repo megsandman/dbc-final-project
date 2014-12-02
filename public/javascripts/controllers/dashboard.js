@@ -19,11 +19,23 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     }
 
-    $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString) {
+    $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString, recipeId) {
       var recipeTags = recipeTagString.split(", ");
       $scope.recipeTags = recipeTags;
       console.log(recipeTagString);
-
+      $scope.myForm = {};
+      $scope.recipeCategory = recipeCategory;
+      $scope.recipeTitle = recipeTitle;
+      $scope.recipeId = recipeId;
+      $scope.myForm.options = [
+        { category_id : 1, name: "Appetizers" }
+        ,{ category_id : 2, name: "Beverages" }
+        ,{ category_id : 3, name: "Breakfast" }
+        ,{ category_id : 4, name: "Desserts" }
+        ,{ category_id : 5, name: "Entrees" }
+        ,{ category_id : 6, name: "Salads" }
+        ,{ category_id : 7, name: "Sides" }
+       ];
       ngDialog.open({
          template: '<div class="lightbox">' +
                       '<div>' +
@@ -31,28 +43,24 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                             '<tr>' +
                               '<td>' +
                                 '<div class="custom_editing">' +
-                                  '<img class="lb-image" src=' + recipeImgUrl + '>' +
+                                  '<div class="lightbox_recipe_bg" style="background-image: url('+recipeImgUrl+')"></div>' +
+                                  // '<img class="lb-image" src=' + recipeImgUrl + '>' +
                                   '<div class="edit_form_click">' +
                                     '<div class="blur">' +
                                     '</div>' +
                                     '<div class="edit_form-text">' +
-                                      '<form>' +
+                                      '<form class="recipe_edit_form">' +
+                                          '<label>Recipe Name</label>' +
                                           '<input type="text" name="title" value="' + recipeTitle + '">' +
-                                          '<select class="categories thick-txt-bx">' +
-                                            '<option selected="selected">' + recipeCategory + '</option>' +
-                                            // '<option value="" disabled selected>' + recipeCategory +'</option>' +
-                                            '<option value="1">Appetizers</option>' +
-                                            '<option value="2">Beverages</option>' +
-                                            '<option value="3">Breakfast</option>' +
-                                            '<option value="4">Entrees</option>' +
-                                            '<option value="5">Salads</option>' +
-                                            '<option value="6">Sides</option>' +
-                                          '</select>' +
-                                          '<input type="text" name="tag_string" value="' + recipeTagString +  '">' +
-                                          '<div class="form-group" ng-repeat="tag in recipeTags">' +
-                                            '<p>"{{tag}}"</p>' +
-                                          '</div>' +
+                                          '<label>Category</label>' +
+                                          '<select ng-init="recipe.category_id = recipeCategory" ng-model="recipe.category_id" ng-options="recipe.category_id as recipe.name for recipe in myForm.options"' +
+                                            'class="categories thick-txt-bx">' +
+                                          '</select><br>' +
+                                          '<label>Tags</label>' +
+                                          '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                       '</form>' +
+                                      '<button>Save</button>' +
+                                      '<button ng-click="deleteRecipe($index)" value="Delete">Delete</button>' +
                                       '<button ng-click="cancelEdit()">Cancel</button>' +
                                     '</div>' +
                                   '</div>' +
@@ -90,6 +98,24 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         $location.path('/');
       }
     }
+
+    $scope.deleteRecipe = function(index){
+    // find recipe to delete by title
+      for(var i = 0; i < $scope.recipes.length; i++)
+      {
+        var recipeIndexToDelete = -1;
+        if ($scope.recipes[i].title === $scope.recipeTitle)
+        {
+          recipeIndexToDelete = i;
+          $scope.recipes.splice(recipeIndexToDelete, 1);
+        }
+    }
+      $scope.closeThisDialog();
+      // var url = '/users/1/recipes/' + $scope.recipeId;
+      // console.log(url);
+  };
+
+
 
     $scope.addRecipe = function() {
       if ( loggedIn() ){
