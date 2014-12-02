@@ -2,8 +2,19 @@ $(document).ready( function() {
   var form =
       '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
 
-  $('#new-recipe').append(form);
+  var loggedOut = '<p>You are not logged in</p><a href="http://chefboard.herokuapp.com/"><button class="chefboard-btn">chefboard.</button></a>'
+  var testNum = 1
 
+function renderExtension() {
+  if (testNum == 1) {
+    $('#new-recipe').append(form);
+  } else {
+    $('.logged-out').append(loggedOut);
+    $('#new-recipe').toggle();
+  }
+}
+
+  renderExtension();
 });
 
 ////////////////////////////////
@@ -69,13 +80,5 @@ chrome.tabs.query({active: true, currentWindow:true}, function(array) {
   // console.log(chrome.extension.getBackgroundPage());
 });
 
-chrome.tabs.getSelected(null, function(tab) {
-  console.log(tab);
-})
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
+// use nokogiri to scrape everything on the page and then select the images, display them by looking at their src in the extension and wait for selection?
