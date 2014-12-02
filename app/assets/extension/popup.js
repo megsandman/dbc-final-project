@@ -15,7 +15,11 @@ function renderExtension() {
 }
 
   renderExtension();
-});
+
+
+
+
+
 
 ////////////////////////////////
 /////// BUILD NEW RECIPE ///////
@@ -60,13 +64,7 @@ $('#new-recipe').on('submit', function(event) {
 });
 ///////  END NEW RECIPE  ///////
 
-
-/////    IMAGE SELECT    //////
-
-// document.mouseOver {
-//   img.draggable
-//   extension.droppable
-// }
+/////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
 
 chrome.tabs.query({active: true, currentWindow:true}, function(array) {
   var currentPage = array[0];
@@ -75,10 +73,35 @@ chrome.tabs.query({active: true, currentWindow:true}, function(array) {
 
   $('.recipe-source-url').val(currentUrl);
   $('.recipe-title').val(currentTitle)
-  // console.log(chrome.extension.getExtensionTabs(currentPage.id))
-  console.log(currentPage);
-  // console.log(chrome.extension.getBackgroundPage());
+
+    images = scrapeImage(currentUrl);
+    console.log(images);
 });
 
+/////    IMAGE SELECT    //////
+// go to currentPage.url and scrape that bad boy
+function scrapeImage(targetUrl) {
 
-// use nokogiri to scrape everything on the page and then select the images, display them by looking at their src in the extension and wait for selection?
+    $.ajax({
+      url: targetUrl,
+      type: 'get',
+      dataType: "", //JSONP?
+      success: function(data) {
+        var images = [];
+        $magic = $('<form>' + data + '</form>')
+
+        //find images in the document
+        $.each($magic.find('img[src]'), function(index, item) {
+          image_src = $(item).attr('src')
+          $('<option>' + image_src + '</option>').appendTo('.scraped-images');
+          images.push(image_src);
+        })
+        return images
+      },
+      error: function(status) {
+        console.log("it didn't work");
+      }
+    })
+  }
+
+});/// END ON READY
