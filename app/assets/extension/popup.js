@@ -14,7 +14,6 @@ $(document).ready( function() {
       dataType: "",
       success: function(data) {
         $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
-
         //find images in the document
         $.each($pageData.find('img[src]'), function(index, item) {
           image_src = $(item).attr('src')
