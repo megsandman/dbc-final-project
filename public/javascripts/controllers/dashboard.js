@@ -22,7 +22,6 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString, recipeId) {
      var recipeTags = recipeTagString.split(", ");
      $scope.recipeTags = recipeTags;
-     console.log(recipeTagString);
      $scope.myForm = {};
      $scope.recipeCategory = recipeCategory;
      $scope.recipeTitle = recipeTitle;
@@ -36,6 +35,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
        ,{ category_id : 6, name: "Salads" }
        ,{ category_id : 7, name: "Sides" }
       ];
+     console.log(recipeTagString);
       ngDialog.open({
          template: '<div class="lightbox">' +
                       '<div>' +
@@ -56,7 +56,8 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                           'class="categories thick-txt-bx">' +
                                           '</select><br>' +
                                           '<label>Tags</label>' +
-                                          '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
+                                          '<input name="tag_string" value="' + recipeTagString +'">' +
+                                          // '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                           '</form>' +
                                          '<button>Save</button>' +
                                          '<button ng-click="deleteRecipe($index)" value="Delete">Delete</button>' +
@@ -68,12 +69,16 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
-                              '<td>' +
-                                '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
-                                '<button ng-click="editPin(); showEdit=true">Edit</button>' +
-                                '</td>' +
-                              '</tr>' +
-                           '</table>' +
+                              '<td class="lightbox_caption">' +
+                                '<div class="float_left">' +
+                                  '<a  class="lightbox_link_label" href=' + recipeSourceUrl + ' target="_blank"><h2 class="recipeTitle">' + recipeTitle + '</h2></a>' +
+                                '</div>' +
+                                '<div class="float_right" >' +
+                                  '<button ng-click="editPin(); showEdit=true">Edit</button>' +
+                                '</div>' +
+                              '</td>' +
+                            '</tr>' +
+                          '</table>' +
                         '</div>' +
                     '</div>',
         plain: true,
