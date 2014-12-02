@@ -310,7 +310,9 @@ a.thumbnail:hover {
 /*----------------------------------------------*/
 
 #login-template {
-  background-image: ("../images/coffee.jpg");
+  background-image: ("images/coffee.jpg");
+  /*background-color: red;*/
+  height: 100%;
 }
 
 
@@ -327,10 +329,10 @@ a.thumbnail:hover {
 .fb-button-div {
   margin-right: auto;
   margin-left: auto;
-  width: 80px;
-  height: 80px;
+  width: 160px;
+  height: 50px;
   padding: 0;
-  background-color: green;
+  background-color: blue;
 }
 
 .fb-button {

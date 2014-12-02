@@ -13,13 +13,10 @@ var loggedIn = function() {
 };
 
 function statusChangeCallback(response) {
-    // console.log('statusChangeCallback');
-    // console.log(response);
-
     if (response.status === 'connected') {
       localStorage.setItem("fbUserId", response.authResponse.userID);
+      console.log('in status connected')
       console.log(response.authResponse.userID)
-
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       localStorage.removeItem("fbUserId");
@@ -27,8 +24,6 @@ function statusChangeCallback(response) {
     } else {
       console.log("in else");
       localStorage.removeItem("fbUserId");
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
     }
   }
 

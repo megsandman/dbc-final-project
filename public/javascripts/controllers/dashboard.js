@@ -4,6 +4,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     $location.path('/');
   } else {
     console.log(localStorage.getItem('fbUserId'))
+    console.log('in else on /dashboard')
     $http.get('/users/1/recipes').success(function(data) {
       $scope.recipes = data;
     });
