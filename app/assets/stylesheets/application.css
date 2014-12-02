@@ -3,6 +3,8 @@ body, html{
   padding: 0px;
   margin: 0px;
   height: 100%;
+  font-family: 'Vollkorn', serif;
+  font-variant: small-caps;
 }
 
 .hidden-div {

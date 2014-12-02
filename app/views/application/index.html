@@ -6,6 +6,7 @@
   <title>chefboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="assets/facebook.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
   <link href="assets/application.css" rel="stylesheet" type="text/css">
   <script src="assets/angular.js"></script>
   <script src="assets/jquery-1.11.0.min.js"></script>
@@ -71,7 +72,7 @@
       <div class="content">
       <!-- PINS -->
           <div class="all-tiles">
-                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string, recipe.id)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
                   <div class="offset_div">
                   </div>
                   <div class="caption">
