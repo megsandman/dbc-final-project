@@ -1,4 +1,4 @@
-var app = angular.module('Chefboard', ["ui.bootstrap", "ngDialog"]);
+var app = angular.module('Chefboard', ["ngRoute", "ui.bootstrap", "ngDialog"]);
 
 angular.module('Chefboard').controller('BoardController', function ($scope, $http, ngDialog) {
   $http.get('/users/1/recipes').success(function(data) {
