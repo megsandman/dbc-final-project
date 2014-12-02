@@ -39,6 +39,7 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
                                           '<p>"{{tag}}"</p>' +
                                         '</div>' +
                                     '</form>' +
+                                    '<button ng-click="cancelEdit()">Cancel</button>' +
                                   '</div>' +
                                 '</div>' +
                               '</div>' +
@@ -56,18 +57,17 @@ angular.module('Chefboard').controller('BoardController', function ($scope, $htt
       plain: true,
       scope: $scope
     });
-
-    //  $("body").on('load', '.lightbox', function(){
-    //   alert("lightbox loaded");
-    // });
-
-    console.log(recipeImgUrl, recipeTitle);
   };
 
   $scope.editPin = function(){
+    $(".edit_form_click").removeClass("edit_form_cancel");
     $(".edit_form_click").addClass("edit_form");
-    console.log(test);
   };
+
+  $scope.cancelEdit = function(){
+    $(".edit_form_click").removeClass("edit_form");
+    $(".edit_form_click").addClass("edit_form_cancel");
+  }
 
 
 
