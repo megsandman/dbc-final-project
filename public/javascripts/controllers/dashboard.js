@@ -26,7 +26,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
   $scope.addPinDialog = function(){
     ngDialog.open({
-      template: 'templates/test_template.html',
+      template: 'templates/add_pin.html',
       scope: $scope
     });
   }
@@ -107,6 +107,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         $scope.recipeTags = "";
         $scope.category = {};
       });
+      ngDialog.close();
     };
 
 }
