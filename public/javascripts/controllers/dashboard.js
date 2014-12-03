@@ -13,11 +13,17 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       fbID = localStorage.getItem("fbUserId");
       window.fbAsyncInit;
       FB.logout();
-      // $http.delete('/sessions/' + fbID)
       localStorage.removeItem("fbUserId");
       $location.path('/');
-
     }
+
+    // $http.delete('/users/' + fbID + '/recipes/' + recipeId).success(function(data) {
+    //   console.log('success');
+    // }).error(funciton() {
+    //   console.log('fail');
+    // }
+    // })
+
 
   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString, recipeId) {
      var recipeTags = recipeTagString.split(", ");
@@ -59,8 +65,8 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                           '<input name="tag_string" value="' + recipeTagString +'">' +
                                           // '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                           '</form>' +
-                                         '<button ng-click="saveRecipe()">Save</button>' +
-                                         '<button ng-click="deleteRecipe($index)" value="Delete">Delete</button>' +
+                                         '<button ng-click="saveRecipe(' + recipeId + ')">Save</button>' +
+                                         '<button ng-click="deleteRecipe(' + recipeId + ')" value="Delete">Delete</button>' +
                                         '<button ng-click="cancelEdit()">Cancel</button>' +
                                       // '</form>' +
                                     '</div>' +
@@ -104,7 +110,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       }
     }
 
-    $scope.saveRecipe = function(){
+    $scope.saveRecipe = function(recipeId){
       if (loggedIn() ){
         //updates view for dialog caption
         var title = $(".recipe_name_input").val();
@@ -118,7 +124,8 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       }
     }
 
-    $scope.deleteRecipe = function(index){
+    $scope.deleteRecipe = function(recipeId){
+      alert(recipeId)
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
       {
@@ -134,7 +141,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     $scope.addRecipe = function() {
       if ( loggedIn() ){
-        $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
+        $http.post('users/' + fbID + '/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
           $scope.recipes.unshift(data);
           // console.log(data)
           $scope.recipeTitle = "";
