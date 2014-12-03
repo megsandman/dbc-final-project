@@ -30,13 +30,14 @@
               <li><a href ng-click="myFilter = {category_id: 6}">Salads</a></li>
               <li><a href ng-click="myFilter = {category_id: 7}">Sides</a></li>
           </ul>
+          <button ng-click="addPinDialog()">+</button>
       </div>
 
   <!-- MAIN CONTENT  -->
       <div class="content">
       <!-- PINS -->
           <div class="all-tiles">
-                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string, recipe.id)" class="recipe-container col-xs-3 custom_captioning shadow" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                <div ng-click="clickToOpen(recipe)" class="recipe-container col-xs-3 custom_captioning shadow" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
                   <div class="offset_div">
                   </div>
                   <div class="caption">
