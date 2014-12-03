@@ -6,13 +6,14 @@ class UsersController < ApplicationController
   # end
 
   def current_user
-    if session['access_token']
-      @graph = Koala::Facebook::GraphAPI.new(session["access_token"])
+    if cookies[:access_token]
+      @graph = Koala::Facebook::GraphAPI.new(cookies["access_token"])
        p @graph.get_object("me")
     else
       p "*" * 50
-      session['oauth'] = Koala::Facebook::OAuth.new(ENV['APP_ID'], ENV['APP_SECRET'], ENV['CALLBACK_URI'])
-      redirect_to session['oauth'].url_for_oauth_code()
+      cookies[:oauth] = Koala::Facebook::OAuth.new(ENV['APP_ID'], ENV['APP_SECRET'], ENV['CALLBACK_URI'])
+      p cookies[:oauth]
+      redirect_to cookies[:oauth].url_for_oauth_code()
     end
     # p @oauth
     # @facebook_cookies = @oauth.get_user_info_from_cookies(cookies)
@@ -29,17 +30,17 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session['oauth'] = nil
-    session['access_token'] = nil
+    cookies[:oauth] = nil
+    cookies[:access_token] = nil
     redirect_to '/'
   end
 
   def callback
     p "^" * 50
     p params[:code]
-    p session['oauth']
-    p session['oauth'].methods.sort
-    # session['access_token'] = session['oauth'].get_access_token(params[:code])
+    p cookies[:oauth]
+    p cookies[:oauth].methods.sort
+    # cookies[:access_token] = cookies[:oauth].get_access_token(params[:code])
     # redirect_to '/current_user'
   end
 end

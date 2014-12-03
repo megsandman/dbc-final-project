@@ -38,9 +38,7 @@ class RecipesController < ApplicationController
   # end
 
   def create
-    ##########################
-    ### => Need to find the user based on params[:user_id] from URL
-    ### => then add this new recipe to user_name.recipes
+
     user = User.find_by_facebook_id(fb_id)
 
     @recipe = Recipe.new(recipe_params)
@@ -73,6 +71,9 @@ class RecipesController < ApplicationController
   def update
     # update content of recipe
     recipe = Recipe.find(params[:id])
+    recipe = Recipe.update(recipe_params)
+    category = params[:category]
+    recipe.category_id = Category.get_category_id(category)
     #TODO: flesh out rest of method
   end
 
@@ -82,7 +83,8 @@ class RecipesController < ApplicationController
     # redirect_to user_recipes_path
   end
 
-  private #--------------------------------------------------
+  private
+
   def recipe_params
     params.require(:recipe).permit(:title, :source_url, :img_url, :category_id)
   end
