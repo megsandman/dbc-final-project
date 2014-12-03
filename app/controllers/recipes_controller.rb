@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
 
 
   def create
-
+    fb_id = params[:user_id]
     user = User.find_by(uid: fb_id)
 
     @recipe = Recipe.new(recipe_params)
