@@ -1,19 +1,14 @@
 app.controller("LoginController", ["$scope", "$http", "$location", function($scope, $http, $location) {
-  if (loggedIn()){
-    $location.path('/dashboard');
-  }
-  else {
+  // if (loggedIn()){
+  //   $location.path('/dashboard');
+  // }
+  // else {
     $scope.login = function() {
-      FB.login(function(response) {
-        statusChangeCallback(response);
-
-        if (response.status === "connected") {
-          localStorage.setItem("fbUserId", response.authResponse.userID);
-          console.log($location)
+      $http.get('/login').success(function(data) {
           // $location.path('/dashboard');
-          window.location = "/#/dashboard"
-        }
-      }, { scope: 'public_profile,email' });
+          // window.location = "/#/dashboard"
+      })
     }
+  // }
   }
-}])
+])

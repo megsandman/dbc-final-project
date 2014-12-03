@@ -1,20 +1,29 @@
 app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$location", "ngDialog", function($scope, $http, $routeParams, $location, ngDialog) {
-
-  if(!loggedIn()) {
-    $location.path('/');
-  } else {
+  var uId;
+  $http.get('/current_user').success(function(data) {
+     uId = data["uid"];
+     // alert(uId);
+     getUserRecipes(uId)
+  })
+  // if(!loggedIn()) {
+  //   $location.path('/');
+  // } else {
     // console.log(localStorage.getItem('fbUserId'))
-    var fbID = localStorage.getItem('fbUserId')
-    $http.get('/users/' + fbID + '/recipes').success(function(data) {
+    // var fbID = localStorage.getItem('fbUserId')
+    function getUserRecipes(uId) {
+      console.log(uId)
+      $http.get('/users/' + uId + '/recipes').success(function(data) {
       $scope.recipes = data;
-    });
+      });
+    }
 
     $scope.logout = function(){
-      fbID = localStorage.getItem("fbUserId");
-      window.fbAsyncInit;
-      FB.logout();
-      localStorage.removeItem("fbUserId");
-      $location.path('/');
+      $http.get('/logout').success(function(data) {
+          // alert('in logout!')
+          // localStorage.removeItem("fbUserId");
+          $location.path('/');
+
+      })
     }
 
 
@@ -162,8 +171,9 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       }
     };
 
-  }
-}]);
+  // }
+}
+]);
 
 
 // LOGOUT BUTTON FUNCTIONALITY

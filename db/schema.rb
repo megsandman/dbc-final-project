@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(version: 20141128201338) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "facebook_id"
-    t.string   "email"
-    t.string   "access_key"
+    t.string   "provider"
+    t.integer  "uid"
+    t.string   "name"
+    t.string   "image"
+    t.string   "token"
+    t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
