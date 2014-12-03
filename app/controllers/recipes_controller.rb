@@ -7,26 +7,41 @@ class RecipesController < ApplicationController
 
 
     if User.find_by_facebook_id(fb_id) == nil
-      #CREATE USER
-      @oauth = Koala::Facebook::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')
-      @oauth.get_user_info_from_cookies(cookes)
+      # p "*" * 50
+      # p "in create user section"
+      @oauth = Koala::Facebook::OAuth.new(ENV['APP_ID'], ENV['APP_SECRET'], ENV['CALLBACK_URI'])
+      @facebook_cookies = @oauth.get_user_info_from_cookies(cookies)
+      @fb_user_id = @facebook_cookies["user_id"]
+      @access_token = @facebook_cookies["access_token"]
+      @graph = Koala::Facebook::API.new(@access_token)
+      graph = @graph.get_object("#{@fb_user_id}")
+      # p "*" * 50
+      user = User.new(facebook_id: @fb_user_id,
+                      first_name: graph["first_name"],
+                      last_name: graph["last_name"],
+                      email: graph["email"])
+      if user.save
+        p "saved!"
+      else
+        p "didn't save"
+      end
+
     else
+      # p "!" * 50
       user = User.find_by_facebook_id(fb_id)
       @recipes = user.recipes.order('created_at desc')
       render json: @recipes.to_json
     end
   end
 
-  def show
+  # def show
     # recipe = Recipe.find(params[:id])
     # render json: recipe.to_json
-  end
+  # end
 
   def create
-    ##########################
-    ### => Need to find the user based on params[:user_id] from URL
-    ### => then add this new recipe to user_name.recipes
-    user = User.find_by(id: params[:user_id])
+
+    user = User.find_by_facebook_id(fb_id)
 
     @recipe = Recipe.new(recipe_params)
     category = params[:category] || "Appetizers"
@@ -55,13 +70,57 @@ class RecipesController < ApplicationController
 
   end
 
-  def destroy
-    recipe = Recipe.find_by(id: params[:id])
-    recipe.destroy
-    redirect_to user_recipes_path
+  def update
+    fb_id = params[:user_id]
+    recipe = Recipe.find(params[:id])
+    user = User.find_by_facebook_id(fb_id)
+
+    recipe.update(title: params[:title])
+
+    recipe.category = Category.find(params[:category_id])
+
+    recipe_tags = params[:tags]
+    recipe.tag_string = params[:tags]
+    p "5" * 50
+    tags_array = recipe_tags.split(',')
+    p tags_array
+    # tags_array.map! {|tag| tag.strip}
+
+    # tags_array = Tag.process_tags(params[:tags])
+
+    tags_array.each do |tag|
+      if Tag.find_by_name(tag) == nil
+        p "6" * 50
+        p tag
+        # stripped_tag = tag.strip
+        recipe.tags << Tag.create(name: tag)
+      else
+        recipe.tags << Tag.find_by_name(tag)
+      end
+    end
+
+    if recipe.save
+      user.recipes << recipe
+      render json: recipe.to_json
+    else
+      format.json { render json: recipe.errors, status: :unprocessable_entity }
+    end
   end
 
-  private #--------------------------------------------------
+  def destroy
+    fb_id = params[:user_id]
+    recipe = Recipe.find_by(id: params[:id])
+    user = User.find_by_facebook_id(fb_id)
+    recipe.destroy
+    recipes = user.recipes
+    render json: recipes.to_json
+
+
+    # redirect_to user_recipes_path
+  end
+
+  private
+
   def recipe_params
     params.require(:recipe).permit(:title, :source_url, :img_url, :category_id)
   end

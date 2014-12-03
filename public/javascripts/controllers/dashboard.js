@@ -3,7 +3,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   if(!loggedIn()) {
     $location.path('/');
   } else {
-    console.log(localStorage.getItem('fbUserId'))
+    // console.log(localStorage.getItem('fbUserId'))
     var fbID = localStorage.getItem('fbUserId')
     $http.get('/users/' + fbID + '/recipes').success(function(data) {
       $scope.recipes = data;
@@ -13,16 +13,16 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       fbID = localStorage.getItem("fbUserId");
       window.fbAsyncInit;
       FB.logout();
-      // $http.delete('/sessions/' + fbID)
       localStorage.removeItem("fbUserId");
       $location.path('/');
-
     }
+
+
+
 
   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString, recipeId) {
      var recipeTags = recipeTagString.split(", ");
      $scope.recipeTags = recipeTags;
-     console.log(recipeTagString);
      $scope.myForm = {};
      $scope.recipeCategory = recipeCategory;
      $scope.recipeTitle = recipeTitle;
@@ -36,6 +36,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
        ,{ category_id : 6, name: "Salads" }
        ,{ category_id : 7, name: "Sides" }
       ];
+     console.log(recipeTagString);
       ngDialog.open({
          template: '<div class="lightbox">' +
                       '<div>' +
@@ -50,16 +51,17 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                     '<div class="edit_form-text">' +
                                       '<form class="recipe_edit_form">' +
                                           '<label>Recipe Name</label>' +
-                                          '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                          '<input class="recipe_name_input" type="text" name="title" value="' + recipeTitle + '">' +
                                           '<label>Category</label>' +
                                           '<select ng-init="recipe.category_id = recipeCategory" ng-model="recipe.category_id" ng-options="recipe.category_id as recipe.name for recipe in myForm.options"' +
                                           'class="categories thick-txt-bx">' +
                                           '</select><br>' +
                                           '<label>Tags</label>' +
-                                          '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
+                                          '<input class="tag_input" name="tag_string" value="' + recipeTagString +'">' +
+                                          // '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                           '</form>' +
-                                         '<button>Save</button>' +
-                                         '<button ng-click="deleteRecipe($index)" value="Delete">Delete</button>' +
+                                         '<button ng-click="saveRecipe(' + recipeId + ')">Save</button>' +
+                                         '<button ng-click="deleteRecipe(' + recipeId + ')" value="Delete">Delete</button>' +
                                         '<button ng-click="cancelEdit()">Cancel</button>' +
                                       // '</form>' +
                                     '</div>' +
@@ -68,12 +70,16 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                               '</td>' +
                             '</tr>' +
                             '<tr>' +
-                              '<td>' +
-                                '<a href=' + recipeSourceUrl + ' target="_blank"><h2>' + recipeTitle + '</h2></a>' +
-                                '<button ng-click="editPin(); showEdit=true">Edit</button>' +
-                                '</td>' +
-                              '</tr>' +
-                           '</table>' +
+                              '<td class="lightbox_caption">' +
+                                '<div class="float_left">' +
+                                  '<a  class="lightbox_link_label" href=' + recipeSourceUrl + ' target="_blank"><h2 class="recipeTitle">' + recipeTitle + '</h2></a>' +
+                                '</div>' +
+                                '<div class="float_right" >' +
+                                  '<button ng-click="editPin(); showEdit=true">Edit</button>' +
+                                '</div>' +
+                              '</td>' +
+                            '</tr>' +
+                          '</table>' +
                         '</div>' +
                     '</div>',
         plain: true,
@@ -99,7 +105,29 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       }
     }
 
-    $scope.deleteRecipe = function(index){
+    $scope.saveRecipe = function(recipeId){
+      if (loggedIn() ){
+        // alert(recipeId)
+        //updates view for dialog caption
+        var title = $(".recipe_name_input").val();
+        var newTags = $(".tag_input").val();
+
+        $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
+        //closes slide-up form
+        $(".edit_form_click").removeClass("edit_form");
+        $(".edit_form_click").addClass("edit_form_cancel");
+        var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
+        $http.put('/users/' + fbID + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tags: newTags, tag_string: newTags}).success(function(data) {
+        console.log('success');
+      });
+
+      }
+      else{
+          $location.path('/');
+      }
+    }
+
+    $scope.deleteRecipe = function(recipeId){
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
       {
@@ -110,14 +138,17 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
           $scope.recipes.splice(recipeIndexToDelete, 1);
         }
       }
-      $scope.closeThisDialog();
-      // var url = '/users/1/recipes/' +  $scope.recipeId;
-      // console.log(url);
+      ngDialog.close();
+
+      $http.delete('/users/' + fbID + '/recipes/' + recipeId).success(function(data) {
+        console.log('success');
+      });
+
     };
 
     $scope.addRecipe = function() {
       if ( loggedIn() ){
-        $http.post('users/1/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
+        $http.post('users/' + fbID + '/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
           $scope.recipes.unshift(data);
           // console.log(data)
           $scope.recipeTitle = "";

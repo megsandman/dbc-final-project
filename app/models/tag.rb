@@ -3,11 +3,11 @@ class Tag < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
-  def self.process_tags(tag_string)
-    tags_array = tag_string.split(',')
-    tags_array.map! {|tag| tag.strip}
-    return tags_array
-  end
+  # def self.process_tags(tag_string)
+  #   tags_array = tag_string.split(',')
+  #   tags_array.map! {|tag| tag.strip}
+  #   return tags_array
+  # end
 
 
 end

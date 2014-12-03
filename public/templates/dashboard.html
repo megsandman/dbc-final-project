@@ -36,7 +36,7 @@
       <div class="content">
       <!-- PINS -->
           <div class="all-tiles">
-                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string, recipe.id)" class="recipe-container col-xs-3 custom_captioning" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')">
+                <div ng-click="clickToOpen(recipe.img_url, recipe.title, recipe.source_url, recipe.category_id, recipe.tag_string, recipe.id)" class="recipe-container col-xs-3 custom_captioning shadow" ng-repeat="recipe in recipes | filter:myFilter | filter:query" style="background-image: url('{{recipe.img_url}}')" id="{{recipe.id}}">
                   <div class="offset_div">
                   </div>
                   <div class="caption">
