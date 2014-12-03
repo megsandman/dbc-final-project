@@ -22,7 +22,11 @@ class RecipesController < ApplicationController
 
 
   def create
-
+      p "!"*50
+      p "!"*50
+      p params
+      p "!"*50
+      p "!"*50
     if session[:user_id]
       fb_id = params[:user_id]
       user = User.find_by(uid: fb_id)
@@ -33,7 +37,7 @@ class RecipesController < ApplicationController
 
 
       recipe_tags = tag_params
-      tags_array = recipe_tags.split(',')
+      tags_array = recipe_tags[:tags].split(',')
       tags_array.map! {|tag| tag.strip}
 
       tags_array.each do |tag|
@@ -66,8 +70,8 @@ class RecipesController < ApplicationController
       recipe.title = params[:title]
       recipe.category = Category.find(params[:category_id])
 
-      recipe.tag_string = params[:tag_string]
-      tag_array = recipe.tag_string.split(',')
+      recipe.tag_string = params[:tags]
+      tag_array = recipe.tag_string[:tags].split(',')
 
       tag_array.each do |tag|
         stripped_tag = tag.strip
@@ -104,7 +108,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :source_url, :img_url)
+    params.require(:recipe).permit(:title, :source_url, :img_url, :user_id)
   end
 
   def tag_params
@@ -114,5 +118,6 @@ class RecipesController < ApplicationController
   def category_params
     params.permit(:category)
   end
+
 
 end

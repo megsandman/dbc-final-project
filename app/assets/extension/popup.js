@@ -1,7 +1,7 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
   var userId;
-  // getUser();
+  getUser();
   function getUser() {
     $.ajax({
       // url: 'https://chefboard.herokuapp.com/current_user',
@@ -41,10 +41,9 @@ $(document).ready( function() {
       type: 'get',
       dataType: "",
       success: function(data) {
-        $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
         var title = '<br><h5>Select Recipe Image:</h5><br>'
+        $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
         $('.scraped-images').prepend(title);
-
         //find images in the document
         $.each($pageData.find('img[src]'), function(index, item) {
           image_src = $(item).attr('src')
@@ -79,17 +78,17 @@ $(document).ready( function() {
     return form;
   }
   function getLoggedOut() {
-    var loggedOut = '<h2>You are not logged in</h2><h5 class="chefboard-link">Head over to chefboard to login!</h5>'
-    addRedirectListener();
+    var loggedOut = '<h2 class="chefboard-link">Head over to <a class="chefboard-redirect" href="https://chefboard.herokuapp.com/" target="_blank">chefboard</a> to login!</h2>';
+    // addRedirectListener();
     return loggedOut;
   }
-  function addRedirectListener() {
-    $('.chefboard-link').on('click', function() {
-      // document.location.href="http://chefboard.herokuapp.com/"
-      var newTab = "https://chefboard.herokuapp.com/"
-      chrome.tabs.create({url: newTab})
-    });
-  }
+  // function addRedirectListener() {
+  //   $('.chefboard-link').on('click', function() {
+  //     // document.location.href="http://chefboard.herokuapp.com/"
+  //     var newTab = "https://chefboard.herokuapp.com/"
+  //     chrome.tabs.create({url: newTab})
+  //   });
+  // }
   function getPinnedPrompt() {
     // on submit of form, render this and toggle off form.
     var successfulPin = '<p class="success">Pin successful!</p><p class="success-subtitle">Check it out:</p><br><button class="chefboard-link">chefboard.</button>';
@@ -97,7 +96,7 @@ $(document).ready( function() {
   }
   function renderPinnedSuccess() {
     $('.successful-pin').append(getPinnedPrompt());
-    addRedirectListener();
+    // addRedirectListener();
   }
   ////////////////////// BUILD NEW RECIPE ////////////////////////
   function getFormData() {
@@ -124,6 +123,7 @@ $(document).ready( function() {
         data: recipeData,
         crossDomain: true,
         success: function( response ) {
+          renderPinnedSuccess();
           window.close();
           // console.log(response);
         },
