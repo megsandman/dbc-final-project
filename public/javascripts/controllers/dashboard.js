@@ -129,9 +129,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
           $scope.recipes.splice(recipeIndexToDelete, 1);
         }
       }
-      $scope.closeThisDialog();
-      // var url = '/users/1/recipes/' +  $scope.recipeId;
-      // console.log(url);
+      ngDialog.close();
     };
 
     $scope.addRecipe = function() {
