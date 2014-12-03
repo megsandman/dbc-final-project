@@ -4,7 +4,7 @@
   "description": "Save recipe link and details to your webapp",
   "version": "1.0",
   "background": {
-    "scripts": ["event.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
 
@@ -16,6 +16,7 @@
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
   "permissions": [
+    "cookies",
     "tabs",
     "activeTab",
     "http://*/*",
@@ -24,6 +25,7 @@
     "https://chefboard.herokuapp.com/*",
     "http://chefboard.herokuapp.com/",
     "http://chefboard.herokuapp.com/*",
-    "identity"
+    "identity",
+    "*://*.google.com",
   ]
 }

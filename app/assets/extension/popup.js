@@ -33,9 +33,7 @@ $(document).ready( function() {
   }
   /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
   chrome.tabs.query({active: true, currentWindow:true}, function(array) {
-    var currentPage = array[0];
-    var currentUrl = currentPage.url;
-    var currentTitle = currentPage.title;
+    currentPage = array[0];
     // renderPinnedSuccess();
     scrapeImages(currentPage);
   });
@@ -46,6 +44,7 @@ $(document).ready( function() {
       type: 'get',
       dataType: "",
       success: function(data) {
+        console.log(data);
         $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
         var title = '<br><h5>Select Recipe Image:</h5><br>'
         $('.scraped-images').prepend(title);

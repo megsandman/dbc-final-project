@@ -4,6 +4,8 @@ class RecipesController < ApplicationController
 
   def index
     fb_id = params[:user_id]
+
+
     if User.find_by_facebook_id(fb_id) == nil
       #CREATE USER
       @oauth = Koala::Facebook::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')

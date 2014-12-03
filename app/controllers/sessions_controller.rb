@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
   def destroy
   end
 
-  def current_user
-    @oauth = Koala::Facebook::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')
+  def current_userk::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')
     @oauth.get_user_info_from_cookies(cookes)
   end
+    @oauth = Koala::Faceboo
 
   def verify_facebook_auth
 
