@@ -65,13 +65,14 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     $scope.saveRecipe = function(recipeId){
       var title = $(".recipe_name_input").val();
       var newTags = $(".tag_input").val();
-
+      console.log(newTags);
       $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
       //closes slide-up form
       $(".edit_form_click").removeClass("edit_form");
       $(".edit_form_click").addClass("edit_form_cancel");
       var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
-      $http.put('/users/' + uId + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tags: newTags, tag_string: newTags}).success(function(data) {
+      console.log({title: title, category_id: newCategoryId, tag_string: newTags})
+      $http.put('/users/' + uId + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tag_string: newTags}).success(function(data) {
         console.log('success');
       });
     }

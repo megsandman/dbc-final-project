@@ -61,16 +61,16 @@ class RecipesController < ApplicationController
   def update
     if session[:user_id]
       fb_id = params[:user_id]
-      recipe = Recipe.find(params[:id])
       user = User.find_by(uid: fb_id)
+      recipe = Recipe.find(params[:id])
 
-      recipe.update(title: params[:title])
-
+      recipe.title = params[:title]
       recipe.category = Category.find(params[:category_id])
 
       # recipe_tags = params[:tags]
-      recipe.tag_string = params[:tags]
-      # tags_array = recipe_tags.split(',')
+      recipe.tag_string = params[:tag_string]
+      p "$" * 50
+      p params[:tag_string]
 
       recipe.tag_string.each do |tag|
         if Tag.find_by(name: tag) == nil
