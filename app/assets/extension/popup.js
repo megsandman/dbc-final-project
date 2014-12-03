@@ -1,5 +1,6 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
+  authenticateUser();
   function authenticateUser() {
     // get request to current_user route
       // verify logged in from params
@@ -9,11 +10,12 @@ $(document).ready( function() {
     //if NOT logged in:
       //display the loggedOut view
     $.ajax({
-      url: 'https://chefboard.herokuapp.com/current_user',
+      url: 'http://chefboard.herokuapp.com/current_user',
       type: 'get',
       dataType: 'JSONP',
+      crossDomain: true,
       success: function(userData) {
-
+        console.log(userData)
       },
       error: function(errorCode) {
         console.log('FAILED REQUEST');
@@ -44,7 +46,6 @@ $(document).ready( function() {
       type: 'get',
       dataType: "",
       success: function(data) {
-        console.log(data);
         $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
         var title = '<br><h5>Select Recipe Image:</h5><br>'
         $('.scraped-images').prepend(title);
