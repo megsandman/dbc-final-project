@@ -67,16 +67,16 @@ class RecipesController < ApplicationController
       recipe.title = params[:title]
       recipe.category = Category.find(params[:category_id])
 
-      # recipe_tags = params[:tags]
       recipe.tag_string = params[:tag_string]
-      p "$" * 50
-      p params[:tag_string]
+      tag_array = recipe.tag_string.split(',')
 
-      recipe.tag_string.each do |tag|
+      tag_array.each do |tag|
+        stripped_tag = tag.strip
+
         if Tag.find_by(name: tag) == nil
-          recipe.tags << Tag.create(name: tag)
+          recipe.tags << Tag.create(name: stripped_tag)
         else
-          recipe.tags << Tag.find_by(name: tag)
+          recipe.tags << Tag.find_by(name: stripped_tag)
         end
       end
       if recipe.save
