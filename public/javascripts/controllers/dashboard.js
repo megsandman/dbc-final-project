@@ -99,7 +99,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     $scope.addRecipe = function() {
       $http.post('users/' + uId + '/recipes.json', {
-        title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink,
+        recipe: {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink},
         category: $scope.category,
         tags: $scope.recipeTags}).success(function(data) {
         $scope.recipes.unshift(data);
