@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
 
   def create
     if session[:user_id]
+      fb_id = params[:user_id]
       user = User.find_by(uid: fb_id)
 
       @recipe = Recipe.new(recipe_params)
