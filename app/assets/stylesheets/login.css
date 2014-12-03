@@ -1,9 +1,9 @@
 /*----------------------------------------------*/
 /*-----------    LOGIN TEMPLATE   -----------*/
 /*----------------------------------------------*/
-
+/* stylesheets ^ assets ^ app ^ public v images */
 #login-template {
-  /*background-image: ("images/coffee.jpg");*/
+  background-image: url("./public/images/coffee.jpg");
   /*background-color: red;*/
 
   height: 100%;
