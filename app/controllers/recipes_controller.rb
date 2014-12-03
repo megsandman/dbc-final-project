@@ -119,5 +119,8 @@ class RecipesController < ApplicationController
     params.permit(:category)
   end
 
+  def user_id
+    params.permit(:user_id)
+  end
 
 end
