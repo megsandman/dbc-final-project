@@ -6,7 +6,9 @@ class RecipesController < ApplicationController
     fb_id = params[:user_id]
 
     if User.find_by(uid: fb_id) == nil
-      redirect_to sessions
+      p "$" * 50
+      p params
+      redirect_to new_session_path("facebook")
     else
       user = User.find_by(uid: fb_id)
       @recipes = user.recipes.order('created_at desc')

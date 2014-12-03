@@ -2,8 +2,12 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   var uId;
   $http.get('/current_user').success(function(data) {
      uId = data["uid"];
-     // alert(uId);
-     getUserRecipes(uId)
+     // alert(uId > 0);
+     if (uId > 0){
+       getUserRecipes(uId)
+     } else {
+       window.location = "/login"
+     }
   })
   // if(!loggedIn()) {
   //   $location.path('/');
@@ -22,7 +26,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
           // alert('in logout!')
           // localStorage.removeItem("fbUserId");
           // $location.path('/');
-
+          window.location = "/login"
       })
     }
 
