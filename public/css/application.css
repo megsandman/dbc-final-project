@@ -494,12 +494,10 @@ a.thumbnail:hover {
   width: 800px;
 }
 
-/*.recipe_edit_form{
-  width: 50%;
-  margin: auto;
-  text-align: left;
-}*/
 
+.recipe_add_form {
+  margin-top: 0;
+}
 
 .recipe_edit_form {
     width: 100%;
