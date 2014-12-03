@@ -60,12 +60,12 @@ html, body {
   text-align: center;
 }
 
-.chefboard-btn {
+.chefboard-link {
   margin: auto;
   width: 100px;
   height: 30px;
-  background-color: #282828;
-  color: white;
+  /*background-color: #282828;*/
+  color: #282828;
   font-weight: 200;
   font-family: serif;
   letter-spacing: 3px;

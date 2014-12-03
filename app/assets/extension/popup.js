@@ -20,6 +20,7 @@ $(document).ready( function() {
     })
   }///////////      END AUTHENTICATE      ///////////
   function authenticateUser(user) {
+    console.log(user)
     if ( user == "false" ) {
       $('.logged-out').append(getLoggedOut);
     } else {
@@ -78,12 +79,12 @@ $(document).ready( function() {
     return form;
   }
   function getLoggedOut() {
-    var loggedOut = '<p>You are not logged in</p><button class="chefboard-btn">chefboard.</button>'
+    var loggedOut = '<h2>You are not logged in</h2><h5 class="chefboard-link">Head over to chefboard to login!</h5><'
     addRedirectListener();
     return loggedOut;
   }
   function addRedirectListener() {
-    $('.chefboard-btn').on('click', function() {
+    $('.chefboard-link').on('click', function() {
       // document.location.href="http://chefboard.herokuapp.com/"
       var newTab = "https://chefboard.herokuapp.com/"
       chrome.tabs.create({url: newTab})
@@ -91,7 +92,7 @@ $(document).ready( function() {
   }
   function getPinnedPrompt() {
     // on submit of form, render this and toggle off form.
-    var successfulPin = '<p class="success">Pin successful!</p><p class="success-subtitle">Check it out:</p><br><button class="chefboard-btn">chefboard.</button>';
+    var successfulPin = '<p class="success">Pin successful!</p><p class="success-subtitle">Check it out:</p><br><button class="chefboard-link">chefboard.</button>';
     return successfulPin
   }
   function renderPinnedSuccess() {
