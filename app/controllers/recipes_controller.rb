@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
       @recipe.category_id = Category.get_category_id(category)
 
 
-      recipe_tags = params[:tags]
+      recipe_tags = tag_params
       tags_array = recipe_tags.split(',')
       tags_array.map! {|tag| tag.strip}
 
@@ -105,6 +105,14 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :source_url, :img_url)
+  end
+
+  def tag_params
+    params.permit(:tags)
+  end
+
+  def category_params
+    params.permit(:category)
   end
 
 end
