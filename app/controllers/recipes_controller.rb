@@ -26,22 +26,20 @@ class RecipesController < ApplicationController
         p "didn't save"
       end
 
+
+    if User.find_by(uid: fb_id) == nil
+      redirect_to sessions
     else
-      # p "!" * 50
-      user = User.find_by_facebook_id(fb_id)
+      user = User.find_by(uid: fb_id)
       @recipes = user.recipes.order('created_at desc')
       render json: @recipes.to_json
     end
   end
 
-  # def show
-    # recipe = Recipe.find(params[:id])
-    # render json: recipe.to_json
-  # end
 
   def create
 
-    user = User.find_by_facebook_id(fb_id)
+    user = User.find_by(uid: fb_id)
 
     @recipe = Recipe.new(recipe_params)
     category = params[:category] || "Appetizers"
@@ -54,10 +52,10 @@ class RecipesController < ApplicationController
     tags_array = Tag.process_tags(params[:tags])
 
     tags_array.each do |tag|
-      if Tag.find_by_name(tag) == nil
+      if Tag.find_by(name: tag) == nil
         @recipe.tags << Tag.create(name: tag)
       else
-        @recipe.tags << Tag.find_by_name(tag)
+        @recipe.tags << Tag.find_by(name: tag)
       end
     end
 
@@ -73,7 +71,7 @@ class RecipesController < ApplicationController
   def update
     fb_id = params[:user_id]
     recipe = Recipe.find(params[:id])
-    user = User.find_by_facebook_id(fb_id)
+    user = User.find_by(uid: fb_id)
 
     recipe.update(title: params[:title])
 
@@ -89,13 +87,13 @@ class RecipesController < ApplicationController
     # tags_array = Tag.process_tags(params[:tags])
 
     tags_array.each do |tag|
-      if Tag.find_by_name(tag) == nil
+      if Tag.find_by(name: tag) == nil
         p "6" * 50
         p tag
         # stripped_tag = tag.strip
         recipe.tags << Tag.create(name: tag)
       else
-        recipe.tags << Tag.find_by_name(tag)
+        recipe.tags << Tag.find_by(name: tag)
       end
     end
 
@@ -110,7 +108,7 @@ class RecipesController < ApplicationController
   def destroy
     fb_id = params[:user_id]
     recipe = Recipe.find_by(id: params[:id])
-    user = User.find_by_facebook_id(fb_id)
+    user = User.find_by(uid: fb_id)
     recipe.destroy
     recipes = user.recipes
     render json: recipes.to_json

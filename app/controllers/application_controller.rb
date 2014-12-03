@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :set_headers
 
-  def facebook_cookies
-    @facebook_cookies ||= Koala::Facebook::OAuth.new(YOUR_APP_ID, YOUR_SECRET).get_user_info_from_cookie(cookies)
-  end
+  # def facebook_cookies
+  #   @facebook_cookies ||= Koala::Facebook::OAuth.new(YOUR_APP_ID, YOUR_SECRET).get_user_info_from_cookie(cookies)
+  # end
 
 private
   def set_headers
