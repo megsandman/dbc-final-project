@@ -57,7 +57,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                           'class="categories thick-txt-bx">' +
                                           '</select><br>' +
                                           '<label>Tags</label>' +
-                                          '<input name="tag_string" value="' + recipeTagString +'">' +
+                                          '<input class="tag_input" name="tag_string" value="' + recipeTagString +'">' +
                                           // '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                           '</form>' +
                                          '<button ng-click="saveRecipe(' + recipeId + ')">Save</button>' +
@@ -107,15 +107,17 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     $scope.saveRecipe = function(recipeId){
       if (loggedIn() ){
-        alert(recipeId)
+        // alert(recipeId)
         //updates view for dialog caption
         var title = $(".recipe_name_input").val();
+        var newTags = $(".tag_input").val();
+
         $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
         //closes slide-up form
         $(".edit_form_click").removeClass("edit_form");
         $(".edit_form_click").addClass("edit_form_cancel");
-
-        $http.put('/users/' + fbID + '/recipes/' + recipeId, {title: $scope.recipeTitle, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
+        var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
+        $http.put('/users/' + fbID + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tags: newTags, tag_string: newTags}).success(function(data) {
         console.log('success');
       });
 
@@ -126,7 +128,6 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     }
 
     $scope.deleteRecipe = function(recipeId){
-      alert(recipeId)
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
       {

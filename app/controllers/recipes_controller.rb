@@ -73,18 +73,24 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     user = User.find_by_facebook_id(fb_id)
 
-    recipe = Recipe.update(recipe_params)
-    category = params[:category]
-    recipe.category_id = Category.get_category_id(category)
+    recipe.update(title: params[:title])
+
+    recipe.category = Category.find(params[:category_id])
 
     recipe_tags = params[:tags]
+    recipe.tag_string = params[:tags]
+    p "5" * 50
     tags_array = recipe_tags.split(',')
-    tags_array.map! {|tag| tag.strip}
+    p tags_array
+    # tags_array.map! {|tag| tag.strip}
 
-    tags_array = Tag.process_tags(params[:tags])
+    # tags_array = Tag.process_tags(params[:tags])
 
     tags_array.each do |tag|
       if Tag.find_by_name(tag) == nil
+        p "6" * 50
+        p tag
+        # stripped_tag = tag.strip
         recipe.tags << Tag.create(name: tag)
       else
         recipe.tags << Tag.find_by_name(tag)
