@@ -50,7 +50,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                     '<div class="edit_form-text">' +
                                       '<form class="recipe_edit_form">' +
                                           '<label>Recipe Name</label>' +
-                                          '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                          '<input class="recipe_name_input" type="text" name="title" value="' + recipeTitle + '">' +
                                           '<label>Category</label>' +
                                           '<select ng-init="recipe.category_id = recipeCategory" ng-model="recipe.category_id" ng-options="recipe.category_id as recipe.name for recipe in myForm.options"' +
                                           'class="categories thick-txt-bx">' +
@@ -59,7 +59,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                           '<input name="tag_string" value="' + recipeTagString +'">' +
                                           // '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                           '</form>' +
-                                         '<button>Save</button>' +
+                                         '<button ng-click="saveRecipe()">Save</button>' +
                                          '<button ng-click="deleteRecipe($index)" value="Delete">Delete</button>' +
                                         '<button ng-click="cancelEdit()">Cancel</button>' +
                                       // '</form>' +
@@ -101,6 +101,17 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         $(".edit_form_click").addClass("edit_form_cancel");
       } else {
         $location.path('/');
+      }
+    }
+
+    $scope.saveRecipe = function(){
+      if (loggedIn() ){
+        var title = $(".recipe_name_input").val();
+        $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
+      }
+      else{
+          $location.path('/');
+
       }
     }
 
