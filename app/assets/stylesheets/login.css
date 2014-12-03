@@ -2,12 +2,6 @@
 /*-----------    LOGIN TEMPLATE   -----------*/
 /*----------------------------------------------*/
 /* stylesheets ^ assets ^ app ^ public v images */
-#login-template {
-  background-image: url("./public/images/coffee.jpg");
-  /*background-color: red;*/
-
-  height: 100%;
-}
 
 
 #login-template h1 {
@@ -31,7 +25,6 @@
   width: 350px;
   height: 50px;
   padding: 0;
-  /*background-color: blue;*/
 }
 
 .fb-button {
@@ -39,9 +32,7 @@
 }
 
 .body-background-image {
-/*  background-position: contain;
-  background-size: cover;
-*/  background: url(http://i.imgur.com/jGEyGK1.jpg) no-repeat center center fixed;
+  background: url(http://i.imgur.com/jGEyGK1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
