@@ -1,7 +1,7 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
   var userId;
-  getUser();
+  // getUser();
   function getUser() {
     $.ajax({
       // url: 'https://chefboard.herokuapp.com/current_user',
@@ -79,7 +79,7 @@ $(document).ready( function() {
     return form;
   }
   function getLoggedOut() {
-    var loggedOut = '<h2>You are not logged in</h2><h5 class="chefboard-link">Head over to chefboard to login!</h5><'
+    var loggedOut = '<h2>You are not logged in</h2><h5 class="chefboard-link">Head over to chefboard to login!</h5>'
     addRedirectListener();
     return loggedOut;
   }

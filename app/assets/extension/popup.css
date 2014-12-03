@@ -16,7 +16,7 @@ html, body {
 
 .header h3 {
   font-weight: 200;
-  font-family: serif;
+  font-family: 'Vollkorn';
   letter-spacing: 3px;
 }
 
@@ -61,15 +61,22 @@ html, body {
 }
 
 .chefboard-link {
-  margin: auto;
-  width: 100px;
-  height: 30px;
-  /*background-color: #282828;*/
+  margin: 80px;
   color: #282828;
+  text-decoration: none;
   font-weight: 200;
-  font-family: serif;
+  font-family: 'Vollkorn';
   letter-spacing: 3px;
   padding: auto;
+}
+
+.chefboard-redirect:hover {
+  color: #282828;
+  text-decoration: none;
+}
+
+.chefboard-redirect:visited {
+  color: #282828;
 }
 
 .scraped-images {
