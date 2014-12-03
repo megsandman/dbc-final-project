@@ -17,12 +17,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       $location.path('/');
     }
 
-    // $http.delete('/users/' + fbID + '/recipes/' + recipeId).success(function(data) {
-    //   console.log('success');
-    // }).error(funciton() {
-    //   console.log('fail');
-    // }
-    // })
+
 
 
   $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString, recipeId) {
@@ -112,12 +107,18 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     $scope.saveRecipe = function(recipeId){
       if (loggedIn() ){
+        alert(recipeId)
         //updates view for dialog caption
         var title = $(".recipe_name_input").val();
         $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
         //closes slide-up form
         $(".edit_form_click").removeClass("edit_form");
         $(".edit_form_click").addClass("edit_form_cancel");
+
+        $http.put('/users/' + fbID + '/recipes/' + recipeId, {title: $scope.recipeTitle, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
+        console.log('success');
+      });
+
       }
       else{
           $location.path('/');
@@ -137,6 +138,11 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         }
       }
       ngDialog.close();
+
+      $http.delete('/users/' + fbID + '/recipes/' + recipeId).success(function(data) {
+        console.log('success');
+      });
+
     };
 
     $scope.addRecipe = function() {

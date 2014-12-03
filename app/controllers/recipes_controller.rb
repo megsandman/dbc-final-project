@@ -69,17 +69,45 @@ class RecipesController < ApplicationController
   end
 
   def update
-    # update content of recipe
+    fb_id = params[:user_id]
     recipe = Recipe.find(params[:id])
+    user = User.find_by_facebook_id(fb_id)
+
     recipe = Recipe.update(recipe_params)
     category = params[:category]
     recipe.category_id = Category.get_category_id(category)
-    #TODO: flesh out rest of method
+
+    recipe_tags = params[:tags]
+    tags_array = recipe_tags.split(',')
+    tags_array.map! {|tag| tag.strip}
+
+    tags_array = Tag.process_tags(params[:tags])
+
+    tags_array.each do |tag|
+      if Tag.find_by_name(tag) == nil
+        recipe.tags << Tag.create(name: tag)
+      else
+        recipe.tags << Tag.find_by_name(tag)
+      end
+    end
+
+    if recipe.save
+      user.recipes << recipe
+      render json: recipe.to_json
+    else
+      format.json { render json: recipe.errors, status: :unprocessable_entity }
+    end
   end
 
   def destroy
+    fb_id = params[:user_id]
     recipe = Recipe.find_by(id: params[:id])
+    user = User.find_by_facebook_id(fb_id)
     recipe.destroy
+    recipes = user.recipes
+    render json: recipes.to_json
+
+
     # redirect_to user_recipes_path
   end
 
