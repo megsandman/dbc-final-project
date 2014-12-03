@@ -74,7 +74,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                   '<a  class="lightbox_link_label" href=' + recipeSourceUrl + ' target="_blank"><h2 class="recipeTitle">' + recipeTitle + '</h2></a>' +
                                 '</div>' +
                                 '<div class="float_right" >' +
-                                  '<button ng-click="editPin(); showEdit=true">Edit</button>' +
+                                  '<button class="edit_btn" ng-click="editPin(); showEdit=true">Edit</button>' +
                                 '</div>' +
                               '</td>' +
                             '</tr>' +
