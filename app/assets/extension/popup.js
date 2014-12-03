@@ -1,44 +1,38 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
-  function authenticateUser() {
-    // get request to current_user route
-      // verify logged in from params
-    // if logged in:
-      // render pictures...then form...
-      // assign a variable that will be the userID used in the POST route URL
-    //if NOT logged in:
-      //display the loggedOut view
+  var userId;
+  getUser();
+  function getUser() {
     $.ajax({
-      url: 'https://chefboard.herokuapp.com/current_user',
+      // url: 'https://chefboard.herokuapp.com/current_user',
+      url: 'http://localhost:3000/current_user',
       type: 'get',
-      dataType: 'JSONP',
+      dataType: '',
+      crossDomain: true,
       success: function(userData) {
-
+        userId = userData["uid"];
+        console.log(userId);
+        authenticateUser(userData);
       },
       error: function(errorCode) {
         console.log('FAILED REQUEST');
       }
     })
   }///////////      END AUTHENTICATE      ///////////
-  ///////      This will be used for varifying LOGIN
-  function renderExtension() {
-    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
-    if (testNum == 1) {
-      $('#new-recipe').append(getForm);
-      submitRecipeListener();
-    } else {
+  function authenticateUser(user) {
+    if ( user == "false" ) {
       $('.logged-out').append(getLoggedOut);
-      $('#new-recipe').toggle();
+    } else {
+      getPage();
     }
   }
   /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
-  chrome.tabs.query({active: true, currentWindow:true}, function(array) {
-    var currentPage = array[0];
-    var currentUrl = currentPage.url;
-    var currentTitle = currentPage.title;
-    // renderPinnedSuccess();
-    scrapeImages(currentPage);
-  });
+  function getPage() {
+    chrome.tabs.query({active: true, currentWindow:true}, function(array) {
+      currentPage = array[0];
+      scrapeImages(currentPage);
+    });
+  }
   //////////////////////    IMAGE SELECT    ///////////////////////
   function scrapeImages(currentPage) {
     $.ajax({
@@ -120,16 +114,17 @@ $(document).ready( function() {
   function submitRecipeListener() {
     $('#new-recipe').on('submit', function(event) {
       event.preventDefault();
-      var recipeData = getFormData;
+      var recipeData = getFormData();
+      console.log(userId);
       $.ajax({
         type: 'POST',
-        url: 'http://chefboard.herokuapp.com/users/1/recipes',
-        // url: 'http://localhost:3000/users/1/recipes',
+        // url: 'http://chefboard.herokuapp.com/users/' + userId + '/recipes',
+        url: 'http://localhost:3000/users/' + userId + '/recipes',
         data: recipeData,
         crossDomain: true,
         success: function( response ) {
           window.close();
-          console.log(response);
+          // console.log(response);
         },
         error: function( error ) {
           console.log(error);

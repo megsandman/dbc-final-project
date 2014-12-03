@@ -1,19 +1,31 @@
 class SessionsController < ApplicationController
-  # before_action -> { verify_facebook_auth }
-  # def create
 
-  # end
+  def create
+    user_id = User.omniauth(env['omniauth.auth'])
+    p "%" * 50
+    p user_id
+    session[:user_id] = user_id
+    redirect_to "#/dashboard"
+  end
 
-  # def destroy
-  # end
+  def destroy
+    p "!" * 50
+    session[:user_id] = nil
+    redirect_to '/login'
+  end
 
-  # def current_user
-  #   @oauth = Koala::Facebook::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')
-  #   @oauth.get_user_info_from_cookies(cookes)
-  # end
+  def current_user
+    if session[:user_id]
+      render json: User.find(session[:user_id]).to_json
+    else
+      fail = "false"
+      render json: fail.to_json
+    end
+  end
 
-  # def verify_facebook_auth
 
+  def login
+    render :login
+  end
 
-  # end
 end
