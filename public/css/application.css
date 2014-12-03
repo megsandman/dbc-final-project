@@ -71,7 +71,7 @@ body, html{
 }
 .search-bar {
   /*background-color: green;*/
-  margin: 15px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 .search-text {
@@ -403,6 +403,11 @@ a.thumbnail:hover {
 .lightbox_link_label {
   color: #282828;
   text-decoration: none;
+}
+
+.lightbox_link_label h2{
+  margin-bottom: -30px;
+  margin-top: 30px;
 }
 
 .lightbox_link_label:hover{
