@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
   def destroy
     p "!" * 50
     session[:user_id] = nil
-    # redirect to login
     redirect_to '/login'
   end
 
@@ -27,7 +26,7 @@ class SessionsController < ApplicationController
 
 
   def login
-
+    render :login
   end
 
 end
