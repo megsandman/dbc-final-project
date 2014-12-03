@@ -106,12 +106,15 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     $scope.saveRecipe = function(){
       if (loggedIn() ){
+        //updates view for dialog caption
         var title = $(".recipe_name_input").val();
         $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
+        //closes slide-up form
+        $(".edit_form_click").removeClass("edit_form");
+        $(".edit_form_click").addClass("edit_form_cancel");
       }
       else{
           $location.path('/');
-
       }
     }
 
