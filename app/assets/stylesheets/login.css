@@ -1,0 +1,45 @@
+/*----------------------------------------------*/
+/*-----------    LOGIN TEMPLATE   -----------*/
+/*----------------------------------------------*/
+
+#login-template {
+  /*background-image: ("images/coffee.jpg");*/
+  /*background-color: red;*/
+
+  height: 100%;
+}
+
+
+#login-template h1 {
+  color: #282828;
+  font-size: 4.5em;
+  font: serif;
+  letter-spacing: 3.5px;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.fb-button-div {
+
+  background: url(http://i.imgur.com/tcVYwG5.png);
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 350px;
+  height: 50px;
+  padding: 0;
+  /*background-color: blue;*/
+}
+
+.fb-button {
+  width: 100px;
+}
+
+.body-background-image {
+  background-position: center;
+  background-size: cover;
+  background-image: url('coffee.jpg')
+}

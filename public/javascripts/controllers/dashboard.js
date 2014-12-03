@@ -21,7 +21,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       $http.get('/logout').success(function(data) {
           // alert('in logout!')
           // localStorage.removeItem("fbUserId");
-          $location.path('/');
+          // $location.path('/');
 
       })
     }

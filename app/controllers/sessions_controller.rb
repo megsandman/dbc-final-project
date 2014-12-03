@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
   def destroy
     p "!" * 50
     session[:user_id] = nil
-    redirect_to root_url
+    # redirect to login
+    redirect_to '/login'
   end
 
   def current_user
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
 
 
   def login
-    redirect_to "/auth/facebook"
+
   end
 
 end
