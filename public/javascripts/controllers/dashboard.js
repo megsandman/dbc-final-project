@@ -30,7 +30,6 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       })
     }
 
-<<<<<<< HEAD
   $scope.addPinDialog = function(){
     ngDialog.open({
       template: 'templates/test_template.html',
@@ -42,13 +41,6 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       $scope.recipe = recipe;
 
      var recipeTags = recipe.tag_string.split(", ");
-=======
-
-
-
-  $scope.clickToOpen = function (recipeImgUrl, recipeTitle, recipeSourceUrl, recipeCategory, recipeTagString, recipeId) {
-     var recipeTags = recipeTagString.split(", ");
->>>>>>> c8f749004016a49bfa4fd53d756e17a56076b639
      $scope.recipeTags = recipeTags;
      $scope.myForm = {};
      $scope.myForm.options = [
