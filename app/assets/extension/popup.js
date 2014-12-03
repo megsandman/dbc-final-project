@@ -1,5 +1,6 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
+  authenticateUser();
   function authenticateUser() {
     // get request to current_user route
       // verify logged in from params
@@ -12,21 +13,31 @@ $(document).ready( function() {
       url: 'http://chefboard.herokuapp.com/current_user',
       type: 'get',
       dataType: 'JSONP',
+      crossDomain: true,
       success: function(userData) {
-
+        console.log(userData)
       },
       error: function(errorCode) {
         console.log('FAILED REQUEST');
       }
     })
   }///////////      END AUTHENTICATE      ///////////
+  ///////      This will be used for varifying LOGIN
+  function renderExtension() {
+    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
+    if (testNum == 1) {
+      $('#new-recipe').append(getForm);
+      submitRecipeListener();
+    } else {
+      $('.logged-out').append(getLoggedOut);
+      $('#new-recipe').toggle();
+    }
+  }
   /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
   chrome.tabs.query({active: true, currentWindow:true}, function(array) {
-    var currentPage = array[0];
-    var currentUrl = currentPage.url;
-    var currentTitle = currentPage.title;
-    renderPinnedSuccess();
-    // scrapeImages(currentPage);
+    currentPage = array[0];
+    // renderPinnedSuccess();
+    scrapeImages(currentPage);
   });
   //////////////////////    IMAGE SELECT    ///////////////////////
   function scrapeImages(currentPage) {
@@ -54,6 +65,7 @@ $(document).ready( function() {
   function addImageListeners(currentPage) {
     $('img').on('click', function() {
       $('#new-recipe').append(getForm);
+      submitRecipeListener();
       $('.scraped-images').toggle();
       var src = $(this).attr('src');
 
@@ -73,30 +85,24 @@ $(document).ready( function() {
   }
   function getLoggedOut() {
     var loggedOut = '<p>You are not logged in</p><button class="chefboard-btn">chefboard.</button>'
-    addLoggedOutListener();
+    addRedirectListener();
     return loggedOut;
   }
-  function addLoggedOutListener() {
-    $('chefboard-btn').on('click', function() {
-      document.location.href="http://chefboard.herokuapp.com/"
+  function addRedirectListener() {
+    $('.chefboard-btn').on('click', function() {
+      // document.location.href="http://chefboard.herokuapp.com/"
+      var newTab = "https://chefboard.herokuapp.com/"
+      chrome.tabs.create({url: newTab})
     });
   }
   function getPinnedPrompt() {
     // on submit of form, render this and toggle off form.
-    // var successfulPin =
+    var successfulPin = '<p class="success">Pin successful!</p><p class="success-subtitle">Check it out:</p><br><button class="chefboard-btn">chefboard.</button>';
+    return successfulPin
   }
   function renderPinnedSuccess() {
-
-  }
-  ///////      This will be used for varifying LOGIN
-  function renderExtension() {
-    var testNum = 1 //test value for checking the toggling between form/loggedout prompt
-    if (testNum == 1) {
-      $('#new-recipe').append(getForm);
-    } else {
-      $('.logged-out').append(getLoggedOut);
-      $('#new-recipe').toggle();
-    }
+    $('.successful-pin').append(getPinnedPrompt());
+    addRedirectListener();
   }
   ////////////////////// BUILD NEW RECIPE ////////////////////////
   function getFormData() {
@@ -111,22 +117,24 @@ $(document).ready( function() {
     };
     return recipeData;
   }
-  $('#new-recipe').on('submit', function(event) {
-    event.preventDefault();
-    var recipeData = getFormData;
-
-    $.ajax({
-      type: 'POST',
-      url: 'http://chefboard.herokuapp.com/users/1/recipes',
-      // url: 'http://localhost:3000/users/1/recipes',
-      data: recipeData,
-      crossDomain: true,
-      success: function( response ) {
-        console.log(response);
-      },
-      error: function( error ) {
-        console.log(error);
-      }
+  function submitRecipeListener() {
+    $('#new-recipe').on('submit', function(event) {
+      event.preventDefault();
+      var recipeData = getFormData;
+      $.ajax({
+        type: 'POST',
+        url: 'http://chefboard.herokuapp.com/users/1/recipes',
+        // url: 'http://localhost:3000/users/1/recipes',
+        data: recipeData,
+        crossDomain: true,
+        success: function( response ) {
+          window.close();
+          console.log(response);
+        },
+        error: function( error ) {
+          console.log(error);
+        }
+      });
     });
-  }); ///////  END NEW RECIPE  ///////
+  } ///////  END NEW RECIPE  ///////
 });/// END DOCUMENT ON READY

@@ -74,12 +74,14 @@ html, body {
 
 .scraped-images {
   text-align: center;
-  width: 55%;
+  width: 65%;
   margin: auto;
+
 }
 
 .scraped-images img {
-  width: 50%;
+  width: 45%;
+  margin: auto 2% 2% 2%;
 }
 
 .successful-pin {

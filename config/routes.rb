@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :recipes
   end
 
+
+  get '/current_user', to: 'recipes#current_user'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,10 +1,11 @@
 class RecipesController < ApplicationController
 
-  before_action :set_headers
   skip_before_filter  :verify_authenticity_token
 
   def index
     fb_id = params[:user_id]
+
+
     if User.find_by_facebook_id(fb_id) == nil
       #CREATE USER
       @oauth = Koala::Facebook::OAuth.new('1520208361571689', '9bf144adb6dc080b2ea9f89218b08d14', 'http://localhost:3000/callback')
@@ -62,17 +63,6 @@ class RecipesController < ApplicationController
 
   private #--------------------------------------------------
   def recipe_params
-    #don't require user_id because that will be done automatically within the actions based on the params[:user_id]
-
-    ####### => Do we include tags here??? the Extension will be sending tags with it.
     params.require(:recipe).permit(:title, :source_url, :img_url, :category_id)
   end
-
-  def set_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  end
-
 end
