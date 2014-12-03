@@ -39,7 +39,11 @@
 }
 
 .body-background-image {
-  background-position: center;
+/*  background-position: contain;
   background-size: cover;
-  background-image: url('coffee.jpg')
+*/  background: url(http://i.imgur.com/jGEyGK1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
