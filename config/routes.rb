@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
-  get '/current_user', to: 'users#current_user'
+  get '/current_user', to: 'sessions#current_user'
+  get '/login', to: 'sessions#login'
 
   # get '/callback', to: 'users#callback'
   # get '/logout', to: 'users#logout'

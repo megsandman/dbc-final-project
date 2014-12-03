@@ -7,19 +7,19 @@ var app = angular.module("chefboard", ["ngRoute", "ui.bootstrap", "ngDialog"]);
 //   };
 // };
 
-var loggedIn = function() {
-  $http.get('/current_user').success(function(data) {
-          if (data.uid == (-1)) {
-            return false
-          } else {
-            localStorage.setItem("fbUserId", response.uid)
-            return true
-          }
-      })
+// var loggedIn = function() {
+//   $http.get('/current_user').success(function(data) {
+//           if (data.uid == (-1)) {
+//             return false
+//           } else {
+//             localStorage.setItem("fbUserId", response.uid)
+//             return true
+//           }
+//       })
 
   // window.fbAsyncInit
   // return localStorage.getItem('fbUserId') === null ? false : true;
-};
+// };
 
 // function statusChangeCallback(response) {
 //     if (response.status === 'connected') {
