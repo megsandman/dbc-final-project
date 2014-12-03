@@ -36,9 +36,8 @@ class RecipesController < ApplicationController
       tags_array = recipe_tags.split(',')
       tags_array.map! {|tag| tag.strip}
 
-      tags_array = Tag.process_tags(params[:tags])
-
       tags_array.each do |tag|
+        stripped_tag = tag.strip
         if Tag.find_by(name: tag) == nil
           @recipe.tags << Tag.create(name: tag)
         else
@@ -72,7 +71,6 @@ class RecipesController < ApplicationController
 
       tag_array.each do |tag|
         stripped_tag = tag.strip
-
         if Tag.find_by(name: tag) == nil
           recipe.tags << Tag.create(name: stripped_tag)
         else
