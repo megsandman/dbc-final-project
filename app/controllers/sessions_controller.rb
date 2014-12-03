@@ -18,8 +18,7 @@ class SessionsController < ApplicationController
     if session[:user_id]
       render json: User.find(session[:user_id]).to_json
     else
-      ## does this have to return as JSON?
-      fail = "Did not work"
+      fail = "false"
       render json: fail.to_json
     end
   end

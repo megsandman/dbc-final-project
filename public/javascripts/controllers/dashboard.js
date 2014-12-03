@@ -180,10 +180,3 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 ]);
 
 
-// LOGOUT BUTTON FUNCTIONALITY
-
-// $('.logout-button').click(function(){
-//   FB.logout();
-//   renderLogin();
-//   $('body').addClass('body-background-image')
-// })
