@@ -5,15 +5,23 @@ class User < ActiveRecord::Base
   # validates  :email, uniqueness: true
 
   def self.omniauth(auth)
-    p "*" * 50
-    if User.find_by(uid: auth.provider) == nil
-      user = User.new(provider: auth.provider, uid: auth.uid, name: auth.info.name, image: auth.info.image, expires_at: Time.at(auth.credentials.expires_at), token: auth.credentials.token)
+    if User.find_by(uid: auth.uid) == nil
+      user = User.new(
+        provider: auth.provider,
+        uid: auth.uid,
+        name: auth.info.name,
+        image: auth.info.image,
+        token: auth.credentials.token,
+        expires_at: Time.at(auth.credentials.expires_at),
+        )
       user.save!
+      p "*" * 50
+      p user.id
     else
-      user = User.find_by(uid: auth.provider)
+      user = User.find_by(uid: auth.uid)
+      p "^" * 50
+      p user.id
     end
-
-    p "*" * 50
     # p auth
     # where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
     #   user.provider = auth.provider
@@ -25,5 +33,6 @@ class User < ActiveRecord::Base
     #   user.save!
     # end
   end
+
 
 end

@@ -10,11 +10,12 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     });
 
     $scope.logout = function(){
-      fbID = localStorage.getItem("fbUserId");
-      window.fbAsyncInit;
-      FB.logout();
-      localStorage.removeItem("fbUserId");
-      $location.path('/');
+      $http.get('/logout').success(function(data) {
+          alert('in logout!')
+          localStorage.removeItem("fbUserId");
+          $location.path('/');
+
+      })
     }
 
 

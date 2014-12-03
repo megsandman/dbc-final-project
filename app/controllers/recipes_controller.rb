@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def index
     fb_id = params[:user_id]
     if User.find_by(uid: fb_id) == nil
-      # redirect_to users#create
+      redirect_to sessions
 
 ####   OLD
       # p "*" * 50

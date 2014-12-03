@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20141128201338) do
     t.integer  "uid"
     t.string   "name"
     t.string   "image"
+    t.string   "token"
     t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
