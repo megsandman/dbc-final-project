@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
       user = User.find_by(uid: fb_id)
 
       @recipe = Recipe.new(recipe_params)
-      category = params[:category] || "Appetizers"
+      category = category_params || "Appetizers"
       @recipe.category_id = Category.get_category_id(category)
 
 
