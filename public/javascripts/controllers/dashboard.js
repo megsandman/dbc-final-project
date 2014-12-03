@@ -50,7 +50,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                     '<div class="edit_form-text">' +
                                       '<form class="recipe_edit_form">' +
                                           '<label>Recipe Name</label>' +
-                                          '<input type="text" name="title" value="' + recipeTitle + '">' +
+                                          '<input class="recipe_name_input" type="text" name="title" value="' + recipeTitle + '">' +
                                           '<label>Category</label>' +
                                           '<select ng-init="recipe.category_id = recipeCategory" ng-model="recipe.category_id" ng-options="recipe.category_id as recipe.name for recipe in myForm.options"' +
                                           'class="categories thick-txt-bx">' +
@@ -59,7 +59,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
                                           '<input name="tag_string" value="' + recipeTagString +'">' +
                                           // '<input ng-repeat="tag in recipeTags" type="text" name="tag_string" value="{{tag}}">' +
                                           '</form>' +
-                                         '<button>Save</button>' +
+                                         '<button ng-click="saveRecipe()">Save</button>' +
                                          '<button ng-click="deleteRecipe($index)" value="Delete">Delete</button>' +
                                         '<button ng-click="cancelEdit()">Cancel</button>' +
                                       // '</form>' +
@@ -104,6 +104,20 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       }
     }
 
+    $scope.saveRecipe = function(){
+      if (loggedIn() ){
+        //updates view for dialog caption
+        var title = $(".recipe_name_input").val();
+        $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
+        //closes slide-up form
+        $(".edit_form_click").removeClass("edit_form");
+        $(".edit_form_click").addClass("edit_form_cancel");
+      }
+      else{
+          $location.path('/');
+      }
+    }
+
     $scope.deleteRecipe = function(index){
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
@@ -115,9 +129,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
           $scope.recipes.splice(recipeIndexToDelete, 1);
         }
       }
-      $scope.closeThisDialog();
-      // var url = '/users/1/recipes/' +  $scope.recipeId;
-      // console.log(url);
+      ngDialog.close();
     };
 
     $scope.addRecipe = function() {
