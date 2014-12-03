@@ -36,9 +36,8 @@ class RecipesController < ApplicationController
       tags_array = recipe_tags.split(',')
       tags_array.map! {|tag| tag.strip}
 
-      tags_array = Tag.process_tags(params[:tags])
-
       tags_array.each do |tag|
+        stripped_tag = tag.strip
         if Tag.find_by(name: tag) == nil
           @recipe.tags << Tag.create(name: tag)
         else
@@ -61,22 +60,21 @@ class RecipesController < ApplicationController
   def update
     if session[:user_id]
       fb_id = params[:user_id]
-      recipe = Recipe.find(params[:id])
       user = User.find_by(uid: fb_id)
+      recipe = Recipe.find(params[:id])
 
-      recipe.update(title: params[:title])
-
+      recipe.title = params[:title]
       recipe.category = Category.find(params[:category_id])
 
-      recipe_tags = params[:tags]
-      recipe.tag_string = params[:tags]
-      tags_array = recipe_tags.split(',')
+      recipe.tag_string = params[:tag_string]
+      tag_array = recipe.tag_string.split(',')
 
-      tags_array.each do |tag|
+      tag_array.each do |tag|
+        stripped_tag = tag.strip
         if Tag.find_by(name: tag) == nil
-          recipe.tags << Tag.create(name: tag)
+          recipe.tags << Tag.create(name: stripped_tag)
         else
-          recipe.tags << Tag.find_by(name: tag)
+          recipe.tags << Tag.find_by(name: stripped_tag)
         end
       end
       if recipe.save

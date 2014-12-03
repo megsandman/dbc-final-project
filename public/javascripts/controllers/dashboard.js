@@ -2,20 +2,16 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   var uId;
   $http.get('/current_user').success(function(data) {
      uId = data["uid"];
-     // alert(uId > 0);
+     localStorage.setItem("fbUserId", uId)
      if (uId > 0){
        getUserRecipes(uId)
      } else {
        window.location = "/login"
      }
   })
-  // if(!loggedIn()) {
-  //   $location.path('/');
-  // } else {
-    // console.log(localStorage.getItem('fbUserId'))
-    // var fbID = localStorage.getItem('fbUserId')
+
     function getUserRecipes(uId) {
-      console.log(uId)
+
       $http.get('/users/' + uId + '/recipes').success(function(data) {
       $scope.recipes = data;
       });
@@ -23,9 +19,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
     $scope.logout = function(){
       $http.get('/logout').success(function(data) {
-          // alert('in logout!')
-          // localStorage.removeItem("fbUserId");
-          // $location.path('/');
+          localStorage.removeItem("fbUserId");
           window.location = "/login"
       })
     }
@@ -59,46 +53,32 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     };
 
     $scope.editPin = function(){
-      if ( loggedIn() ){
-        $(".edit_form_click").removeClass("edit_form_cancel");
-        $(".edit_form_click").addClass("edit_form");
-      } else {
-        $location.path('/');
-      }
+      $(".edit_form_click").removeClass("edit_form_cancel");
+      $(".edit_form_click").addClass("edit_form");
     };
 
     $scope.cancelEdit = function(){
-      if ( loggedIn() ){
-        $(".edit_form_click").removeClass("edit_form");
-        $(".edit_form_click").addClass("edit_form_cancel");
-      } else {
-        $location.path('/');
-      }
+      $(".edit_form_click").removeClass("edit_form");
+      $(".edit_form_click").addClass("edit_form_cancel");
     }
 
     $scope.saveRecipe = function(recipeId){
-      if (loggedIn() ){
-        // alert(recipeId)
-        //updates view for dialog caption
-        var title = $(".recipe_name_input").val();
-        var newTags = $(".tag_input").val();
-
-        $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
-        //closes slide-up form
-        $(".edit_form_click").removeClass("edit_form");
-        $(".edit_form_click").addClass("edit_form_cancel");
-        var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
-        $http.put('/users/' + fbID + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tags: newTags, tag_string: newTags}).success(function(data) {
+      var title = $(".recipe_name_input").val();
+      var newTags = $(".tag_input").val();
+      console.log(newTags);
+      $(".recipeTitle").replaceWith("<h2 class=\"recipeTitle\">"+ title +"</h2>");
+      //closes slide-up form
+      $(".edit_form_click").removeClass("edit_form");
+      $(".edit_form_click").addClass("edit_form_cancel");
+      var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
+      console.log({title: title, category_id: newCategoryId, tag_string: newTags})
+      $http.put('/users/' + uId + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tag_string: newTags}).success(function(data) {
         console.log('success');
       });
-
-      }
-      else{
-          $location.path('/');
-      }
     }
 
     $scope.deleteRecipe = function(recipeId){
+      alert(recipeId)
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
       {
@@ -111,29 +91,24 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       }
       ngDialog.close();
 
-      $http.delete('/users/' + fbID + '/recipes/' + recipeId).success(function(data) {
+      $http.delete('/users/' + uId + '/recipes/' + recipeId).success(function(data) {
         console.log('success');
       });
 
     };
 
     $scope.addRecipe = function() {
-      if ( loggedIn() ){
-        $http.post('users/' + fbID + '/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
-          $scope.recipes.unshift(data);
-          // console.log(data)
-          $scope.recipeTitle = "";
-          $scope.recipeLink = "";
-          $scope.imageLink = "";
-          $scope.recipeTags = "";
-          $scope.category = {};
-        });
-      } else {
-        $location.path('/');
-      }
+      $http.post('users/' + uId + '/recipes.json', {title: $scope.recipeTitle, source_url: $scope.recipeLink, img_url: $scope.imageLink, category: $scope.category, tags: $scope.recipeTags, tag_string: $scope.recipeTags}).success(function(data) {
+        $scope.recipes.unshift(data);
+        // console.log(data)
+        $scope.recipeTitle = "";
+        $scope.recipeLink = "";
+        $scope.imageLink = "";
+        $scope.recipeTags = "";
+        $scope.category = {};
+      });
     };
 
-  // }
 }
 ]);
 
