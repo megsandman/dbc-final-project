@@ -11,7 +11,7 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
   })
 
     function getUserRecipes(uId) {
-      console.log(uId)
+
       $http.get('/users/' + uId + '/recipes').success(function(data) {
       $scope.recipes = data;
       });
@@ -71,13 +71,13 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       $(".edit_form_click").removeClass("edit_form");
       $(".edit_form_click").addClass("edit_form_cancel");
       var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
-      alert(uId)
       $http.put('/users/' + uId + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tags: newTags, tag_string: newTags}).success(function(data) {
         console.log('success');
       });
     }
 
     $scope.deleteRecipe = function(recipeId){
+      alert(recipeId)
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
       {

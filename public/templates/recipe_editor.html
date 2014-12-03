@@ -18,8 +18,8 @@
                                   <label>Tags</label>
                                   <input name="tag_string" value="{{recipe.tag_string}}">
                                   </form>
-                                 <button ng-click="saveRecipe()">Save</button>
-                                 <button ng-click="deleteRecipe($index)" value="Delete">Delete</button>
+                                 <button ng-click="saveRecipe(recipe.id)">Save</button>
+                                 <button ng-click="deleteRecipe(recipe.id)" value="Delete">Delete</button>
                                 <button ng-click="cancelEdit()">Cancel</button>
                             </div>
                           </div>

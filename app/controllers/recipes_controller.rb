@@ -68,11 +68,11 @@ class RecipesController < ApplicationController
 
       recipe.category = Category.find(params[:category_id])
 
-      recipe_tags = params[:tags]
+      # recipe_tags = params[:tags]
       recipe.tag_string = params[:tags]
-      tags_array = recipe_tags.split(',')
+      # tags_array = recipe_tags.split(',')
 
-      tags_array.each do |tag|
+      recipe.tag_string.each do |tag|
         if Tag.find_by(name: tag) == nil
           recipe.tags << Tag.create(name: tag)
         else
