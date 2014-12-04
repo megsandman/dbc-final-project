@@ -135,6 +135,7 @@ body, html{
   padding: 20px;
   overflow-x: hidden;
   overflow-y: auto;
+  text-align: center;
 }
 
 .sidebar-list {
@@ -143,6 +144,7 @@ body, html{
   /*border-top: 1px solid black;
   border-right: 1px solid black;*/
   margin-left: -10px;
+  text-align: center;
 }
 
 .sidebar-list li {
@@ -154,7 +156,6 @@ body, html{
   padding-right: 0px;
   margin-top: 0px;
   padding: 10px 0px 10px 15px;
-  text-align: center;
 }
 
 .sidebar-list li a {
@@ -495,8 +496,8 @@ a.thumbnail:hover {
 }
 
 
-.recipe_add_form {
-  margin-top: 0;
+#recipe_add_form {
+  margin-top: 5%;
 }
 
 .recipe_edit_form {
@@ -534,7 +535,7 @@ a.thumbnail:hover {
 
 
 /****BUTTON BUSINESS*****/
-.edit_btn {
+.edit_btn, .custom_btn {
   background: #808080;
   background-image: -webkit-linear-gradient(top, #808080, #000000);
   background-image: -moz-linear-gradient(top, #808080, #000000);
@@ -547,12 +548,12 @@ a.thumbnail:hover {
   text-shadow: 1px 0px 0px #000000;
   font-family: Georgia;
   color: #ffffff;
-  font-size: 17px;
-  padding: 10px 20px 10px 20px;
+  font-size: 15px;
+  padding: 7px 14px 7px 14px;
   text-decoration: none;
 }
 
-.edit_btn:hover {
+.edit_btn:hover, .custom_btn:hover {
   background: #5c5c5c;
   background-image: -webkit-linear-gradient(top, #5c5c5c, #000000);
   background-image: -moz-linear-gradient(top, #5c5c5c, #000000);

@@ -5,14 +5,9 @@
        <tr>
           <td class="lightbox_recipe_bg">
             <div class="float_left">
-              <h3 class="header">
-                <a href="http:/chefboard.herokuapp.com/" target="_blank">
-                            chefboard.
-                </a>
-              </h3>
-              <form ng-submit="addRecipe()" class="recipe_edit_form">
+              <form ng-submit="addRecipe()" id="recipe_add_form" class="recipe_edit_form">
                 <label for="title">Title:</label>
-                <input type="text" class="recipe-title thick-txt-bx" ng-model="title" name="recipe[title]" placeholder="Title">
+                <input type="text"  ng-model="title" name="recipe[title]" placeholder="Title">
                 <br>
                 <br>
                 <label for="source_url">Recipe:</label>
