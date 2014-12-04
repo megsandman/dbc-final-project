@@ -540,6 +540,21 @@ a.thumbnail:hover {
   font-size: 1em;
 }
 
+::-webkit-input-placeholder {
+   padding-left: 2%
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   padding-left: 2%
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  padding-left: 2%
+}
+
+:-ms-input-placeholder {
+   padding-left: 2%
+}
 /****BUTTON BUSINESS*****/
 .edit_btn, .custom_btn {
   background: #808080;
