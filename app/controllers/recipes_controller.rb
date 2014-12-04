@@ -23,13 +23,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     category = category_params || "Appetizers"
     @recipe.category_id = Category.get_category_id(category)
+    @recipe.tag_string = tag_params[:tags]
+    tag_array = @recipe.tag_string.split(',')
+    p "*" * 50
+    p tag_array
+    p "*" * 50
 
-
-    recipe_tags = tag_params
-    tags_array = recipe_tags[:tags].split(',')
-    tags_array.map! {|tag| tag.strip}
-
-    tags_array.each do |tag|
+    tag_array.each do |tag|
       stripped_tag = tag.strip
       if Tag.find_by(name: tag) == nil
         @recipe.tags << Tag.create(name: tag)
@@ -49,9 +49,6 @@ class RecipesController < ApplicationController
 
   def update
     fb_id = user_id[:user_id]
-    p "*" * 50
-    p fb_id
-    p params
     user = User.find_by(uid: fb_id)
     recipe = Recipe.find(params[:id])
 
