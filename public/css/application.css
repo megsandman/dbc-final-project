@@ -496,8 +496,8 @@ a.thumbnail:hover {
 }
 
 
-.recipe_add_form {
-  margin-top: 0;
+#recipe_add_form {
+  margin-top: 5%;
 }
 
 .recipe_edit_form {
