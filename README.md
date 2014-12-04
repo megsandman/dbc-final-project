@@ -1,85 +1,27 @@
-TRELLO BOARD
+chefboard.
 
-https://trello.com/b/oT3h7It4/chuckipies-2-0
+When finding recipes online, you normally have to either save the recipe link as a bookmark, or use another app with limited search functionality, effectively negating the purpose of saving it.
+Chefboard allows you to create recipe pins on your own dashboard, and quickly search your pins based on the title and associated recipe tags.
 
-TEAM AGREEMENTS
-- We want to learn!
-- We want to build something beuatiful and useful that we can be proud of.
-- We will produce a product that is well done on all levels (from testing to front end).
-- We will work during core hours.
-- We will have a team planning meeting each morning.
-- We will have quick team check-ins every 2 hours (11am, 2pm, 4pm, 6pm).
-- We will stay focused and be very deliberate about how we plan our sprints amd manage our time.
-- We will have amazing communication and raise any problems (technical or interpersonal) as soon as they arrise.
+With the available chrome extension, it is even easier to make a pin from a recipe site of your choice.
+This makes returning to recipes easier, and more time efficient.
 
-GIT WORKFLOW
-- Work off of development fork, push MVP to master.
-- Name branches ater features.
-- Frequent, well named commits.
-- Peer code reviews prior to merging.
-- No one merges thier own code.
+Visit chefboard and try it out yourself:
+https://chefboard.herokuapp.com
 
-TESTS
-- We will have great test coverage and be deliberate about out tests.
-- We will use Simple Cov and write meaningful tests.
-- We will use continuous integration.
-
-TECH STACK
-- Backend: Rails API
-- Frontend: Angular
-- Hosting platform: Heroku
-
-NAME IDEAS
-- Recepin
-- Cookstarter
-- Chuckipies 2.0
-- Cutting Board
+Don't forget to get the chrome extension to maximize your chefboard experience!
+https://chrome.google.com/webstore/detail/chefboard/ofhfgnaelacnnjjellgcecfeemfppljo/
 
 
-################################################################################
-################################################################################
-################################################################################
-################################################################################
+How it works:
 
-Nomenclature:
+Right now, we start you out with some recipes to get you started. If you want to get rid of any of these,
+ you can click on the image of a given recipe and select edit in the popup.
+ This will allow you to either change some things about this recipe around, or to delete it entirely.
 
-pin: save recipe to board
-board: list of all recipes
-category(basically a pinterest board): larger buckets (desserts, main courses etc.)
-tag: custom labels (quick, healthy etc.)
+ To search around for pins, use the category filters on the side bar, and/or use the search bar on the top right. Type in
+ any tags you think may be used, or ones you remember reference certain pins. This will dynamically filter the visible pins so that only those that match your search are displayed.
 
-
-User Stories:
-- see a list of food items
-- click a button/link to be taken to the recipes original source(in a new tab)
-- user login/create account
-- pin a new recipe while on my board
-- remove a pin from my board
-
-
-- see the food items by category (main dishes, desserts etc.)
-- search recipes (via search bar by tag or title)
-
-
-- click on an item and have it show me the full recipe
-- get a recipe preview on the main page
-- Fast, responsive
-- easy to pin new recipe
-- easy to tag a new recipe
-- sorting by most recent, or rating, or alphabetical etc
-- rating recipes
-- login w/ facebook?
-- view fbook friend's pins
-- edit tags after the fact
-- be able to manually input the recipe information
-- save(pin) recipe from external website
-- see a list if all pins
-- have a recommended recipes section underneath the users collections
-
-Associations:
-
-Category (1) : Recipes(M)
-Recipes(M) : Tags(M)
-User(1) : Recipes(M)
+ Creating a new pin from the site itself, is easy, you just click the 'Add Recipe' button on the left side bar, and fill out the form with the necessary information. Making descriptive and concise tags will make it much easier to come back to a recipe later. With the chrome extension, new pins are even easier than on chefboard. All you do is go to the page that has the recipe you want to pin to chefboard, and click the icon for the chefboard extension. With the extension open, you will either be prompted to login (if not already done), or be presented with a series of pictures to choose from. Click the image you want saved with the pin, and the new pin form will auto populate the pin details for you. Now all you have to do is add tags, select a category and click 'Create Pin!' Then head on over to chefboard and check out your new pin! If you end up wanting to write more descriptive tags, change the category, or change anything else about your pin, you can always edit it later!
 
 ![db-schema](app/assets/images/db-schema.png)
