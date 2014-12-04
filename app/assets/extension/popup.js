@@ -1,7 +1,8 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
+  renderPinnedSuccess();
   var userId;
-  getUser();
+  // getUser();
   function getUser() {
     $.ajax({
       // url: 'https://chefboard.herokuapp.com/current_user',
@@ -79,19 +80,11 @@ $(document).ready( function() {
   }
   function getLoggedOut() {
     var loggedOut = '<h2 class="chefboard-link">Head over to <a class="chefboard-redirect" href="https://chefboard.herokuapp.com/" target="_blank">chefboard</a> to login!</h2>';
-    // addRedirectListener();
     return loggedOut;
   }
-  // function addRedirectListener() {
-  //   $('.chefboard-link').on('click', function() {
-  //     // document.location.href="http://chefboard.herokuapp.com/"
-  //     var newTab = "https://chefboard.herokuapp.com/"
-  //     chrome.tabs.create({url: newTab})
-  //   });
-  // }
   function getPinnedPrompt() {
     // on submit of form, render this and toggle off form.
-    var successfulPin = '<p class="success">Pin successful!</p><p class="success-subtitle">Check it out:</p><br><button class="chefboard-link">chefboard.</button>';
+    var successfulPin = '<h2 class="chefboard-link success">Pin successful!<br> Check it out on <a class="chefboard-redirect" href="https://chefboard.herokuapp.com/" target="_blank">chefboard.</a></h2>';
     return successfulPin
   }
   function renderPinnedSuccess() {
@@ -123,8 +116,9 @@ $(document).ready( function() {
         data: recipeData,
         crossDomain: true,
         success: function( response ) {
+          $('#new-recipe').toggle();
           renderPinnedSuccess();
-          window.close();
+          // window.close();
           // console.log(response);
         },
         error: function( error ) {
