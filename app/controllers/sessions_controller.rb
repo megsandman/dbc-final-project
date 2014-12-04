@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     p "!" * 50
     session[:user_id] = nil
     redirect_to '/login'
+
   end
 
   def current_user
@@ -25,6 +26,7 @@ class SessionsController < ApplicationController
 
 
   def login
+    p ")" * 50
     render :login
   end
 
