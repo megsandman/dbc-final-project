@@ -535,7 +535,7 @@ a.thumbnail:hover {
 
 
 /****BUTTON BUSINESS*****/
-.edit_btn {
+.edit_btn, .custom_btn {
   background: #808080;
   background-image: -webkit-linear-gradient(top, #808080, #000000);
   background-image: -moz-linear-gradient(top, #808080, #000000);
@@ -553,7 +553,7 @@ a.thumbnail:hover {
   text-decoration: none;
 }
 
-.edit_btn:hover {
+.edit_btn:hover, .custom_btn:hover {
   background: #5c5c5c;
   background-image: -webkit-linear-gradient(top, #5c5c5c, #000000);
   background-image: -moz-linear-gradient(top, #5c5c5c, #000000);
