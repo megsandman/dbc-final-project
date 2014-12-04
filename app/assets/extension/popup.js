@@ -1,8 +1,7 @@
 $(document).ready( function() {
   ///////////      AUTHENTICATE      ///////////
-  renderPinnedSuccess();
   var userId;
-  // getUser();
+  getUser();
   function getUser() {
     $.ajax({
       // url: 'https://chefboard.herokuapp.com/current_user',
@@ -12,7 +11,6 @@ $(document).ready( function() {
       crossDomain: true,
       success: function(userData) {
         userId = userData["uid"];
-        console.log(userId);
         authenticateUser(userData);
       },
       error: function(errorCode) {
@@ -63,7 +61,6 @@ $(document).ready( function() {
       submitRecipeListener();
       $('.scraped-images').toggle();
       var src = $(this).attr('src');
-
       populateFields(currentPage, src);
     });
   }
@@ -89,7 +86,6 @@ $(document).ready( function() {
   }
   function renderPinnedSuccess() {
     $('.successful-pin').append(getPinnedPrompt());
-    // addRedirectListener();
   }
   ////////////////////// BUILD NEW RECIPE ////////////////////////
   function getFormData() {
@@ -118,8 +114,8 @@ $(document).ready( function() {
         success: function( response ) {
           $('#new-recipe').toggle();
           renderPinnedSuccess();
-          // window.close();
-          // console.log(response);
+          setTimeout(function() {window.close()}, 8000);
+
         },
         error: function( error ) {
           console.log(error);
