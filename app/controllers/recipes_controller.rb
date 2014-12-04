@@ -4,14 +4,14 @@ class RecipesController < ApplicationController
 
   def index
     if session[:user_id]
-      fb_id = params[:user_id]
+      fb_id = user_id
 
-      if User.find_by(uid: fb_id) == nil
+      if User.find_by(id: session[:user_id]) == nil
         p "$" * 50
         p params
         redirect_to new_session_path("facebook")
       else
-        user = User.find_by(uid: fb_id)
+        user = User.find_by(id: session[:user_id])
         @recipes = user.recipes.order('created_at desc')
         render json: @recipes.to_json
       end
@@ -22,14 +22,9 @@ class RecipesController < ApplicationController
 
 
   def create
-      p "!"*50
-      p "!"*50
-      p params
-      p "!"*50
-      p "!"*50
     if session[:user_id]
-      fb_id = params[:user_id]
-      user = User.find_by(uid: fb_id)
+      fb_id = user_id[:user_id]
+      user = User.find_by(id: session[:user_id])
 
       @recipe = Recipe.new(recipe_params)
       category = category_params || "Appetizers"
@@ -63,7 +58,7 @@ class RecipesController < ApplicationController
 
   def update
     if session[:user_id]
-      fb_id = params[:user_id]
+      fb_id = user_id
       user = User.find_by(uid: fb_id)
       recipe = Recipe.find(params[:id])
 
@@ -94,7 +89,7 @@ class RecipesController < ApplicationController
 
     def destroy
       if session[:user_id]
-        fb_id = params[:user_id]
+        fb_id = user_id
         recipe = Recipe.find_by(id: params[:id])
         user = User.find_by(uid: fb_id)
         recipe.destroy
