@@ -22,7 +22,6 @@ $(document).ready( function() {
   function authenticateUser(user) {
     console.log(user)
     if ( user == "false" ) {
-      console.log(user);
       $('.logged-out').append(getLoggedOut)
     } else {
       getPage();
@@ -43,9 +42,8 @@ $(document).ready( function() {
       dataType: "",
       success: function(data) {
         var title = '<br><h5>Select Recipe Image:</h5><br>'
-        $pageData = $('<form>' + data + '</form>') //has to be in the form for some reason
+        $pageData = $('<form>' + data + '</form>') //has to be in the form tags
         $('.scraped-images').prepend(title);
-        //find images in the document
         $.each($pageData.find('img[src]'), function(index, item) {
           image_src = $(item).attr('src')
           $('<img src=' + image_src + '>').appendTo('.scraped-images');
@@ -53,16 +51,16 @@ $(document).ready( function() {
         addImageListeners(currentPage);
       },
       error: function(status) {
-        console.log("it didn't work");
+        console.log("Scrape Images: Did not work");
       }
     })
   }
   function addImageListeners(currentPage) {
     $('img').on('click', function() {
+      var src = $(this).attr('src');
       $('#new-recipe').append(getForm);
       submitRecipeListener();
       $('.scraped-images').toggle();
-      var src = $(this).attr('src');
       populateFields(currentPage, src);
     });
   }
@@ -70,7 +68,6 @@ $(document).ready( function() {
     $('#new-recipe').on('submit', function(event) {
       event.preventDefault();
       var recipeData = getFormData();
-      console.log(userId);
       $.ajax({
         type: 'POST',
         url: 'http://chefboard.herokuapp.com/users/' + userId + '/recipes',
@@ -83,7 +80,7 @@ $(document).ready( function() {
           setTimeout(function() {window.close()}, 8000);
         },
         error: function( error ) {
-          console.log(error);
+          console.log('Submission Failed');
         }
       });
     });
