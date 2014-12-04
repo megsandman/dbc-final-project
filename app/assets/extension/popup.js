@@ -14,6 +14,7 @@ $(document).ready( function() {
         authenticateUser(userData);
       },
       error: function(errorCode) {
+        $('.logged-out').append(getLoggedOut)
         console.log('FAILED REQUEST');
       }
     })
@@ -21,7 +22,8 @@ $(document).ready( function() {
   function authenticateUser(user) {
     console.log(user)
     if ( user == "false" ) {
-      $('.logged-out').append(getLoggedOut);
+      console.log(user);
+      $('.logged-out').append(getLoggedOut)
     } else {
       getPage();
     }
