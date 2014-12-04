@@ -4,8 +4,8 @@ $(document).ready( function() {
   getUser();
   function getUser() {
     $.ajax({
-      // url: 'https://chefboard.herokuapp.com/current_user',
-      url: 'http://localhost:3000/current_user',
+      url: 'https://chefboard.herokuapp.com/current_user',
+      // url: 'http://localhost:3000/current_user',
       type: 'get',
       dataType: '',
       crossDomain: true,
@@ -71,8 +71,8 @@ $(document).ready( function() {
       console.log(userId);
       $.ajax({
         type: 'POST',
-        // url: 'http://chefboard.herokuapp.com/users/' + userId + '/recipes',
-        url: 'http://localhost:3000/users/' + userId + '/recipes',
+        url: 'http://chefboard.herokuapp.com/users/' + userId + '/recipes',
+        // url: 'http://localhost:3000/users/' + userId + '/recipes',
         data: recipeData,
         crossDomain: true,
         success: function( response ) {
