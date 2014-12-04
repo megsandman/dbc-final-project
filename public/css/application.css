@@ -523,7 +523,7 @@ a.thumbnail:hover {
 .recipe_edit_form label {
     width: 30%;
     text-align: right;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 
@@ -532,7 +532,13 @@ a.thumbnail:hover {
     margin: 0 30% 0 4%;
 }
 
+.recipe_edit_form input{
+  font-size: 1em;
+}
 
+.recipe_edit_form select{
+  font-size: 1em;
+}
 
 /****BUTTON BUSINESS*****/
 .edit_btn, .custom_btn {
@@ -546,7 +552,7 @@ a.thumbnail:hover {
   -moz-border-radius: 4;
   border-radius: 4px;
   text-shadow: 1px 0px 0px #000000;
-  font-family: Georgia;
+  /*font-family: Georgia;*/
   color: #ffffff;
   font-size: 15px;
   padding: 7px 14px 7px 14px;
