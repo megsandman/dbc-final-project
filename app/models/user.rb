@@ -1,12 +1,5 @@
 RECIPE_SEED = [
-Recipe.create(
-      title: "Chocolate Chip Cookies",
-      source_url: "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0",
-      img_url: "http://graphics8.nytimes.com/images/2013/06/19/dining/19PASTRY1_SPAN/19PASTRY1_SPAN-articleLarge-v2.jpg",
-      category_id: 4,
-      tag_string: "cookie, chocolate",
-      # user_id: 1
-  ),
+
 Recipe.create(
       title: "Cranberry Newton Bars",
       source_url: "http://food52.com/recipes/31923-cranberry-newton-bars",
@@ -15,14 +8,7 @@ Recipe.create(
       category_id: 4,
       # user_id: 1
   ),
-Recipe.create(
-      title: "Shaved Brussel Sprout Salad",
-      source_url: "http://www.sacramentostreet.com/2014/11/on-the-menu-shaved-brussel-sprout-salad/",
-      img_url: "http://www.sacramentostreet.com/wp-content/uploads/2014/11/Shaved-Brussel-Sprout-Salad_3.jpg",
-      tag_string: "healthy, salad, parmesan, brussel sprout, yum",
-      category_id: 6,
-      # user_id: 1
-  ),
+
 Recipe.create(
       title: "Cranberry pie with thick pecan crumble",
       source_url: "http://smittenkitchen.com/blog/2014/11/cranberry-pie-with-thick-pecan-crumble/",
@@ -72,14 +58,6 @@ Recipe.create(
       # user_id: 1
     ),
 Recipe.create(
-      title: "Pomegranate Flank Steak",
-      source_url: "http://food52.com/recipes/31870-pomegranate-flank-steak",
-      img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48193/full/pomegranateflanksteak1.jpg?1415165494",
-      tag_string: "steak, pomegranate",
-      category_id: 5,
-      # user_id: 1
-    ),
-Recipe.create(
       title: "Buttermilk Biscuits",
       source_url: "http://food52.com/recipes/31811-buttermilk-biscuits",
       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48228/full/15720424702_9f34c06f4a_k.jpg?1415300915",
@@ -93,6 +71,24 @@ Recipe.create(
       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/47954/full/2014-1028_how-to-make-cookies-and-cream-bars-127.jpg?1414688880",
       tag_string: "bars",
       category_id: 4,
+      # user_id: 1
+    ),
+
+
+Recipe.create(
+      title: "Pumpkin Ricotta Pancake",
+      source_url: "http://iamafoodblog.com/pumpkin-ricotta-pancake-recipe/",
+      img_url: "http://o.iamafoodblog.com/iamablog/wp-content/uploads/2014/10/pumpkin-ricotta-pancakes-3.jpg",
+      tag_string: "pancakes, pumpkin, ricotta",
+      category_id: 3,
+      # user_id: 1
+    ),
+Recipe.create(
+      title: "Pumpkin Spice Latte Syrup",
+      source_url: "http://iamafoodblog.com/pumpkin-spice-latte-syrup-recipe/",
+      img_url: "http://x.iamafoodblog.com/iamablog/wp-content/uploads/2014/09/psl-1.jpg",
+      tag_string: "syrup, pumpkin",
+      category_id: 2,
       # user_id: 1
     ),
 Recipe.create(
@@ -112,29 +108,29 @@ Recipe.create(
       # user_id: 1
     ),
 Recipe.create(
-      title: "Pumpkin Ricotta Pancake",
-      source_url: "http://iamafoodblog.com/pumpkin-ricotta-pancake-recipe/",
-      img_url: "http://o.iamafoodblog.com/iamablog/wp-content/uploads/2014/10/pumpkin-ricotta-pancakes-3.jpg",
-      tag_string: "pancakes, pumpkin, ricotta",
-      category_id: 3,
-      # user_id: 1
-    ),
-Recipe.create(
-      title: "Pumpkin Spice Latte Syrup",
-      source_url: "http://iamafoodblog.com/pumpkin-spice-latte-syrup-recipe/",
-      img_url: "http://x.iamafoodblog.com/iamablog/wp-content/uploads/2014/09/psl-1.jpg",
-      tag_string: "syrup, pumpkin",
-      category_id: 2,
-      # user_id: 1
-    ),
-Recipe.create(
       title: "Raspberry Crumble Pancakes",
       source_url: "http://iamafoodblog.com/sunday-brunch-raspberry-crumble-pancake-recipe/",
       img_url: "http://i.iamafoodblog.com/iamablog/wp-content/uploads/2014/08/raspberry-crumble-pancakes-5.jpg",
       tag_string: "raspberry, pancakes",
       category_id: 3,
       # user_id: 1
-    )
+    ),
+Recipe.create(
+      title: "Pomegranate Flank Steak",
+      source_url: "http://food52.com/recipes/31870-pomegranate-flank-steak",
+      img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48193/full/pomegranateflanksteak1.jpg?1415165494",
+      tag_string: "steak, pomegranate",
+      category_id: 5,
+      # user_id: 1
+    ),
+Recipe.create(
+      title: "Chocolate Chip Cookies",
+      source_url: "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0",
+      img_url: "http://graphics8.nytimes.com/images/2013/06/19/dining/19PASTRY1_SPAN/19PASTRY1_SPAN-articleLarge-v2.jpg",
+      category_id: 4,
+      tag_string: "cookie, chocolate",
+      # user_id: 1
+  )
 ]
 
 
