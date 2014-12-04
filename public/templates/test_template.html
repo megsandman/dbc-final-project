@@ -1,10 +1,14 @@
-
-<div class="lightbox">
-  <div>
-   <table>
-       <tr>
-          <td class="lightbox_recipe_bg">
-            <div class="float_left">
+   <div class="lightbox">
+              <div>
+                <table>
+                    <tr>
+                      <td>
+                        <div class="custom_editing">
+                          <div class="lightbox_recipe_bg" style="background-image: url({{recipe.img_url}})"></div>
+                           <div class= "edit_form_click">
+                            <!-- <div class="blur"> -->
+                            </div>
+                           <div class="float_left">
               <h3 class="header">
                 <a href="http:/chefboard.herokuapp.com/" target="_blank">
                             chefboard.
@@ -43,8 +47,22 @@
                 <button class="submit-recipe" ng-click="addRecipe(recipe);">Create Pin</button>
               </form>
             </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-</div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="lightbox_caption">
+                        <div class="float_left">
+                          <a  class="lightbox_link_label" href= "{{recipe.source_url}}"  target="_blank"><h2 class="recipeTitle">{{recipe.title}}</h2></a>
+
+                        </div>
+                        <div class="float_right" >
+                          <button class="edit_btn" ng-click="editPin(); showEdit=true">Edit</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
