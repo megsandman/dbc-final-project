@@ -33,9 +33,9 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
 
   $scope.clickToOpen = function (recipe) {
       $scope.recipe = recipe;
-
-     var recipeTags = recipe.tag_string.split(", ");
-     $scope.recipeTags = recipeTags;
+      console.log(recipe.tag_string);
+     // var recipeTags = recipe.tag_string.split(", ");
+     $scope.recipeTags = recipe.tag_string;
      $scope.myForm = {};
      $scope.myForm.options = [
        { category_id : 1, name: "Appetizers" }
@@ -72,13 +72,15 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
       $(".edit_form_click").addClass("edit_form_cancel");
       var newCategoryId = $scope.myForm.options[$('select').val()]["category_id"]
       console.log({title: title, category_id: newCategoryId, tag_string: newTags})
-      $http.put('/users/' + uId + '/recipes/' + recipeId, {title: title, category_id: newCategoryId, tag_string: newTags}).success(function(data) {
+      $http.put('/users/' + uId + '/recipes/' + recipeId, {
+        title: title,
+        tags: newTags,
+        category_id: newCategoryId}).success(function(data) {
         console.log('success');
       });
     }
 
     $scope.deleteRecipe = function(recipeId){
-      alert(recipeId)
     // find recipe to delete by title
       for(var i = 0; i < $scope.recipes.length; i++)
       {
@@ -90,6 +92,8 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         }
       }
       ngDialog.close();
+      console.log(uId);
+      console.log(recipeId)
       $http.delete('/users/' + uId + '/recipes/' + recipeId).success(function(data) {
         console.log('success');
       });
@@ -97,7 +101,6 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
     $scope.addRecipe = function() {
       var new_recipe = {title: this.title, source_url: this.source_url, img_url: this.img_url, tags:this.tags, category:{name: this.category_name}}
       // $scope.recipes.unshift(new_recipe);
-      console.log(uId)
       $http.post('users/' + uId + '/recipes.json', {
         recipe: {title: this.title, source_url: this.source_url, img_url: this.img_url},
         category: this.category_name,

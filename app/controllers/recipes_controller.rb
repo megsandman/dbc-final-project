@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :authenticate
 
   def index
-    fb_id = user_id
+    fb_id = user_id[:user_id]
 
     if User.find_by(id: session[:user_id]) == nil
       redirect_to new_session_path("facebook")
@@ -48,15 +48,18 @@ class RecipesController < ApplicationController
   end
 
   def update
-    fb_id = user_id
+    fb_id = user_id[:user_id]
+    p "*" * 50
+    p fb_id
+    p params
     user = User.find_by(uid: fb_id)
     recipe = Recipe.find(params[:id])
 
     recipe.title = params[:title]
     recipe.category = Category.find(params[:category_id])
 
-    recipe.tag_string = params[:tags]
-    tag_array = recipe.tag_string[:tags].split(',')
+    recipe.tag_string = tag_params[:tags]
+    tag_array = recipe.tag_string.split(',')
 
     tag_array.each do |tag|
       stripped_tag = tag.strip
@@ -66,6 +69,13 @@ class RecipesController < ApplicationController
         recipe.tags << Tag.find_by(name: stripped_tag)
       end
     end
+
+    p "%"*50
+    p "%"*50
+    p recipe
+    p "%"*50
+    p "%"*50
+
     if recipe.save
       user.recipes << recipe
       render json: recipe.to_json
@@ -75,7 +85,7 @@ class RecipesController < ApplicationController
   end
 
     def destroy
-      fb_id = user_id
+      fb_id = user_id[:user_id]
       recipe = Recipe.find_by(id: params[:id])
       user = User.find_by(uid: fb_id)
       recipe.destroy
