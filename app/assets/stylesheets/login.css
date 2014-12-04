@@ -2,7 +2,9 @@
 /*-----------    LOGIN TEMPLATE   -----------*/
 /*----------------------------------------------*/
 /* stylesheets ^ assets ^ app ^ public v images */
-
+body{
+  font-family: 'Vollkorn', serif;
+}
 
 #login-template h1 {
   color: #282828;
@@ -11,7 +13,15 @@
   letter-spacing: 3.5px;
   font-weight: 200;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 0px;
+}
+
+#login-template {
+  width: 70%;
+  margin: 12% auto;
+  padding: 7% 0px;
+  background-color:rgba(255,255,255,0.7);
+  border-radius: 25px;
 }
 
 .fb-button-div {
