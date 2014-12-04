@@ -1,7 +1,7 @@
 $(document).ready( function() {
-  ///////////      AUTHENTICATE      ///////////
   var userId;
   getUser();
+  ////////////////////////      AUTHENTICATE      ////////////////////////
   function getUser() {
     $.ajax({
       // url: 'https://chefboard.herokuapp.com/current_user',
@@ -26,7 +26,7 @@ $(document).ready( function() {
       getPage();
     }
   }
-  /////////////     EXTRACT TITLE/URL FROM PAGE    /////////////
+  //////////////////////////     EXTRACT TITLE/URL FROM PAGE    //////////////////////////
   function getPage() {
     chrome.tabs.query({active: true, currentWindow:true}, function(array) {
       currentPage = array[0];
@@ -94,7 +94,7 @@ $(document).ready( function() {
   function renderPinnedSuccess() {
     $('.successful-pin').append(getPinnedPrompt());
   }
-  /////////////////  TEMPLATES  /////////////////
+  //////////////////////////  TEMPLATES  //////////////////////////
   function getForm() {
     var form =
       '<label for="title">Title:</label><input type="text" class="recipe-title thick-txt-bx" name="title" placeholder="Title"><br><br><label for="source_url">Recipe Url:</label><input type="text" class="recipe-source-url thick-txt-bx" name="source_url" placeholder="Recipe Url"><br><br><label for="img_url">Image Url:</label><input type="text" class="recipe-img-url thick-txt-bx" name="img_url"><br><br><label for="tags">Tags:</label><input type="text" class="recipe-tags thick-txt-bx" name="tags" placeholder="i.e. healthy, fast, easy"><br><br><select class="categories thick-txt-bx"><option value="" disabled selected>Select Recipe Category</option><option value="Appetizers">Appetizers</option><option value="Beverages">Beverages</option><option value="Breakfast">Breakfast</option><option value="Entrees">Entrees</option><option value="Salads">Salads</option><option value="Sides">Sides</option></select><br><br> <input type="submit" class="submit-recipe thick-txt-bx"  value="Create Pin">';
