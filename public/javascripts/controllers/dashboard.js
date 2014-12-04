@@ -90,13 +90,10 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         }
       }
       ngDialog.close();
-
       $http.delete('/users/' + uId + '/recipes/' + recipeId).success(function(data) {
         console.log('success');
       });
-
     };
-
     $scope.addRecipe = function() {
       var new_recipe = {title: this.title, source_url: this.source_url, img_url: this.img_url, tags:this.tags, category:{name: this.category_name}}
       $scope.recipes.unshift(new_recipe);
