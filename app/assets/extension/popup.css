@@ -16,7 +16,7 @@ html, body {
 
 .header h3 {
   font-weight: 200;
-  font-family: serif;
+  font-family: 'Vollkorn';
   letter-spacing: 3px;
 }
 
@@ -60,16 +60,23 @@ html, body {
   text-align: center;
 }
 
-.chefboard-btn {
-  margin: auto;
-  width: 100px;
-  height: 30px;
-  background-color: #282828;
-  color: white;
+.chefboard-link {
+  margin: 80px;
+  color: #282828;
+  text-decoration: none;
   font-weight: 200;
-  font-family: serif;
+  font-family: 'Vollkorn';
   letter-spacing: 3px;
   padding: auto;
+}
+
+.chefboard-redirect:hover {
+  color: #282828;
+  text-decoration: none;
+}
+
+.chefboard-redirect:visited {
+  color: #282828;
 }
 
 .scraped-images {
@@ -85,20 +92,12 @@ html, body {
 }
 
 .successful-pin {
-  width:55%;
-  margin: 90px auto auto auto;
+  width: 70%;
+  margin: 60px auto auto auto;
   text-align: center;
-  line-height: 50%;
-}
-
-.success-subtitle {
-  font-size: 12px;
-}
-
-.successful-pin p {
-  line-height: 15%;
+  /*line-height: 50%;*/
 }
 
 .success {
-  font-size: 18px;
+  margin-top: 10%;
  }
