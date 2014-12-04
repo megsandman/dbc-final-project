@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   def destroy
     p "!" * 50
     session[:user_id] = nil
-    redirect_to '/login'
+    redirect_to "/login#"
   end
 
   def current_user
@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
     else
       fail = "false"
       render json: fail.to_json
+      redirect_to "/login#"
     end
   end
 

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'application#index'
 
   resources :users, only: [] do
     resources :recipes
@@ -9,5 +8,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get '/current_user', to: 'sessions#current_user'
   get '/login', to: 'sessions#login'
+
+  root 'app#index'
 
 end
