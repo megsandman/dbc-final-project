@@ -541,7 +541,7 @@ a.thumbnail:hover {
 }
 
 
-input   { text-indent: 10px; }
+input[type="text"]   { text-indent: 10px; }
 /****BUTTON BUSINESS*****/
 .edit_btn, .custom_btn {
   background: #808080;
@@ -554,7 +554,7 @@ input   { text-indent: 10px; }
   -moz-border-radius: 4;
   border-radius: 4px;
   text-shadow: 1px 0px 0px #000000;
-  /*font-family: Georgia;*/
+  font-family: 'Vollkorn', serif;
   color: #ffffff;
   font-size: 15px;
   padding: 7px 14px 7px 14px;
