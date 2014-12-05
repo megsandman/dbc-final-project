@@ -7,6 +7,9 @@ CATEGORIES.each do |category|
   Category.create(name: category)
 end
 
+##### BEGIN SEEDS THAT COME WITH NEW USER ######
+
+
 # Recipe.create(
 #       title: "Chocolate Chip Cookies",
 #       source_url: "http://www.nytimes.com/2008/07/09/dining/091crex.html?_r=0",
@@ -143,3 +146,210 @@ end
 #       category_id: 3,
 #       # user_id: 1
 #     )
+
+
+##### END SEEDS THAT COME WITH NEW USER ######
+# Recipe.create(
+#       title: "Potatoes àla Lyonnaise",
+#       source_url: "http://food52.com/recipes/31663-potatoes-ala-lyonnaise",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/47844/full/POTATOES_%C3%80LA_LYONNAISE.jpg?1414411562",
+#       tag_string: "potatoes",
+#       category_id: 7,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Pasta with Spicy Chicken Meatballs",
+#       source_url: "http://food52.com/blog/11839-for-better-weeknight-pasta-add-spicy-chicken-meatballs-broccoli",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48982/full/chicken-sausage-meatball-broccoli-pasta-bowl_food52_mark_weinberg_14-11-21_0305.jpg?1417215672",
+#       tag_string: "pasta, chicken, meatballs, broccoli",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Creamy Mushroom Pasta",
+#       source_url: "http://food52.com/blog/11678-creamy-mushroom-pasta#jRNTKR:P4i",
+#       img_url: "https://farm8.staticflickr.com/7499/15100483023_68540fbee4_b.jpg",
+#       tag_string: "pasta, mushroom",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Chicken Ceasar Salad",
+#       source_url: "http://food52.com/recipes/4510-chicken-caesar-salad-with-anchovy-caesar-vinaigrette-and-garlic-parmesan-croutons",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/46518/full/2014-0819_chicken-caesar-salad-006.jpg?1410182787",
+#       tag_string: "chicken",
+#       category_id: 6,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Spicy Orange-Ginger Chicken",
+#       source_url: "http://food52.com/blog/11638-skip-takeout-make-spicy-orange-ginger-chicken#jRNTKR:WN8",
+#       img_url: "https://farm6.staticflickr.com/5606/15490425250_35c3837366_b.jpg",
+#       tag_string: "chicken, chinese, orange, ginger",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Crispy Coconut Kale with Roasted Salmon",
+#       source_url: "http://food52.com/recipes/26046-crispy-coconut-kale-with-roasted-salmon-and-coconut-rice",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/40091/full/2014-0211_crispy-coconut-kale-roasted-salmon-006.jpg?1403287764",
+#       tag_string: "salmon, kale, rice",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Chicken Cacciatore",
+#       source_url: "http://food52.com/blog/11418-one-pot-chicken-cacciatore#jRNTKR:N2G",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/47119/full/Chicken-Cacciatore_0735_food52_mark_weinberg.jpg?1412197552",
+#       tag_string: "chicken",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Brown Butter Blondies",
+#       source_url: "http://food52.com/recipes/32350-brown-butter-blondies",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/49101/full/blondies6.jpg?1417628482",
+#       tag_string: "blondie, bar",
+#       category_id: 4,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Dark Molasses Gingerbread Cake",
+#       source_url: "http://food52.com/recipes/32198-faith-durand-s-dark-molasses-gingerbread-cake",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48803/full/damp-dark-molasses-gingerbread-cooked-cream-cheese-frosting-cake_food52_mark_weinberg_14-11-21_0669.jpg?1416762756",
+#       tag_string: "gingerbread, cake",
+#       category_id: 4,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Roasted Acorn Squash with Maple and Red Pepper Flakes",
+#       source_url: "http://food52.com/recipes/32064-roasted-acorn-squash-with-maple-and-red-pepper-flakes",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48617/full/squish.jpg?1416231291",
+#       tag_string: "squash",
+#       category_id: 7,
+#       user_id: 1
+#     )
+# Recipe.create(
+#       title: "Roasted Onion Salad with Arugula and Walnut Salsa
+# ",
+#       source_url: "http://food52.com/recipes/31997-roasted-onion-salad-with-arugula-and-walnut-salsa",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48430/full/roasted-red-onions-with-walnut-salad_food52_mark_weinberg_14-11-04_0214.jpg?1415744531",
+#       tag_string: "healthy",
+#       category_id: 6,
+#       user_id: 1
+#     )
+# Recipe.create(
+#       title: "Roasted Sausage, Tomatoes, and Peppers",
+#       source_url: "http://food52.com/recipes/31903-roasted-sausage-tomatoes-and-peppers",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48267/full/F52_Roasted_Sausages.jpg?1415388995",
+#       tag_string: "quick",
+#       category_id: 5,
+#       user_id: 1
+#     )
+# Recipe.create(
+#       title: "Fall Wisconsin Old Fashioned
+# ",
+#       source_url: "http://food52.com/recipes/31599-fall-wisconsin-old-fashioned",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/48200/full/old-fashioned_food52_mark_weinberg_14-11-04_0548.jpg?1415209257",
+#       tag_string: "fall",
+#       category_id: 2,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Bacon and Egg Grilled Cheese Breakfast Sandwich",
+#       source_url: "http://iamafoodblog.com/grilled-cheese-recipes-sandwiches-to-eat-and-make-this-holiday-season/",
+#       img_url: "http://i.iamafoodblog.com/iamablog/wp-content/uploads/2014/12/DSC_3269.jpg",
+#       tag_string: "sandwich",
+#       category_id: 3,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Yakiudon",
+#       source_url: "http://iamafoodblog.com/yakiudon-recipe/",
+#       img_url: "http://x.iamafoodblog.com/iamablog/wp-content/uploads/2014/09/yakiudon-3.jpg",
+#       tag_string: "pasta, asian",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Caramelized Pork Tacos",
+#       source_url: "http://iamafoodblog.com/caramelized-pork-taco-recipe/",
+#       img_url: "http://o.iamafoodblog.com/iamablog/wp-content/uploads/2014/08/caramelized-pork-tacos-4.jpg",
+#       tag_string: "tacos, mexican",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "Waffle Donut",
+#       source_url: "http://iamafoodblog.com/waffled-donut-recipe/",
+#       img_url: "http://i.iamafoodblog.com/iamablog/wp-content/uploads/2014/06/wafflenut-5.jpg",
+#       tag_string: "yum",
+#       category_id: 4,
+#       user_id: 1
+#     )
+# Recipe.create(
+#       title: "Chocolate Caramel Apples",
+#       source_url: "http://food52.com/recipes/31658-chocolate-caramel-apples",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/47821/full/2014-1021_how_to_make_caramel_apples_500.jpg?1414255633",
+#       tag_string: "apple, halloween",
+#       category_id: 4,
+#       user_id: 1
+#     )
+# Recipe.create(
+#       title: "Pumpkin Gnocchi with Walnut Pesto",
+#       source_url: "http://food52.com/recipes/31645-pumpkin-gnocchi-with-walnut-pesto",
+#       img_url: "https://d2k9njawademcf.cloudfront.net/indeximages/47800/full/eimk_pumpkingnocchi2.jpg?1414160152",
+#       tag_string: "pasta",
+#       category_id: 5,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "",
+#       source_url: "",
+#       img_url: "",
+#       tag_string: "",
+#       category_id: ,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "",
+#       source_url: "",
+#       img_url: "",
+#       tag_string: "",
+#       category_id: ,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "",
+#       source_url: "",
+#       img_url: "",
+#       tag_string: "",
+#       category_id: ,
+#       user_id: 1
+#     )
+
+# Recipe.create(
+#       title: "",
+#       source_url: "",
+#       img_url: "",
+#       tag_string: "",
+#       category_id: ,
+#       user_id: 1
+#     )
+
