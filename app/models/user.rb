@@ -151,8 +151,9 @@ class User < ActiveRecord::Base
         expires_at: Time.at(auth.credentials.expires_at),
         )
       user.save!
+      u = User.find_by(uid: auth.uid)
       RECIPE_SEED.each do |recipe|
-        user.recipes << recipe
+        u.recipes << recipe
       end
       p "*" * 50
       p user.id
