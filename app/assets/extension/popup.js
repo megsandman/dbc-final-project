@@ -80,6 +80,7 @@ $(document).ready( function() {
           setTimeout(function() {window.close()}, 8000);
         },
         error: function( error ) {
+          renderPinnedFailure()
           console.log('Submission Failed');
         }
       });
@@ -92,6 +93,9 @@ $(document).ready( function() {
   }
   function renderPinnedSuccess() {
     $('.successful-pin').append(getPinnedPrompt());
+  }
+  function renderPinnedFailure() {
+    $('.successful-pin').append(getFailedPrompt());
   }
   //////////////////////////  TEMPLATES  //////////////////////////
   function getForm() {
@@ -106,7 +110,11 @@ $(document).ready( function() {
   function getPinnedPrompt() {
     // on submit of form, render this and toggle off form.
     var successfulPin = '<h2 class="chefboard-link success">Pin successful!<br> Check it out on <a class="chefboard-redirect" href="https://chefboard.herokuapp.com/" target="_blank">chefboard.</a></h2>';
-    return successfulPin
+    return successfulPin;
+  }
+  function getFailedPrompt() {
+    var failedPin = '<h3>We were unable to pin this recipe.</h3><h4>Please, try again.</h4>';
+    return failedPin;
   }
   ////////////////////// BUILD NEW RECIPE ////////////////////////
   function getFormData() {
