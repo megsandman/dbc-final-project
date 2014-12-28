@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
 
     tag_array.each do |tag|
       stripped_tag = tag.strip
-      if Tag.find_by(name: tag) == nil
+      if Tag.find_by(name: stripped_tag) == nil
         recipe.tags << Tag.create(name: stripped_tag)
       else
         recipe.tags << Tag.find_by(name: stripped_tag)
