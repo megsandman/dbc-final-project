@@ -76,6 +76,15 @@ app.controller("DashboardController", ["$scope", "$http", "$routeParams", "$loca
         title: title,
         tags: newTags,
         category_id: newCategoryId}).success(function(data) {
+          // update the model
+          for(var i = 0; i < $scope.recipes.length; i++)
+          {
+            if ($scope.recipes[i].id === recipeId)
+            {
+              $scope.recipes[i] = data;
+              break;
+            }
+          }
         console.log('success');
       });
     }
